@@ -152,6 +152,18 @@ header
     float:left;
     list-style-type:none;
   }
+
+.subPage
+{
+  padding-bottom: 20px;
+  font-size: 1.15em;
+  color: rgb(30,30,30);
+}
+
+a 
+{
+  text-decoration: none;
+}
   #navLarge
   {
     display: block;
@@ -225,3 +237,19 @@ header
 }
  }
 
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  margin-left: -30px;
+  margin-right: 20px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  
+  border-right:10px solid black; 
+  display: inline-block;
+}
+
+.name
+{
+  font-size: 0.7em;
+}

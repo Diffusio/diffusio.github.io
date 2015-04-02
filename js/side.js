@@ -9,7 +9,7 @@ $(document).ready(function(){
 	var body = $('body');
 	
 	var sideOpen = $("#sideOpen");
-	
+	var subPage = $(".subPage");
 	filmWhite.hide();
 	
 	sideOpen.click(function(){
@@ -19,6 +19,11 @@ $(document).ready(function(){
     filmWhite.css({'height':bodyHeight+'px','width':bodyWidth+'px'});
 	});
 	sideClose.click(function(){
+    side.css({'left' : '-'+sideWidth+'px', 'transition':'0.5s', '-moz-transition':'0.5s', '-webkit-transition':'0.5s', '-o-transition':'0.5s', '-khtml-transition':'0.5s', '-ms-transition':'0.5s'});
+    body.css({'overflow':'scroll-y'});
+    filmWhite.hide();
+	});
+	subPage.click(function(){
     side.css({'left' : '-'+sideWidth+'px', 'transition':'0.5s', '-moz-transition':'0.5s', '-webkit-transition':'0.5s', '-o-transition':'0.5s', '-khtml-transition':'0.5s', '-ms-transition':'0.5s'});
     body.css({'overflow':'scroll-y'});
     filmWhite.hide();

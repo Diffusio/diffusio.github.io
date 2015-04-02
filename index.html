@@ -8,7 +8,9 @@
 		<script src="js/side.js"></script>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
 		<meta charset="utf-8">
-		<meta name="theme-color" content="#2979FF">
+		<meta name="theme-color" content="rgb(30,30,30)">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	</head>
 	<body>	  
 	  <header>
@@ -29,10 +31,10 @@
 		<ul class='sideBar'>
 			<li>
 				<ul class=''>
-					 <li class="sideHeader"><div class='icon-left-open size2em' id='sideClose' style='color: #000;'><span href="leftPadding50">Navigation</span></div></li>
-					 <a href="/dashboard.php"><li class="subPage">Presentation</li></a>
-					 <a href="/tutoriels.php"><li class="subPage">Source code</li></a>
-					 <a href="/about.php"><li class="subPage">About</li></a>
+					 <li class="sideHeader"><div class='icon-left-open size2em' id='sideClose' style='color: #000;'><div class="arrow-left"></div><span href="leftPadding50">Navigation</span></div></li>
+					 <a href=# onclick="setAnnounceAndButton(presentation)"><li class="subPage">Presentation</li></a>
+					 <a href=# onclick="setAnnounceAndButton(source)"><li class="subPage">Source code</li></a>
+					 <a href=# onclick="setAnnounceAndButton(about)"><li class="subPage">About</li></a>
 				</ul>
 			</li>
 		</ul>
@@ -46,7 +48,7 @@
 		<script type="text/javascript">
 		var presentation = "<p>Building website has never been this simple.</p>";
 		var source = "<p>Code hosted on GitHub</p><a href='https://github.com/diffusio'><img src='images/github.png' width='100'></a>";
-		var about = "<p>About us</p>";
+		var about = "<p>Authors : </p><p class='name'>Pierre JACQUIER</p><p class='name'>Grégoire DUVAUCHELLE</p>";
 		function setUnselected(tabid)
 		{
 			document.getElementById(tabid).style.backgroundColor = 'rgb(30,30,30)';
