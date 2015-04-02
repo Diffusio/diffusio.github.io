@@ -16,9 +16,9 @@
 			<img src="images/diffusio-logo.png" id="title_logo">
 			<li id="title">Diffusio</li>
 			<ul id="rightNav">
-				<li class="floatLeft button">Presentation</li>
-				<li class="floatLeft button">Source code</li>
-				<li class="floatLeft button">About</li>
+				<a onclick="setAnnounceAndButton(presentation, 'presentation');"><li class="floatLeft button" id='presentation'>Presentation</li></a>
+				<a onclick="setAnnounceAndButton(source, 'source');"><li class="floatLeft button" id='source'>Source Code</li></a>
+				<a onclick="setAnnounceAndButton(about, 'about');"><li class="floatLeft button" id='about'>About</li></a>
 			</ul>
 		</ul>
 		<ul id="navTiny">
@@ -43,5 +43,44 @@
 		</div
 		
 		>
+		<script type="text/javascript">
+		var presentation = "<p>Building website has never been this simple.</p>";
+		var source = "<p>Code hosted on GitHub</p><a href='https://github.com/diffusio'><img src='images/github.png' width='100'></a>";
+		var about = "<p>About us</p>";
+		function setUnselected(tabid)
+		{
+			document.getElementById(tabid).style.backgroundColor = 'rgb(30,30,30)';
+			document.getElementById(tabid).style.color = 'white';
+		}
+		function setSelected(tabid)
+		{
+			document.getElementById(tabid).style.backgroundColor = 'white';
+			document.getElementById(tabid).style.color = 'rgb(30,30,30)';
+		}
+		function setAnnounceAndButton(content, tabid)
+		{
+			document.getElementById('announce').innerHTML = content;
+
+			switch(tabid)
+			{
+				case 'presentation':
+					setSelected('presentation');
+					setUnselected('source');
+					setUnselected('about');
+					break;
+				case 'source':
+					setSelected('source');
+					setUnselected('presentation');
+					setUnselected('about');
+					break;
+				case 'about':
+					setSelected('about');
+					setUnselected('source');
+					setUnselected('presentation');
+				break;
+			}
+			
+		}
+		</script>
 	</body>
 </html>
