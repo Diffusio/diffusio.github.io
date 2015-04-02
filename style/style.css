@@ -146,8 +146,8 @@ header
   {
     display: none;
     position: absolute;
-    top: 5;
-    left: 5;
+    top: 0;
+    left: -10px;
     float:left;
     list-style-type:none;
   }
