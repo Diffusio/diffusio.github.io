@@ -1,13 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700);
 body
 {
 	margin:0;
 	padding:0;
-	font-family:'Roboto', sans-serif;
 	background:rgb(30,30,30);	
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
  	box-sizing: border-box; 
- 	color:white; 
+ 	color:white;   
+  font-family: 'Raleway', sans-serif;
 }
 
 .wth70pe
@@ -15,10 +17,32 @@ body
     width:70%;
 }
 
-.title
+#title
 {
     font-size:2em;
-    font-weight:300;
+    list-style-type: none;
+    font-weight: 300; 
+    padding-top: 12px;
+    padding-left: 40px;
+    position: absolute;
+    left: 20;
+    top:0;
+}
+
+#title_logo
+{
+  position: absolute;
+  font-size:2em;
+   font-weight: 300; 
+  top: 5;
+  left: 5;
+  width: 50px;
+}
+
+#title_tiny
+{
+  font-size:2em;
+   font-weight: 300; 
 }
 
 .thin
@@ -121,6 +145,9 @@ header
  #navTiny
   {
     display: none;
+    position: absolute;
+    top: 5;
+    left: 5;
     float:left;
     list-style-type:none;
   }
@@ -136,6 +163,47 @@ header
     margin-right:10px;
 }
 
+
+	
+#announce
+{
+    margin-top:150px;
+    font-weight: 100;
+    font-size:3.5em;
+    padding: 20;
+    text-align: center;
+}
+
+#rightNav
+{
+  position: absolute;
+  top:0;
+  right: 0;
+
+}
+
+.menu-icon {
+    position:relative;
+    display:inline-block;
+    width:30px;
+    text-indent:-999px;
+}
+ 
+.border-icon {
+    height:13px;
+    border-top:3px solid #fff;
+    border-bottom:3px solid #fff;
+}
+ 
+.border-icon:before {
+    content:"";
+    position:absolute; 
+    top:5px;
+    left:0;
+    width:100%;
+    border-top:3px solid #fff;
+}
+
 @media screen and (max-width:600px)
 {
   #navTiny
@@ -146,47 +214,13 @@ header
   {
     display: none;
   }
+  #announce
+{
+    margin-top:110px;
+    font-weight: 100;
+    font-size:2.5em;
+    padding: 20;
+    text-align: center;
+}
  }
 
-@media screen and (max-width:1200px)
-{
-.wth70pe
-{
-    width:63%;
-}
-
-} 
-
-@media screen and (max-width:1000px)
-{
-.wth70pe
-{
-    width:60%;
-}
-
-}
-
-@media screen and (max-width:900px)
-{
-.wth70pe
-{
-    width:50%;
-}
-
-}
-
-@media screen and (max-width:800px)
-{
-.wth70pe
-{
-    width:40%;
-}
-
-}
-	
-#announce
-{
-    padding-top:300px;
-    font-weight:100;
-    font-size:1.8em;
-}

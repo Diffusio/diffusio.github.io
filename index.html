@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Diffusio</title>
-		<!--<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700,500,100,300italic,100italic,400italic,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,400italic' rel='stylesheet' type='text/css'>
 		<link rel='stylesheet' href='style/style.css'>
 		<script src="js/jquery.js"></script>
 		<script src="js/side.js"></script>
@@ -13,14 +13,17 @@
 	<body>	  
 	  <header>
 		<ul id="navLarge">
-			<li class="floatLeft title topPadding10 wth70pe">Diffusio</li>
-			<li class="floatLeft button">Presentation</li>
-			<li class="floatLeft button">Source code</li>
-			<li class="floatLeft button">About</li>
+			<img src="images/diffusio-logo.png" id="title_logo">
+			<li id="title">Diffusio</li>
+			<ul id="rightNav">
+				<li class="floatLeft button">Presentation</li>
+				<li class="floatLeft button">Source code</li>
+				<li class="floatLeft button">About</li>
+			</ul>
 		</ul>
 		<ul id="navTiny">
-			<li id="sideOpen" class="floatLeft">=</li>
-			<li class="floatLeft title topPadding10 wth70pe">Diffusio</li>
+			<li id="sideOpen" class="floatLeft"><a href="#" class="menu-icon border-icon">menu icon</a></li>
+			<li id="title_tiny" class="floatLeft">Diffusio</li>
 		</ul>
 	 </header>
 		<ul class='sideBar'>
