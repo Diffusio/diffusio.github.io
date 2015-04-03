@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Diffusio</title>
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,400italic' rel='stylesheet' type='text/css'>
+		<!--<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,400italic' rel='stylesheet' type='text/css'>-->
 		<link rel='stylesheet' href='style/style.css'>
 		<script src="js/jquery.js"></script>
 		<script src="js/side.js"></script>
@@ -18,9 +18,10 @@
 			<img src="images/diffusio-logo.png" id="title_logo">
 			<li id="title">Diffusio</li>
 			<ul id="rightNav">
-				<a onclick="setAnnounceAndButton(presentation, 'presentation');"><li class="floatLeft button" id='presentation'>Presentation</li></a>
-				<a onclick="setAnnounceAndButton(source, 'source');"><li class="floatLeft button" id='source'>Source Code</li></a>
-				<a onclick="setAnnounceAndButton(about, 'about');"><li class="floatLeft button" id='about'>About</li></a>
+				<a onclick="setVisibleNotVisibleNotVisible(1,2,3,4);"><li class="floatLeft button" id='tab_1'>Presentation</li></a>
+				<a onclick="setVisibleNotVisibleNotVisible(2,1,4,3);"><li class="floatLeft buttonUnSelected" id='tab_2'>Download</li></a>
+				<a onclick="setVisibleNotVisibleNotVisible(3,2,1,4);"><li class="floatLeft buttonUnSelected" id='tab_3'>Source Code</li></a>
+				<a onclick="setVisibleNotVisibleNotVisible(4,3,2,1);"><li class="floatLeft buttonUnSelected" id='tab_4'>About</li></a>
 			</ul>
 		</ul>
 		<ul id="navTiny">
@@ -32,23 +33,26 @@
 			<li>
 				<ul class=''>
 					 <li class="sideHeader"><div class='icon-left-open size2em' id='sideClose' style='color: #000;'><div class="arrow-left"></div><span href="leftPadding50">Navigation</span></div></li>
-					 <a href=# onclick="setAnnounceAndButton(presentation)"><li class="subPage">Presentation</li></a>
-					 <a href=# onclick="setAnnounceAndButton(source)"><li class="subPage">Source code</li></a>
-					 <a href=# onclick="setAnnounceAndButton(about)"><li class="subPage">About</li></a>
+					 <a href=# onclick="setVisibleNotVisibleNotVisible(1,2,3,4)"><li class="subPage">Presentation</li></a>
+					 <a href=# onclick="setVisibleNotVisibleNotVisible(2,3,4,1)"><li class="subPage">Download</li></a>
+					 <a href=# onclick="setVisibleNotVisibleNotVisible(3,4,1,2)"><li class="subPage">Source code</li></a>
+					 <a href=# onclick="setVisibleNotVisibleNotVisible(4,3,2,1)"><li class="subPage">About</li></a>
 				</ul>
 			</li>
 		</ul>
-		<div id="announce">
-		<p>
-			Building website has never been this simple.
-		</p>
-		</div
-		
-		>
+		<div id="content_1" class="content">
+			<p>Building website has never been this simple.</p>
+		</div>
+		<div id="content_2" class="content notVisible">
+			<p>Download link will be available soon…</p>
+		</div>
+		<div id="content_3" class="content notVisible">
+			<p>Code hosted on GitHub</p><a href='https://github.com/diffusio'><img src='images/github.png' width='100'></a>
+		</div>
+		<div id="content_4" class="content notVisible">
+			<p>Authors : </p><p class='name'>Pierre JACQUIER</p><p class='name'>Grégoire DUVAUCHELLE</p>
+		</div>
 		<script type="text/javascript">
-		var presentation = "<p>Building website has never been this simple.</p>";
-		var source = "<p>Code hosted on GitHub</p><a href='https://github.com/diffusio'><img src='images/github.png' width='100'></a>";
-		var about = "<p>Authors : </p><p class='name'>Pierre JACQUIER</p><p class='name'>Grégoire DUVAUCHELLE</p>";
 		function setUnselected(tabid)
 		{
 			document.getElementById(tabid).style.backgroundColor = 'rgb(30,30,30)';
@@ -59,29 +63,20 @@
 			document.getElementById(tabid).style.backgroundColor = 'white';
 			document.getElementById(tabid).style.color = 'rgb(30,30,30)';
 		}
-		function setAnnounceAndButton(content, tabid)
+		function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2, not_visible3)
 		{
-			document.getElementById('announce').innerHTML = content;
+			document.getElementById('content_' + visible).className = "content";
+			document.getElementById('content_' + not_visible1).className = "content notVisible";
+			document.getElementById('content_' + not_visible2).className = "content notVisible";
+			document.getElementById('content_' + not_visible3).className = "content notVisible";
+			document.getElementById('tab_' + visible).className = "floatLeft button";
+			document.getElementById('tab_' + not_visible1).className = "floatLeft buttonUnSelected";
+			document.getElementById('tab_' + not_visible2).className = "floatLeft buttonUnSelected";
+			document.getElementById('tab_' + not_visible3).className = "floatLeft buttonUnSelected";
 
-			switch(tabid)
-			{
-				case 'presentation':
-					setSelected('presentation');
-					setUnselected('source');
-					setUnselected('about');
-					break;
-				case 'source':
-					setSelected('source');
-					setUnselected('presentation');
-					setUnselected('about');
-					break;
-				case 'about':
-					setSelected('about');
-					setUnselected('source');
-					setUnselected('presentation');
-				break;
-			}
-			
+
+
+		
 		}
 		</script>
 	</body>

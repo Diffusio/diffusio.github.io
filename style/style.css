@@ -1,5 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,400italic);
+/*@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,400italic);
+*/
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700);
+
+
 body
 {
 	margin:0;
@@ -99,13 +102,24 @@ body
 header
 {
 }
+.buttonUnSelected
+{
+    padding: 10;
+    margin:10;
+    cursor: pointer;
+    border: 1px solid white;
+    transition: all 0.5s;
+}
+
 
 .button
 {
     padding: 10;
     margin:10;
     cursor: pointer;
+    color:rgb(30,30,30);
     border: 1px solid white;
+    background: white;
     transition: all 0.5s;
 }
 
@@ -178,11 +192,11 @@ a
 
 
 	
-#announce
+.content
 {
-    margin-top:150px;
+    margin-top:110px;
     font-weight: 100;
-    font-size:3.5em;
+    font-size:2.5em;
     padding: 20;
     text-align: center;
 }
@@ -227,7 +241,7 @@ a
   {
     display: none;
   }
-  #announce
+.content
 {
     margin-top:110px;
     font-weight: 100;
@@ -252,4 +266,9 @@ a
 .name
 {
   font-size: 0.7em;
+}
+
+.notVisible
+{
+  display: none;
 }
