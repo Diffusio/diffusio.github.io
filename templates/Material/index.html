@@ -1,0 +1,57 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<title>Diffusio</title>
+		<!--<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500' rel='stylesheet' type='text/css'>-->
+		<link rel='stylesheet' href='style/style.css'>
+		<script src="js/jquery.js"></script>
+		<script src="js/side.js"></script>
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+		<meta charset="utf-8">
+		<meta name="theme-color" content="rgb(30,30,30)">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	</head>
+	<body>	  
+	 	<header>
+	 		<div id="site_title"><span>
+Material Site
+			</span>
+			</div>
+	 		<div id="nav_div">
+	 		<ul id="nav">
+	 			<li id="tab_1" class="selectedTab">
+	 			<a href=# onclick="setVisibleNotVisibleNotVisible(1,2,3,4)">
+Tab 1
+	 			</a>
+	 			</li>
+	 			<li id="tab_2" class="unselectedTab">
+	 			<a href=# onclick="setVisibleNotVisibleNotVisible(2,3,4,1)">
+Tab 2
+	 			</a>
+	 			</li>
+	 			<li id="tab_3" class="unselectedTab">
+	 			<a href=# onclick="setVisibleNotVisibleNotVisible(3,4,1,2)">
+Tab 3
+	 			</a>
+	 			</li>
+	 			<li id="tab_4" class="unselectedTab">
+	 			<a href=# onclick="setVisibleNotVisibleNotVisible(4,1,2,3)">
+Tab 4
+				</a>
+	 			</li>
+	 		</ul>
+	 		</div>
+	 	</header>
+	 
+		<script type="text/javascript">
+		function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2, not_visible3)
+		{
+			document.getElementById('tab_' + visible).className = "selectedTab";
+			document.getElementById('tab_' + not_visible1).className = " unselectedTab";
+			document.getElementById('tab_' + not_visible2).className = "unselectedTab ";
+			document.getElementById('tab_' + not_visible3).className = " unselectedTab";
+		}
+		</script>
+	</body>
+</html>
