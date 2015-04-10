@@ -18,24 +18,24 @@
 Material Site
 			</span>
 			</div>
-	 		<div id="nav_div">
+	 		<div id="nav_div" class="elevation-3">
 	 		<ul id="nav">
-	 			<li id="tab_1" class="unselectedTab">
+	 			<li id="tab_1" class="selectedTab">
 	 			<a href=# onclick="setVisibleNotVisibleNotVisible(1,2,3,4)">
 TAB 1
 	 			</a>
 	 			</li>
 	 			<li id="tab_2" class="unselectedTab">
-	 			<a href=# onclick="setVisibleNotVisibleNotVisible(2,3,4,1)">
+	 			<a href=# onclick="setVisibleNotVisibleNotVisible(2,1,3,4)">
 TAB 2
 	 			</a>
 	 			</li>
 	 			<li id="tab_3" class="unselectedTab">
-	 			<a href=# onclick="setVisibleNotVisibleNotVisible(3,4,1,2)">
+	 			<span id='ttt'><a href=# onclick="setVisibleNotVisibleNotVisible(3,4,1,2)">
 TAB 3
-	 			</a>
+	 			</a></span>
 	 			</li>
-	 			<li id="tab_4" class="selectedTab">
+	 			<li id="tab_4" class="unselectedTab	">
 	 			<a href=# onclick="setVisibleNotVisibleNotVisible(4,1,2,3)">
 TAB 4
 	 			</a>
@@ -43,6 +43,53 @@ TAB 4
 	 		</ul>
 	 		</div>
 	 	</header>
+
+	 	<div id="cards_container">
+	 	<div id="content_1" class="visible">
+	 		<div class="card elevation-1"><span class="card_header">I'm a card ! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
+
+We strongly recommend that you use a custom subdomain for these reasons:
+
+It gives your GitHub Pages site the benefit of our Content Delivery Network.
+It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.</p></div>
+	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+Pages will load significantly faster because .</p></div>
+	</div>
+	<div id="content_2" class="notVisible">
+	 		<div class="card elevation-1"><span class="card_header">I'm a card too! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
+
+We strongly recommend that you use a custom subdomain for these reasons:
+
+It gives your GitHub Pages site the benefit of our Content Delivery Network.
+It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.</p></div>
+	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum 2</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+Pages will load significantly faster because .</p></div>
+	</div>
+	<div id="content_3" class="notVisible">
+	 		<div class="card elevation-1"><span class="card_header">You reached Tab 3! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
+
+We strongly recommend that you use a custom subdomain for these reasons:
+
+It gives your GitHub Pages site the benefit of our Content Delivery Network.
+It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.</p></div>
+	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum 3</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+Pages will load significantly faster because .</p></div>
+	</div>
+	<div id="content_4" class="notVisible">
+	 		<div class="card elevation-1"><span class="card_header">Yeah tab 4! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
+
+We strongly recommend that you use a custom subdomain for these reasons:
+
+It gives your GitHub Pages site the benefit of our Content Delivery Network.
+It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.</p></div>
+	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum 4</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+Pages will load significantly faster because .</p></div>
+	</div>
+	 	</div>
 	 
 		<script type="text/javascript">
 		function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2, not_visible3)
@@ -51,6 +98,11 @@ TAB 4
 			document.getElementById('tab_' + not_visible1).className = " unselectedTab";
 			document.getElementById('tab_' + not_visible2).className = "unselectedTab ";
 			document.getElementById('tab_' + not_visible3).className = " unselectedTab";
+
+			document.getElementById('content_' + visible).className = "visible";
+			document.getElementById('content_' + not_visible1).className = " notVisible";
+			document.getElementById('content_' + not_visible2).className = "notVisible ";
+			document.getElementById('content_' + not_visible3).className = " notVisible";
 		}
 		</script>
 	</body>
