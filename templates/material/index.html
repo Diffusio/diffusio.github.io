@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Diffusio</title>
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+		<!--<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>-->
 		<link rel='stylesheet' href='style/style.css'>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
 		<meta charset="utf-8">
@@ -16,7 +16,7 @@
 Material Site
 			</span>
 			</div>
-	 		<div id="nav_div" class="elevation-3">
+	 		<div id="nav_div" class="elevation-3-bottom">
 	 		<ul id="nav">
 	 			<li id="tab_1" class="selectedTab">
 	 			<a   onclick="setVisibleNotVisibleNotVisible(1,2,3,4)">
@@ -35,11 +35,12 @@ TAB 3
 	 			</li>
 	 			<li id="tab_4" class="unselectedTab	">
 	 			<a   onclick="setVisibleNotVisibleNotVisible(4,1,2,3)">
-TAB 4
+VERY-LONG-TAB 4
 	 			</a>
 	 			</li>
 	 		</ul>
 	 		</div>
+	 		<div id="tab_indicator"></div>
 	 	</header>
 
 	 	<div id="cards_container">
@@ -88,8 +89,23 @@ Pages will load significantly faster because Denial of Service protection can be
 Pages will load significantly faster because .</p></div>
 	</div>
 	 	</div>
-	 
+	 <div onclick="toogleMobile();"id="FAB" class="elevation-2">
+		 <img id="smartp" src="people.png">
+		 <div id="help_FAB" class="elevation-2"><span id="help_FAB_content">Follow us</span></div>
+
+		 <div onclick="toogleMobile();"id="fb" class="smallFAB elevation-1">
+			 <img id="smartp" src="facebook.png">
+			 <div id="help_FAB_fb" class="elevation-2"><span id="help_smallFAB_content">Facebook</span></div>
+		</div>
+
+		<div onclick="toogleMobile();"id="tw" class="smallFAB elevation-1">
+			 <img id="smartp" src="twitter.png">
+			 <div id="help_FAB_tw" class="elevation-2"><span id="help_smallFAB_content">Twitter</span></div>
+		</div>
+
+	</div>
 		<script type="text/javascript">
+
 		function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2, not_visible3)
 		{
 			document.getElementById('tab_' + visible).className = "selectedTab";
@@ -101,7 +117,13 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('content_' + not_visible1).className = " notVisible";
 			document.getElementById('content_' + not_visible2).className = "notVisible ";
 			document.getElementById('content_' + not_visible3).className = " notVisible";
+
+		var left = document.getElementById('tab_' + visible).offsetLeft;
+		var width = document.getElementById('tab_'+ visible).offsetWidth;
+		document.getElementById('tab_indicator').style.left = left;
+		document.getElementById('tab_indicator').style.width = width - 5;
 		}
+		setVisibleNotVisibleNotVisible(1,2,3,4);
 		</script>
 	</body>
 </html>

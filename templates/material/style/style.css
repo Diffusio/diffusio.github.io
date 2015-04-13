@@ -36,7 +36,7 @@ header
     background:  #00BCD4;
     width: 100%;
     padding-top: 2px;
-    height: 23px;
+    height: 26px;
 }
 
 #nav
@@ -51,23 +51,9 @@ header
 {
   display: inline;
   list-style: none; /* nécessaire pour IE7 */
-
-
-}
-
-
-.selectedTab
-{
-  border-bottom: solid 2px yellow;
-  padding-bottom: 2px;
-}
-
-
-.unselectedTab
-{
-padding-bottom: 4px;
-  border-bottom: none;
   cursor: pointer;
+
+
 }
 
 
@@ -85,18 +71,6 @@ padding-bottom: 4px;
 
 
 
-.selectedTab
-{
-  color: yellow;
-  cursor: pointer;
-}
-
-.unselectedTab > a
-{
-padding-bottom: 4px;
-  border-bottom: none;
-  color: red;
-}
 
 a
 {
@@ -113,6 +87,11 @@ a
 {
 
      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0), 0 8px 17px 0 rgba(0, 0, 0, 0.23);
+}
+
+.elevation-3-bottom
+{
+     box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.24);
 }
 
 #cards_container
@@ -163,5 +142,145 @@ a
 
 .visible
 {
-  display: inline-block;
+  display: block;
+}
+
+.legend
+{
+  font-size: 2em;
+}
+
+#FAB
+{
+  width: 50;
+  height: 50;
+  border-radius: 25px;
+  background: #F44336;
+  position: fixed;
+  text-align: center;
+  bottom: 15;
+  z-index: 50;
+  right: 15;
+  cursor: pointer;
+}
+
+#smartp
+{
+  margin-top: 14;
+  height: 22;
+  color: white;
+}
+
+
+.elevation-2
+{
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  }
+
+#help_FAB
+{
+  opacity: 0;
+  width: 120;
+  padding: 3;
+  position: relative;
+  border-radius: 2px;
+  background: rgba(31,31,31,0.9);
+  margin-left: -140px;
+  margin-top: -22px;
+  transition:all 0.5s 1s;
+}
+
+#FAB:hover #help_FAB
+{
+  opacity: 1;
+  transition:all 0.5s;
+}
+
+.smallFAB
+{
+  width: 44;
+  height: 44;
+  border-radius: 22px;
+  position: fixed;
+  text-align: center;
+  right: 18;
+  cursor: pointer;
+}
+
+#fb
+{
+ bottom: 17;
+  background: #3b5998;
+  z-index: 10;
+   opacity: 0;
+   transition: all 0.5s 1s;
+}
+
+#tw
+{
+ bottom: 17;
+  background: #00aced;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.5s 1s;
+}
+
+#help_FAB_fb
+{
+  opacity:0;
+  width: 110;
+  padding: 3;
+  position: relative;
+  border-radius: 5px;
+  background: rgba(31,31,31,0.6);
+  margin-left: -132px;
+  margin-top: -22px;
+  transition: all 0.2s;
+}
+#help_FAB_tw
+{
+  opacity: 0;
+  width: 110;
+  padding: 3;
+  position: relative;
+  border-radius: 5px;
+  background: rgba(31,31,31,0.6);
+  margin-left: -132px;
+  margin-top: -22px;
+  transition: all 0.2s;
+}
+
+#FAB:hover #fb
+{
+  bottom: 75; 
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+#FAB:hover #tw
+{
+  bottom: 130;
+  opacity: 1;
+ transition: all 0.5s;
+
+}
+
+#fb:hover #help_FAB_fb
+{
+    opacity:1;
+}
+
+#tw:hover #help_FAB_tw
+{
+    opacity:1;
+}
+
+#tab_indicator
+{
+  width:50px;
+  height: 2.5px;
+  background: yellow;
+  position: absolute;
+  bottom: 0;
+  transition:all 0.4s;
 }
