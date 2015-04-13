@@ -52,8 +52,6 @@ header
   display: inline;
   list-style: none; /* nécessaire pour IE7 */
   cursor: pointer;
-
-
 }
 
 
@@ -133,6 +131,12 @@ a
   margin: 10;
   background: white;
 }
+  #nav a
+{
+
+  font-size: 0.9em; 
+}
+
 }
 
 .notVisible
