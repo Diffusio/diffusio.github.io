@@ -133,8 +133,17 @@ a
 }
   #nav a
 {
-
-  font-size: 0.9em; 
+    padding-right: 5px;
+  padding-left: 5px;
+  font-size: 0.8em; 
+}
+#site_title
+{
+  padding: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 2em;
+    background:  #00BCD4;
 }
 
 }
