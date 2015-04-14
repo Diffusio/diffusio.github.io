@@ -106,7 +106,7 @@ header
 
 .card
 {
-  width: 30%;
+  width: 300px;
   border-radius: 1px;
   display: inline-block;
   color: black;
@@ -132,7 +132,7 @@ header
   width: 90%;
   display: inline-block;
   color: black;
-  padding:15;
+  padding:5;
   margin: 10;
   background: white;
 }
@@ -218,8 +218,9 @@ header
 
 #FAB:hover #help_FAB
 {
+
   opacity: 1;
-  transition:all 0.5s;
+  transition:all 0.5;
 }
 
 .smallFAB
@@ -239,7 +240,7 @@ header
   background: #3b5998;
   z-index: 10;
    opacity: 0;
-   transition: all 0.5s 1s;
+   transition: all 0.2s 1s;
 }
 
 #tw
@@ -248,7 +249,7 @@ header
   background: #00aced;
   z-index: 10;
   opacity: 0;
-  transition: all 0.5s 1s;
+  transition: all 0.2s 1s;
 }
 
 #help_FAB_fb
@@ -280,14 +281,14 @@ header
 {
   bottom: 75; 
   opacity: 1;
-  transition: all 0.5s;
+  transition: all 0.2s;
 }
 
 #FAB:hover #tw
 {
   bottom: 130;
   opacity: 1;
- transition: all 0.5s;
+ transition: all 0.2s;
 
 }
 
