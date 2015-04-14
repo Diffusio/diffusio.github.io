@@ -11,7 +11,7 @@
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	</head>
 	<body>	  
-	 	<header>
+	 	<header id='header'>
 	 		<div id="site_title"><span>
 Material Site
 			</span>
@@ -108,6 +108,7 @@ Pages will load significantly faster because .</p></div>
 
 		function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2, not_visible3)
 		{
+			document.getElementById('tab_indicator').style.transition = 'all 0.5s';
 			document.getElementById('tab_' + visible).className = "selectedTab";
 			document.getElementById('tab_' + not_visible1).className = " unselectedTab";
 			document.getElementById('tab_' + not_visible2).className = "unselectedTab ";
@@ -127,7 +128,24 @@ Pages will load significantly faster because .</p></div>
 		document.getElementById('a_tab_' + not_visible2).style.color = '#bdedf3';
 		document.getElementById('a_tab_' + not_visible3).style.color = '#bdedf3';
 		}
-		setVisibleNotVisibleNotVisible(1,2,3,4);
+		document.getElementById('tab_' + 1).className = "selectedTab";
+
+		document.getElementById('content_' + 1).className = "visible";
+
+		var header_height = document.getElementById('header').offsetHeight;
+		document.getElementById('header').style.top = 0;
+		document.getElementById('FAB').style.right = 15;
+
+		var left = document.getElementById('tab_' + 1).offsetLeft;
+		var width = document.getElementById('tab_'+ 1).offsetWidth;
+		document.getElementById('tab_indicator').style.left = left;
+		document.getElementById('tab_indicator').style.width = width - 5;
+		document.getElementById('a_tab_' + 1).style.color = 'white';
+		document.getElementById('a_tab_' + 2).style.color = '#bdedf3';
+		document.getElementById('a_tab_' + 3).style.color = '#bdedf3';
+		document.getElementById('a_tab_' + 4).style.color = '#bdedf3';
+		document.getElementById('tab_indicator').style.transition = 'all 0s';
+
 		</script>
 		<script type="text/javascript">
 			//jQuery time

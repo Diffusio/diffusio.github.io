@@ -15,9 +15,14 @@ body
 header
 {
   position: fixed;
-  top: 0;
+  top: -100;
   left: 0;
   right: 0;
+}
+
+#header
+{
+  transition: top 0.3s;
 }
 
 
@@ -173,7 +178,8 @@ header
   text-align: center;
   bottom: 15;
   z-index: 50;
-  right: 15;
+  right: -75;
+  transition:all 0.3s;
   cursor: pointer;
 }
 
@@ -302,7 +308,6 @@ header
   background: yellow;
   position: absolute;
   bottom: 0;
-  transition:all 0.4s;
 }
 
 .ink {
