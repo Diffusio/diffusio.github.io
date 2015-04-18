@@ -45,15 +45,15 @@ VERY-LONG-TAB 4
 	 		<div id="tab_indicator_m" class="tab_indicator"></div>
 	 	</header>
 
-	 	<div id="cards_container">
-	 	<section id="content_1" class="visible">
+	 	
+	 <section id="content_1" class='content'>
 	 		<div class="card img_card elevation-1">
 	 			<img src='sample_img_card.jpg'>
 	 		</div>
 	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 Pages will load significantly faster because .</p></div>
 	</section>
-	<section  id="content_2" class="notVisible">
+	<section  id="content_2"  class='content'>
 	 		<div class="card elevation-1"><span class="card_header">I'm a card too! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
 
 We strongly recommend that you use a custom subdomain for these reasons:
@@ -64,7 +64,7 @@ Pages will load significantly faster because Denial of Service protection can be
 	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum 2</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 Pages will load significantly faster because .</p></div>
 	</section>
-	<section id="content_3" class="notVisible">
+	<section id="content_3" class='content' >
 	 		<div class="card elevation-1"><span class="card_header">You reached Tab 3! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
 
 We strongly recommend that you use a custom subdomain for these reasons:
@@ -75,7 +75,7 @@ Pages will load significantly faster because Denial of Service protection can be
 	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum 3</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 Pages will load significantly faster because .</p></div>
 	</section>
-	<section id="content_4" class="notVisible">
+	<section id="content_4" class='content'>
 	 		<div class="card elevation-1"><span class="card_header">Yeah tab 4! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
 
 We strongly recommend that you use a custom subdomain for these reasons:
@@ -86,7 +86,7 @@ Pages will load significantly faster because Denial of Service protection can be
 	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum 4</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 Pages will load significantly faster because .</p></div>
 	</section>
-	 	</div>
+	
 	 <div onclick="toogleSocial();" id="FAB" class="elevation-2">
 		 <div id='round_fab' ><img id="smartp"   src="people.png"></div>
 		<!-- <div id="help_FAB" class="elevation-2"><span id="help_FAB_content">Follow us</span></div>-->
@@ -105,7 +105,7 @@ Pages will load significantly faster because .</p></div>
 		function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2, not_visible3)
 		{
 			document.getElementById('tab_indicator').style.transition = 'all 0.5s';
-			document.getElementById('tab_' + visible).className = "selectedTab";
+		/*	document.getElementById('tab_' + visible).className = "selectedTab";
 			document.getElementById('tab_' + not_visible1).className = " unselectedTab";
 			document.getElementById('tab_' + not_visible2).className = "unselectedTab ";
 			document.getElementById('tab_' + not_visible3).className = " unselectedTab";
@@ -115,7 +115,7 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('content_' + not_visible2).className = "notVisible ";
 			document.getElementById('content_' + not_visible3).className = " notVisible";
 
-		var left = document.getElementById('tab_' + visible).offsetLeft;
+		*/var left = document.getElementById('tab_' + visible).offsetLeft;
 		var width = document.getElementById('tab_'+ visible).offsetWidth;
 		document.getElementById('tab_indicator').style.left = document.getElementById('nav_div').offsetLeft + left;
 		document.getElementById('tab_indicator').style.width = width;
@@ -125,10 +125,43 @@ Pages will load significantly faster because .</p></div>
 		document.getElementById('a_tab_' + not_visible1).style.color = '#bdedf3';
 		document.getElementById('a_tab_' + not_visible2).style.color = '#bdedf3';
 		document.getElementById('a_tab_' + not_visible3).style.color = '#bdedf3';
+
+		switch(visible)
+		{	
+			case 1:
+				for(var i=1;i<=4;i++)
+				{
+					document.getElementById("content_" + i).style.left = window.screen.availWidth*(i-1);
+					document.getElementById("content_" + i).style.marginLeft = 0;
+				}
+				break;
+			case 2:
+				document.getElementById("content_2").style.left = 0;
+				document.getElementById("content_2").style.marginLeft = 0;
+				document.getElementById("content_1").style.marginLeft = (-1)*window.screen.availWidth;
+				document.getElementById("content_3").style.left = window.screen.availWidth;
+				document.getElementById("content_4").style.left = 2*window.screen.availWidth;
+				break;
+			case 3:
+				document.getElementById("content_3").style.left = 0;
+				document.getElementById("content_2").style.left = 0;
+				document.getElementById("content_3").style.marginLeft = 0;
+				document.getElementById("content_1").style.marginLeft = (-2)*window.screen.availWidth;
+				document.getElementById("content_2").style.marginLeft = -window.screen.availWidth;
+				document.getElementById("content_4").style.left = window.screen.availWidth;
+				break;
+			case 4:
+				document.getElementById("content_4").style.left = 0;
+				document.getElementById("content_1").style.marginLeft = (-1)*window.screen.availWidth;
+				document.getElementById("content_2").style.marginLeft = (-2)*window.screen.availWidth;
+				document.getElementById("content_3").style.marginLeft = (-3)*window.screen.availWidth;
+				break;
+		}			
+		
+
 		}
 		document.getElementById('tab_' + 1).className = "selectedTab";
 
-		document.getElementById('content_' + 1).className = "visible";
 
 		var header_height = document.getElementById('header').offsetHeight;
 		document.getElementById('header').style.top = 0;
@@ -161,6 +194,14 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('round_fab').style.backgroundColor = color;
 			social_on = !social_on;
 		}
+
+		for(var i=1;i<=4;i++)
+		{
+			document.getElementById("content_" + i).style.width = window.screen.availWidth - 20;
+			document.getElementById("content_" + i).style.left = window.screen.availWidth*(i-1);
+		}
+		
+		document.getElementById("content_" + i).style.left = '1000px';
 		</script>
 		<script type="text/javascript">
 			//jQuery time
