@@ -46,7 +46,12 @@ VERY-LONG-TAB 4
 	 		<div id="tab_indicator" class="tab_indicator"></div>
 	 		<div id="tab_indicator_m" class="tab_indicator"></div>
 	 	</header>
-
+	 	<header id='header2'>
+	 		<div id="site_title"><span>
+<a href=# onclick='closeNews(2)'><- </a>News Reader
+			</span>
+			</div>
+	 	</header>
 	 	
 	 <section id="content_1" class='content'>
 	 		<div class="card img_card elevation-1">
@@ -61,17 +66,17 @@ Pages will load significantly faster because .</p></div>
 	 		<div class="card elevation-1 news" id="news_1">
 	 			<div class="news_datetime" id="news_datetime_1">04/21/2045 - 14:54</div>
 		 		<span class="news_title" id="news_title_1">
-		 		<a class="pointer" onclick="openNews(2)">A news title</a> 
+		 		<a class="pointer" onclick="openNews(1)">A news title</a> 
 		 		</span>
 		 		<p class="news_summary">First news ahah</p>
 		 		<p class="news_content" id="news_content_1">
-	A subdomain is configured with a CNAME record through your DNS provider.
+	A 1 subdomain is configured with a CNAME record through your DNS provider.
 	We strongly recommend that you use a custom subdomain for these reasons:
 	It gives your GitHub Pages site the benefit of our Content Delivery Network.
 	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
 				</p>
-				<div id="read_more"><a class="pointer" onclick="openNews(1)">READ MORE</a></div>
+				<div class="read_more"><a class="pointer" onclick="openNews(1)">READ MORE</a></div>
 			</div>
 	 		
 	 		<div class="card elevation-1 news" id="news_2">
@@ -82,13 +87,13 @@ Pages will load significantly faster because .</p></div>
 		 		
 		 		<p class="news_summary">First news ahah</p>
 		 		<p class="news_content"  id="news_content_2">
-	A subdomain is configured with a CNAME record through your DNS provider.
+	A 2 subdomain is configured with a CNAME record through your DNS provider.
 	We strongly recommend that you use a custom subdomain for these reasons:
 	It gives your GitHub Pages site the benefit of our Content Delivery Network.
 	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
 				</p>
-				<div id="read_more"><a class="pointer" onclick="openNews(2)">READ MORE</a></div>
+				<div class="read_more"><a class="pointer" onclick="openNews(2)">READ MORE</a></div>
 			</div>
 	</section>
 
@@ -213,20 +218,74 @@ Pages will load significantly faster because .</p></div>
 		}
 		document.getElementById('tab_' + 1).className = "selectedTab";
 
+
+
 		function openNews(id)
 		{
-			document.getElementById('news_deployed_title').innerHTML = document.getElementById('news_title_' + id).innerHTML;
+	/*		document.getElementById('news_deployed_title').innerHTML = document.getElementById('news_title_' + id).innerHTML;
 			document.getElementById('news_deployed_datetime').innerHTML = document.getElementById('news_datetime_' + id).innerHTML;
 			document.getElementById('news_deployed_content').innerHTML = document.getElementById('news_content_' + id).innerHTML;
 			document.getElementById('shadow_deployed').style.zIndex = 0;
 			document.getElementById('shadow_deployed').style.opacity = 1;
-			document.getElementById('news_deployed').style.top = 30;
+			document.getElementById('news_deployed').style.top = 30;*/
+			document.getElementById('header').style.top = b_hgt;
+			document.getElementById('header2').style.top = 0;
+			document.getElementById('FAB').style.right = -75;
+			var all_news = document.getElementsByClassName('news');
+			var i;
+			var lgt = all_news.length;
+			for(i=0;i<lgt;i++)
+			{
+				if(all_news[i].id != "news_" + id)
+				{
+					document.getElementById('news_' + (i + 1)).style.display = 'none';
+				}
+				if(all_news[i].id == "news_" + id)
+				{
+					document.getElementById('news_' + (i + 1)).style.height = 'auto';
+					document.getElementById('news_' + (i + 1)).style.width = '80%';
+					document.getElementById('news_content_' + (i + 1)).style.height = 'auto';
+					document.getElementById('news_content_' + (i + 1)).style.opacity = 1;
+				}
+				var all_read = document.getElementsByClassName('read_more');
+				var read_lgt = all_read.length;
+				var j;
+				for(j=0;j<read_lgt;j++)
+				{
+					all_read[j].style.display = 'none';
+
+				}
+			}
 		}
-		function closeNews()
+		function closeNews(id)
 		{
-			document.getElementById('shadow_deployed').style.zIndex = -10;
-			document.getElementById('shadow_deployed').style.opacity = 0;
-			document.getElementById('news_deployed').style.top = "-85%";
+			document.getElementById('header').style.top = 0;
+			document.getElementById('header2').style.top = -100;
+			document.getElementById('FAB').style.right = 15;
+			var all_news = document.getElementsByClassName('news');
+			var i;
+			var lgt = all_news.length;
+			for(i=0;i<lgt;i++)
+			{
+				if(all_news[i].id != "news_" + id)
+				{
+					document.getElementById('news_' + (i + 1)).style.display = 'block';
+				}
+				if(all_news[i].id == "news_" + id)
+				{
+					document.getElementById('news_' + (i + 1)).style.width = '600px';
+					document.getElementById('news_content_' + (i + 1)).style.height = 0;
+					document.getElementById('news_content_' + (i + 1)).style.opacity = 0;
+				}
+				var all_read = document.getElementsByClassName('read_more');
+				var read_lgt = all_read.length;
+				var j;
+				for(j=0;j<read_lgt;j++)
+				{
+					all_read[j].style.display = 'block';
+
+				}
+			}
 		}
 		var header_height = document.getElementById('header').offsetHeight;
 		document.getElementById('header').style.top = 0;
@@ -263,13 +322,13 @@ Pages will load significantly faster because .</p></div>
 
 		
 		var b_wth = document.documentElement.clientWidth;
+		var b_hgt = document.documentElement.clientHeight;
 
 		for(var i=1;i<=4;i++)
 		{
 			document.getElementById("content_" + i).style.width = b_wth - 20;
 			document.getElementById("content_" + i).style.left = b_wth*(i-1);
 		}
-		document.getElementById("content_" + i).style.left = '1000px';
 		
 		</script>
 		
