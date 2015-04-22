@@ -2,9 +2,11 @@
 <html>
 	<head>
 		<title>Diffusio</title>
-		<!--<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>-->
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
 		<link rel='stylesheet' href='style/style.css'>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+		<script src="ripple.js"></script>
+
 		<meta charset="utf-8">
 		<script src="../../js/jquery.js"></script>
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -25,7 +27,7 @@ TAB 1
 	 			</li>
 	 			<li id="tab_2" class="unselectedTab">
 	 			<a  id='a_tab_2' onclick="setVisibleNotVisibleNotVisible(2,1,3,4)">
-TAB 2
+NEWS
 	 			</a>
 	 			</li>
 	 			<li id="tab_3" class="unselectedTab">
@@ -50,20 +52,49 @@ VERY-LONG-TAB 4
 	 		<div class="card img_card elevation-1">
 	 			<img src='sample_img_card.jpg'>
 	 		</div>
-	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	 		<div class="card elevation-1 "><span class="card_header">Lorem Ipsum</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 Pages will load significantly faster because .</p></div>
 	</section>
+
+
 	<section  id="content_2"  class='content'>
-	 		<div class="card elevation-1"><span class="card_header">I'm a card too! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
-
-We strongly recommend that you use a custom subdomain for these reasons:
-
-It gives your GitHub Pages site the benefit of our Content Delivery Network.
-It will not be affected by changes in the underlying IP addresses of GitHub's servers.
-Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.</p></div>
-	 		<div class="card elevation-1"><span class="card_header">Lorem Ipsum 2</span><p>Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
-Pages will load significantly faster because .</p></div>
+	 		<div class="card elevation-1 news" id="news_1">
+	 			<div class="news_datetime" id="news_datetime_1">04/21/2045 - 14:54</div>
+		 		<span class="news_title" id="news_title_1">
+		 		<a class="pointer" onclick="openNews(2)">A news title</a> 
+		 		</span>
+		 		<p class="news_summary">First news ahah</p>
+		 		<p class="news_content" id="news_content_1">
+	A subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+				</p>
+				<div id="read_more"><a class="pointer" onclick="openNews(1)">READ MORE</a></div>
+			</div>
+	 		
+	 		<div class="card elevation-1 news" id="news_2">
+		 		<div class="news_datetime" id="news_datetime_2">04/21/2045 - 14:54</div>
+		 		<span class="news_title"   id="news_title_2">
+		 		<a class="pointer" onclick="openNews(2)">Another news title</a> 
+		 		</span>
+		 		
+		 		<p class="news_summary">First news ahah</p>
+		 		<p class="news_content"  id="news_content_2">
+	A subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+				</p>
+				<div id="read_more"><a class="pointer" onclick="openNews(2)">READ MORE</a></div>
+			</div>
 	</section>
+
+
+
+
 	<section id="content_3" class='content' >
 	 		<div class="card elevation-1"><span class="card_header">You reached Tab 3! </span><p>A subdomain is configured with a CNAME record through your DNS provider.
 
@@ -100,8 +131,28 @@ Pages will load significantly faster because .</p></div>
 		</div>
 
 	</div>
-		<script type="text/javascript">
+	<div id="shadow_deployed"></div>
+	<div id="news_deployed">
+		<div id="news_deployed_title"></div>
+		<div id="news_deployed_datetime"></div>
+		<div id="news_deployed_content"></div>
+		<div id="read_more"><a class="pointer" onclick="closeNews()">CLOSE</a></div>
+	</div>
 
+	<div id="circle_news"></div>
+		<script type="text/javascript">
+		 
+		 function openCircle()
+		 {
+		 
+		  document.getElementById("circle_news").style.transition = 'all 10s';
+		 document.getElementById("circle_news").style.width = 3000;
+		 document.getElementById("circle_news").style.height = 3000;
+		 document.getElementById("circle_news").style.left = event.pageX - 300 - document.getElementById("circle_news").style.width / 2;
+		}
+		
+		document.getElementById("circle_news").style.left = 300;
+		 document.getElementById("circle_news").style.top = 300;
 		function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2, not_visible3)
 		{
 			document.getElementById('tab_indicator').style.transition = 'all 0.5s';
@@ -162,7 +213,21 @@ Pages will load significantly faster because .</p></div>
 		}
 		document.getElementById('tab_' + 1).className = "selectedTab";
 
-
+		function openNews(id)
+		{
+			document.getElementById('news_deployed_title').innerHTML = document.getElementById('news_title_' + id).innerHTML;
+			document.getElementById('news_deployed_datetime').innerHTML = document.getElementById('news_datetime_' + id).innerHTML;
+			document.getElementById('news_deployed_content').innerHTML = document.getElementById('news_content_' + id).innerHTML;
+			document.getElementById('shadow_deployed').style.zIndex = 0;
+			document.getElementById('shadow_deployed').style.opacity = 1;
+			document.getElementById('news_deployed').style.top = 30;
+		}
+		function closeNews()
+		{
+			document.getElementById('shadow_deployed').style.zIndex = -10;
+			document.getElementById('shadow_deployed').style.opacity = 0;
+			document.getElementById('news_deployed').style.top = "-85%";
+		}
 		var header_height = document.getElementById('header').offsetHeight;
 		document.getElementById('header').style.top = 0;
 		document.getElementById('FAB').style.right = 15;
@@ -194,6 +259,8 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('round_fab').style.backgroundColor = color;
 			social_on = !social_on;
 		}
+
+
 		
 		var b_wth = document.documentElement.clientWidth;
 
@@ -202,38 +269,9 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById("content_" + i).style.width = b_wth - 20;
 			document.getElementById("content_" + i).style.left = b_wth*(i-1);
 		}
-		
 		document.getElementById("content_" + i).style.left = '1000px';
-		</script>
-		<script type="text/javascript">
-			//jQuery time
-var parent, ink, d, x, y;
-$("#nav li a").click(function(e){
-	parent = $(this).parent();
-	//create .ink element if it doesn't exist
-	if(parent.find(".ink").length == 0)
-		parent.prepend("<span class='ink'></span>");
 		
-	ink = parent.find(".ink");
-	//incase of quick double clicks stop the previous animation
-	ink.removeClass("animate");
-	
-	//set size of .ink
-	if(!ink.height() && !ink.width())
-	{
-		//use parent's width or height whichever is larger for the diameter to make a circle which can cover the entire element.
-		d = Math.max(parent.outerWidth(), parent.outerHeight());
-		ink.css({height: d, width: d});
-	}
-
-	//get click coordinates
-	//logic = click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center;
-	x = e.pageX - parent.offset().left - ink.width()/2;
-	y = e.pageY - parent.offset().top - ink.height()/2;
-
-	//set the position and add class .animate
-	ink.css({top: y+'px', left: x+'px'}).addClass("animate");
-})
 		</script>
+		
 	</body>
 </html>
