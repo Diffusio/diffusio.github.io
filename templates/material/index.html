@@ -5,7 +5,6 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
 		<link rel='stylesheet' href='style/style.css'>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
-		<script src="ripple.js"></script>
 
 		<meta charset="utf-8">
 		<script src="../../js/jquery.js"></script>
@@ -48,7 +47,7 @@ VERY-LONG-TAB 4
 	 	</header>
 	 	<header id='header2'>
 	 		<div id="site_title"><span>
-<a href=# onclick='closeNews(2)'><- </a>News Reader
+<a href=# id="a_close_n"><- </a>News Reader
 			</span>
 			</div>
 	 	</header>
@@ -63,22 +62,99 @@ Pages will load significantly faster because .</p></div>
 
 
 	<section  id="content_2"  class='content'>
-	 		<div class="card elevation-1 news" id="news_1">
-	 			<div class="news_datetime" id="news_datetime_1">04/21/2045 - 14:54</div>
-		 		<span class="news_title" id="news_title_1">
-		 		<a class="pointer" onclick="openNews(1)">A news title</a> 
+<!--
+##NEW
+-->
+
+<!--
+##4
+-->
+
+	<div class="card elevation-1 news" id="news_4">
+		 		<div class="news_datetime" id="news_datetime_4">04/21/2045 - 14:54</div>
+		 		<span class="news_title"   id="news_title_4">
+		 		<a class="pointer" onclick="openNews(3)">Another news title</a> 
 		 		</span>
+		 		
 		 		<p class="news_summary">First news ahah</p>
-		 		<p class="news_content" id="news_content_1">
-	A 1 subdomain is configured with a CNAME record through your DNS provider.
+		 		<p class="news_content"  id="news_content_4">
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
 	We strongly recommend that you use a custom subdomain for these reasons:
 	It gives your GitHub Pages site the benefit of our Content Delivery Network.
 	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
 				</p>
-				<div class="read_more"><a class="pointer" onclick="openNews(1)">READ MORE</a></div>
+				<div class="read_more"><a class="pointer" onclick="openNews(4)">READ MORE</a></div>
+			</div>
+
+
+<!--
+##3
+-->
+
+	 		
+			<div class="card elevation-1 news" id="news_3">
+		 		<div class="news_datetime" id="news_datetime_3">04/21/2045 - 14:54</div>
+		 		<span class="news_title"   id="news_title_3">
+		 		<a class="pointer" onclick="openNews(3);">Another news title</a> 
+		 		</span>
+		 		
+		 		<p class="news_summary">First news ahah</p>
+		 		<p class="news_content"  id="news_content_3">
+	A 3 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+				</p>
+				<div class="read_more"><a class="pointer" onclick="openNews(3)">READ MORE</a></div>
 			</div>
 	 		
+
+<!--
+##2
+-->
+
 	 		<div class="card elevation-1 news" id="news_2">
 		 		<div class="news_datetime" id="news_datetime_2">04/21/2045 - 14:54</div>
 		 		<span class="news_title"   id="news_title_2">
@@ -95,6 +171,33 @@ Pages will load significantly faster because .</p></div>
 				</p>
 				<div class="read_more"><a class="pointer" onclick="openNews(2)">READ MORE</a></div>
 			</div>
+
+
+<!--
+##
+1
+##
+-->
+
+
+<div class="card elevation-1 news" id="news_1">
+	 			<div class="news_datetime" id="news_datetime_1">04/21/2045 - 14:54</div>
+		 		<span class="news_title" id="news_title_1">
+		 		<a class="pointer" onclick="openNews(1)">A news title</a> 
+		 		</span>
+		 		<p class="news_summary">First news ahah</p>
+		 		<p class="news_content" id="
+		 		news_content_1
+		 		">
+	A 1 subdomain is configured with a CNAME record through your DNS provider.
+	We strongly recommend that you use a custom subdomain for these reasons:
+	It gives your GitHub Pages site the benefit of our Content Delivery Network.
+	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
+	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
+				</p>
+				<div class="read_more"><a class="pointer" onclick="openNews(1)">READ MORE</a></div>
+		</div>
+		
 	</section>
 
 
@@ -136,17 +239,11 @@ Pages will load significantly faster because .</p></div>
 		</div>
 
 	</div>
-	<div id="shadow_deployed"></div>
-	<div id="news_deployed">
-		<div id="news_deployed_title"></div>
-		<div id="news_deployed_datetime"></div>
-		<div id="news_deployed_content"></div>
-		<div id="read_more"><a class="pointer" onclick="closeNews()">CLOSE</a></div>
-	</div>
+
 
 	<div id="circle_news"></div>
 		<script type="text/javascript">
-		 
+		 var last_scrollpos_news;
 		 function openCircle()
 		 {
 		 
@@ -228,9 +325,10 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('shadow_deployed').style.zIndex = 0;
 			document.getElementById('shadow_deployed').style.opacity = 1;
 			document.getElementById('news_deployed').style.top = 30;*/
-			document.getElementById('header').style.top = b_hgt;
+			document.getElementById('header').style.top = -100;
 			document.getElementById('header2').style.top = 0;
 			document.getElementById('FAB').style.right = -75;
+			last_scrollpos_news = window.pageYOffset;
 			var all_news = document.getElementsByClassName('news');
 			var i;
 			var lgt = all_news.length;
@@ -238,24 +336,33 @@ Pages will load significantly faster because .</p></div>
 			{
 				if(all_news[i].id != "news_" + id)
 				{
-					document.getElementById('news_' + (i + 1)).style.display = 'none';
+					document.getElementById('news_' + (i + 1)).style.transition = 'all 0.4s ' + i*0.1 + 's';
+					document.getElementById('news_' + (i + 1)).style.marginLeft = '2000';
+					document.getElementById('news_' + (i + 1)).style.opacity = 0;
 				}
 				if(all_news[i].id == "news_" + id)
 				{
+					document.getElementById('news_' + (i + 1)).style.transition = 'all 0.7s 0.2s';
 					document.getElementById('news_' + (i + 1)).style.height = 'auto';
 					document.getElementById('news_' + (i + 1)).style.width = '80%';
+					document.getElementById('news_' + (i + 1)).style.marginLeft = '10%';
+					document.getElementById('news_' + (i + 1)).style.marginTop = -(document.getElementById('news_' + (i + 1)).getBoundingClientRect().top + window.pageYOffset) + 100;
 					document.getElementById('news_content_' + (i + 1)).style.height = 'auto';
 					document.getElementById('news_content_' + (i + 1)).style.opacity = 1;
 				}
 				var all_read = document.getElementsByClassName('read_more');
 				var read_lgt = all_read.length;
 				var j;
+				window.scrollBy(0,-11150);
 				for(j=0;j<read_lgt;j++)
 				{
 					all_read[j].style.display = 'none';
 
 				}
 			}
+			document.getElementById('a_close_n').onclick = function(){closeNews(id);};
+			
+			
 		}
 		function closeNews(id)
 		{
@@ -264,18 +371,26 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('FAB').style.right = 15;
 			var all_news = document.getElementsByClassName('news');
 			var i;
+			window.scrollBy(0,document.body.scrollHeight);
 			var lgt = all_news.length;
 			for(i=0;i<lgt;i++)
 			{
 				if(all_news[i].id != "news_" + id)
 				{
-					document.getElementById('news_' + (i + 1)).style.display = 'block';
+					document.getElementById('news_' + (i + 1)).style.transition = 'all 0.4s ' + 0.2+i*0.12 + 's';
+					document.getElementById('news_' + (i + 1)).style.marginLeft = '20%';
+					document.getElementById('news_' + (i + 1)).style.opacity = 1;
 				}
 				if(all_news[i].id == "news_" + id)
 				{
-					document.getElementById('news_' + (i + 1)).style.width = '600px';
+					document.getElementById('news_' + (i + 1)).style.transition = 'all 0.7s';
+					document.getElementById('news_' + (i + 1)).style.height = 'auto';
+					document.getElementById('news_' + (i + 1)).style.width = '60%';
+					document.getElementById('news_' + (i + 1)).style.marginLeft = '20%';
+					document.getElementById('news_' + (i + 1)).style.marginTop = 0;
 					document.getElementById('news_content_' + (i + 1)).style.height = 0;
 					document.getElementById('news_content_' + (i + 1)).style.opacity = 0;
+				
 				}
 				var all_read = document.getElementsByClassName('read_more');
 				var read_lgt = all_read.length;
@@ -286,6 +401,7 @@ Pages will load significantly faster because .</p></div>
 
 				}
 			}
+
 		}
 		var header_height = document.getElementById('header').offsetHeight;
 		document.getElementById('header').style.top = 0;
