@@ -474,7 +474,8 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('circle_news').style.transform = 'scale(300)';
 			document.getElementById('news_content_' + (id)).style.height = 'auto';
 			document.getElementById('news_content_' + (id)).style.opacity = 1;
-			document.getElementById('FAB_close').style.left = '8%';
+			var left_m = b_wth > 600 ? '8%' : "1.8%";
+			document.getElementById('FAB_close').style.left = left_m;
 			var all_read = document.getElementsByClassName('read_more');
 			var read_lgt = all_read.length;
 			var j;

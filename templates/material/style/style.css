@@ -493,6 +493,8 @@ header
 {
   padding: 0;
   width: 450px;
+
+
   height: 500px;
 }
 
@@ -508,7 +510,7 @@ header
   position: relative;
   text-align: left;
   display: block;
-  margin-left:20%;
+  margin:auto;
   margin-bottom: 10;
     z-index: 2; 
     height: auto;
@@ -594,4 +596,41 @@ header
   z-index: 151;
   height: 100;
   top:-150;
+}
+
+
+@media screen and (max-width:600px)
+{
+  .news
+{
+  width: 90%;
+  position: relative;
+  text-align: left;
+  display: block;
+  margin-left:10%;
+  margin-bottom: 10;
+    z-index: 2; 
+    height: auto;
+  transition: 0.6s;
+
+}
+#FAB_close
+{
+  width: 50;
+  height: 50;
+  border-radius: 25px;
+  background:  #ffeb3b;
+  position: fixed;
+  top: 75;
+  text-align: center;
+  z-index: 161;
+  left: -75;
+    transition:all 0.3s 1s; 
+  cursor: pointer;
+}
+.img_card
+{
+  display: none;
+}
+
 }
