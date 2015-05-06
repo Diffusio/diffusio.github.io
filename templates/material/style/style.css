@@ -30,20 +30,6 @@ body
  
 }
 
-#news_readable
-{
-  position: relative;
-  top: -1000;
-  height: 500px;
-  width: 800px;
-  background: white;
-  margin: auto;
-  padding: 20;
-  z-index: 151;
-  border-radius: 3px;
-  transform-origin: 50% 50%;
-  transition: 0.7s 0.2s;
-}
 
 *
 {
@@ -510,7 +496,7 @@ header
   margin-bottom: 10;
     z-index: 2; 
     height: auto;
-  transition:all 1s;
+  transition:transform 0.6s;
 
 }
 

@@ -186,7 +186,7 @@ Pages will load significantly faster because .</p></div>
 		 		<span class="news_title" id="news_title_1">
 		 		<a class="pointer" onclick="openNews(1)">A news title</a> 
 		 		</span>
-		 		<p class="news_summary">First news ahah</p>
+		 		<p class="news_summary" onclick="closeCircleNews(1)">First news ahah</p>
 		 		<p class="news_content" id="
 		 		news_content_1
 		 		">
@@ -442,14 +442,17 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('circle_news').style.top = cursorY + document.body.scrollTop;
 			document.getElementById('circle_news').style.left = cursorX;
 			document.getElementById('circle_news').style.opacity = 1;
+			document.getElementById('news_' + id).style.zIndex = 151;
+			document.getElementById('news_' + id).style.transform = 'translate3d(0,-300px,0)';
 			document.getElementById('circle_news').style.transition = 'transform 0.5s';
 			document.getElementById('circle_news').style.transform = 'scale(300)';
 			document.getElementById('news_readable').style.transform = 'translate3d(0,1000px,0)';
 		}
 
-		function closeCircleNews()
+		function closeCircleNews(id)
 		{
 			document.getElementById('news_readable').style.transform = 'translate3d(0,-1000px,0)';
+			document.getElementById('news_' + id).style.transform = 'translate3d(0,0px,0)';
 			document.getElementById('circle_news').style.transition = 'transform 0.5s 0.5s';
 			document.getElementById('circle_news').style.transform = 'scale(0.0033)';
 		}
