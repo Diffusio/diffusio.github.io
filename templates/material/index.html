@@ -241,7 +241,6 @@ Pages will load significantly faster because .</p></div>
 
 	</div>
 	<div id="circle_news"></div>
-	<div id="news_readable" onclick="closeCircleNews()"></div>
 		<script type="text/javascript">
 		 var last_scrollpos_news;
 
@@ -446,12 +445,10 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('news_' + id).style.transform = 'translate3d(0,-300px,0)';
 			document.getElementById('circle_news').style.transition = 'transform 0.5s';
 			document.getElementById('circle_news').style.transform = 'scale(300)';
-			document.getElementById('news_readable').style.transform = 'translate3d(0,1000px,0)';
 		}
 
 		function closeCircleNews(id)
 		{
-			document.getElementById('news_readable').style.transform = 'translate3d(0,-1000px,0)';
 			document.getElementById('news_' + id).style.transform = 'translate3d(0,0px,0)';
 			document.getElementById('circle_news').style.transition = 'transform 0.5s 0.5s';
 			document.getElementById('circle_news').style.transform = 'scale(0.0033)';
