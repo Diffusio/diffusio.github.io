@@ -442,6 +442,7 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('circle_news').style.top = cursorY + document.body.scrollTop;
 			document.getElementById('circle_news').style.left = cursorX;
 			document.getElementById('circle_news').style.opacity = 1;
+			document.getElementById('circle_news').style.transition = 'transform 1s';
 			document.getElementById('circle_news').style.transform = 'scale(300)';
 			document.getElementById('news_readable').style.transform = 'translate3d(0,1000px,0)';
 		}
@@ -449,7 +450,7 @@ Pages will load significantly faster because .</p></div>
 		function closeCircleNews()
 		{
 			document.getElementById('news_readable').style.transform = 'translate3d(0,-1000px,0)';
-			document.getElementById('circle_news').style.transition = '1s 0.5s';
+			document.getElementById('circle_news').style.transition = 'transform 1s 0.5s';
 			document.getElementById('circle_news').style.transform = 'scale(0.0033)';
 		}
 		for(var i=1;i<=4;i++)
