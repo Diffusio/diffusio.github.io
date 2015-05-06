@@ -20,7 +20,7 @@ body
   width: 10;
   height: 10;
   border-radius: 50%;
-  background: #3F51B5;
+  background:  #e91e63;
   position: absolute;
   top: 300;
   opacity: 0;
@@ -148,6 +148,7 @@ header
   .card
   {
     width: 300px;
+    vertical-align: top;
     z-index: -1;
     border-radius: 1px;
     display: inline-block;
@@ -319,6 +320,21 @@ header
   z-index: 50;
   right: -75;
   transition:all 0.3s;
+  cursor: pointer;
+}
+
+#FAB_close
+{
+  width: 50;
+  height: 50;
+  border-radius: 25px;
+  background:  #ffeb3b;
+  position: fixed;
+  top: 75;
+  text-align: center;
+  z-index: 161;
+  left: -75;
+    transition:all 0.3s 1s; 
   cursor: pointer;
 }
 
@@ -496,7 +512,7 @@ header
   margin-bottom: 10;
     z-index: 2; 
     height: auto;
-  transition:transform 0.6s;
+  transition: 0.6s;
 
 }
 
@@ -505,6 +521,7 @@ header
   /*display: none;*/
   height: 0;
   opacity: 0;
+  text-align: justify;
   transition: all 0.5s;
 }
 
@@ -568,5 +585,13 @@ header
 
 #header2 #site_title
 {
-  background: #009688;
+  background: #757575;
+  height: 100;
+}
+
+#header2 
+{
+  z-index: 151;
+  height: 100;
+  top:-150;
 }

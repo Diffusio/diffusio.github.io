@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	</head>
-	<body body onmousemove="mouse_position(event)">	 
+	<body body onmousemove="mouse_position(event)" onmousewheel="diffScroll()">	 
 
 	 	<header id='header'>
 	 		<div id="site_title"><span>
@@ -46,9 +46,8 @@ VERY-LONG-TAB 4
 	 		<div id="tab_indicator" class="tab_indicator"></div>
 	 		<div id="tab_indicator_m" class="tab_indicator"></div>
 	 	</header>
-	 	<header id='header2'>
+	 	<header id='header2' class="elevation-1">
 	 		<div id="site_title"><span>
-<a href=# id="a_close_n"><- </a>News Reader
 			</span>
 			</div>
 	 	</header>
@@ -187,9 +186,7 @@ Pages will load significantly faster because .</p></div>
 		 		<a class="pointer" onclick="openNews(1)">A news title</a> 
 		 		</span>
 		 		<p class="news_summary" onclick="closeCircleNews(1)">First news ahah</p>
-		 		<p class="news_content" id="
-		 		news_content_1
-		 		">
+		 		<p class="news_content" id="news_content_1">
 	A 1 subdomain is configured with a CNAME record through your DNS provider.
 	We strongly recommend that you use a custom subdomain for these reasons:
 	It gives your GitHub Pages site the benefit of our Content Delivery Network.
@@ -241,6 +238,7 @@ Pages will load significantly faster because .</p></div>
 
 	</div>
 	<div id="circle_news"></div>
+	<div id="FAB_close"  class="elevation-2" onclick=""><img id="smartp"   src="arrow.png"></div>
 		<script type="text/javascript">
 		 var last_scrollpos_news;
 
@@ -304,8 +302,7 @@ Pages will load significantly faster because .</p></div>
 
 		}
 		document.getElementById('tab_' + 1).className = "selectedTab";
-
-
+	
 
 		function openNews(id)
 		{
@@ -317,7 +314,7 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('news_deployed').style.top = 30;*/
 			document.getElementById('header').style.top = -100;
 			document.getElementById('header2').style.top = 0;
-			document.getElementById('FAB').style.right = -75;
+			
 			last_scrollpos_news = window.pageYOffset;
 			var all_news = document.getElementsByClassName('news');
 			var i;
@@ -441,17 +438,75 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('circle_news').style.top = cursorY + document.body.scrollTop;
 			document.getElementById('circle_news').style.left = cursorX;
 			document.getElementById('circle_news').style.opacity = 1;
-			document.getElementById('news_' + id).style.zIndex = 151;
-			document.getElementById('news_' + id).style.transform = 'translate3d(0,-300px,0)';
+			document.getElementById('news_' + id).style.zIndex = 160;
+			document.body.style.overflow='hidden';
+			document.getElementById('header2').style.top = 0;
+			document.getElementById('news_' + id).style.maxHeight = document.documentElement.clientHeight - 50;
+			document.getElementById('news_' + id).style.overflow = 'auto';
+			function scrollFunc(e) {
+			    if ( typeof scrollFunc.x == 'undefined' ) {
+			        scrollFunc.x=document.getElementById('news_' + id).scrollTop;
+			    }
+			    var diffX=scrollFunc.x-document.getElementById('news_' + id).scrollTop;
+
+			    if( diffX<0 ) {
+			       	document.getElementById('news_' + id).style.top=-50;
+			    } else if( diffX>0 ) {
+			        document.getElementById('news_' + id).style.top=0;
+			    } else {
+			        // First scroll event
+			    }
+			    scrollFunc.x=document.getElementById('news_' + id).scrollTop;
+			}
+			document.getElementById('news_' + id).onscroll=scrollFunc
+			if(document.getElementById('news_'+id).getBoundingClientRect().top < 0)
+			{
+				document.getElementById('news_' + id).style.transform = 'translate3d(0,'+ (-document.getElementById('news_'+id).getBoundingClientRect().top + 50) + 'px,0)';
+			}
+			else
+			{
+				document.getElementById('news_' + id).style.transform = 'translate3d(0,-'+ (document.getElementById('news_'+id).getBoundingClientRect().top - 50) + 'px,0)';
+			}
 			document.getElementById('circle_news').style.transition = 'transform 0.5s';
+			document.getElementById('FAB_close').style.transition = '0.6s 0.5s';
+			document.getElementById('FAB_close').style.left = 45;
+			document.getElementById('FAB_close').onclick = function (){closeCircleNews(id);};
 			document.getElementById('circle_news').style.transform = 'scale(300)';
+			document.getElementById('news_content_' + (id)).style.height = 'auto';
+			document.getElementById('news_content_' + (id)).style.opacity = 1;
+			document.getElementById('FAB_close').style.left = '8%';
+			var all_read = document.getElementsByClassName('read_more');
+			var read_lgt = all_read.length;
+			var j;
+			for(j=0;j<read_lgt;j++)
+			{
+				all_read[j].style.display = 'none';
+
+			}
+			
 		}
 
 		function closeCircleNews(id)
 		{
 			document.getElementById('news_' + id).style.transform = 'translate3d(0,0px,0)';
 			document.getElementById('circle_news').style.transition = 'transform 0.5s 0.5s';
+			document.body.style.overflowY = 'auto';
+			document.getElementById('header2').style.top = -150;
+			document.getElementById('news_content_' + (id)).style.height = 0;
+			document.getElementById('news_content_' + (id)).style.opacity = 0;
+			document.getElementById('news_' + id).style.zIndex = 1;
+			document.getElementById('news_' + id).style.overflow = 'hidden';
+			document.getElementById('FAB_close').style.transition = '0.5s';
+			document.getElementById('FAB_close').style.left = '-75px';
 			document.getElementById('circle_news').style.transform = 'scale(0.0033)';
+			var all_read = document.getElementsByClassName('read_more');
+			var read_lgt = all_read.length;
+			var j;
+			for(j=0;j<read_lgt;j++)
+			{
+				all_read[j].style.display = 'block';
+
+			}
 		}
 		for(var i=1;i<=4;i++)
 		{
