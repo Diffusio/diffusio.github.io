@@ -11,7 +11,8 @@
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	</head>
-	<body>	  
+	<body body onmousemove="mouse_position(event)">	 
+
 	 	<header id='header'>
 	 		<div id="site_title"><span>
 Material Site
@@ -124,7 +125,7 @@ Pages will load significantly faster because .</p></div>
 	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
 				</p>
-				<div class="read_more"><a class="pointer" onclick="openNews(4)">READ MORE</a></div>
+				<div class="read_more"><a class="pointer" onclick="openCircleNews(4)">READ MORE</a></div>
 			</div>
 
 
@@ -147,7 +148,7 @@ Pages will load significantly faster because .</p></div>
 	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
 				</p>
-				<div class="read_more"><a class="pointer" onclick="openNews(3)">READ MORE</a></div>
+				<div class="read_more"><a class="pointer" onclick="openCircleNews(3)">READ MORE</a></div>
 			</div>
 	 		
 
@@ -169,7 +170,7 @@ Pages will load significantly faster because .</p></div>
 	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
 				</p>
-				<div class="read_more"><a class="pointer" onclick="openNews(2)">READ MORE</a></div>
+				<div class="read_more"><a class="pointer" onclick="openCircleNews(2)">READ MORE</a></div>
 			</div>
 
 
@@ -195,7 +196,7 @@ Pages will load significantly faster because .</p></div>
 	It will not be affected by changes in the underlying IP addresses of GitHub's servers.
 	Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
 				</p>
-				<div class="read_more"><a class="pointer" onclick="openNews(1)">READ MORE</a></div>
+				<div class="read_more"><a class="pointer" onclick="openCircleNews(1)">READ MORE</a></div>
 		</div>
 		
 	</section>
@@ -239,22 +240,12 @@ Pages will load significantly faster because .</p></div>
 		</div>
 
 	</div>
-
-
 	<div id="circle_news"></div>
+	<div id="news_readable" onclick="closeCircleNews()"></div>
 		<script type="text/javascript">
 		 var last_scrollpos_news;
-		 function openCircle()
-		 {
-		 
-		  document.getElementById("circle_news").style.transition = 'all 10s';
-		 document.getElementById("circle_news").style.width = 3000;
-		 document.getElementById("circle_news").style.height = 3000;
-		 document.getElementById("circle_news").style.left = event.pageX - 300 - document.getElementById("circle_news").style.width / 2;
-		}
+
 		
-		document.getElementById("circle_news").style.left = 300;
-		 document.getElementById("circle_news").style.top = 300;
 		function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2, not_visible3)
 		{
 			document.getElementById('tab_indicator').style.transition = 'all 0.5s';
@@ -435,11 +426,32 @@ Pages will load significantly faster because .</p></div>
 			social_on = !social_on;
 		}
 
-
 		
 		var b_wth = document.documentElement.clientWidth;
 		var b_hgt = document.documentElement.clientHeight;
+		var cursorX, cursorY;
+		function mouse_position(e)
+		{
+			cursorX = e.clientX;
+   			cursorY = e.clientY;
+		}
 
+
+		function openCircleNews(id)
+		{
+			document.getElementById('circle_news').style.top = cursorY + document.body.scrollTop;
+			document.getElementById('circle_news').style.left = cursorX;
+			document.getElementById('circle_news').style.opacity = 1;
+			document.getElementById('circle_news').style.transform = 'scale(300)';
+			document.getElementById('news_readable').style.transform = 'translate3d(0,1000px,0)';
+		}
+
+		function closeCircleNews()
+		{
+			document.getElementById('news_readable').style.transform = 'translate3d(0,-1000px,0)';
+			document.getElementById('circle_news').style.transition = '1s 0.5s';
+			document.getElementById('circle_news').style.transform = 'scale(0.0033)';
+		}
 		for(var i=1;i<=4;i++)
 		{
 			document.getElementById("content_" + i).style.width = b_wth - 20;
