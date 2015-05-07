@@ -44,10 +44,14 @@ header
   left: 0;
   z-index: 50;
   right: 0;
+
    box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.24);
 }
 
-
+.no_shadow
+{
+  box-shadow: none;
+}
 
 #header, #header2
 {
@@ -64,7 +68,7 @@ header
     padding-top: 8px;
     padding-left: 20;
     font-size: 1.8em;
-      background:  #00BCD4;
+      background:  #009688;
 transition:0.5s;
   }
 
@@ -145,7 +149,89 @@ I   }
 
 #content_2
 {
-  top: 70;
+  top:70;
+}
+
+#content_1
+{
+  top:50;
+  left: 0;
+}
+
+.white
+{
+  color: white;
+}
+
+.grey
+{
+  color: grey;
+}
+
+.wide_div
+{
+  height: 80vh;
+  text-align: left;
+  position: relative;
+    padding-top: 200;
+  vertical-align: center;
+}
+
+#w_d_1
+{
+  background: #009688;
+}
+
+#w_d_1 
+{
+
+
+}
+
+.logo_right
+{
+  position: absolute;
+  top: 100;
+  left: 100;
+}
+
+.logo_left
+{
+  position: absolute;
+  top: 100;
+  right: 100;
+}
+
+.slog
+{
+  font-size: 4em;
+  font-weight: 300;
+}
+
+.slog_right
+{
+  margin-left: 50%;
+}
+
+.slog_left
+{
+  margin-left: 10%;
+}
+
+.under_slog
+{
+  font-size: 1.8em;
+  font-weight: 300;
+}
+
+.under_slog_right
+{
+  margin-left: 50%;
+}
+
+.under_slog_left
+{
+  margin-left: 10%;
 }
 
   .card
@@ -216,7 +302,7 @@ I   }
     padding-bottom: 15px;
     padding-top: 15px;
     font-size: 2em;
-      background:  #00BCD4;
+      background:  #009688;
 transition:0.5s;
 
   }
@@ -233,14 +319,14 @@ transition:0.5s;
     padding-bottom: 15px;
     padding-top: 15px;
     font-size: 2em;
-      background:  #00BCD4;
+      background:  #009688;
 transition:0.5s;
 
   }
 
   #nav_div
   {
-      background:  #00BCD4;
+      background:  #009688;
       width: 100%;
       padding-top: 2px;
       height: 28px;
@@ -304,7 +390,7 @@ transition:0.5s;
     padding-bottom: 5px;
     padding-top: 5px;
     font-size: 2em;
-      background:  #00BCD4;
+      background:  #009688;
   }
 
 }
@@ -314,6 +400,39 @@ transition:0.5s;
 .legend
 {
   font-size: 2em;
+}
+
+.FAB
+{
+  width: 50;
+  height: 50;
+  border-radius: 25px;
+  background: #F44336;
+  position: fixed;
+  text-align: center;
+  z-index: 50;
+  transition:all 0.3s;
+  cursor: pointer;
+}
+
+#FAB_pres
+{
+  background:  #ffeb3b;
+  position: absolute;
+  bottom: -25;
+  right: 155;
+}
+
+#arrow_FAB
+{
+   position: relative;
+   top: 10;
+  height: 32;
+}
+
+.no_fixed
+{
+  position: absolute;
 }
 
 #FAB
