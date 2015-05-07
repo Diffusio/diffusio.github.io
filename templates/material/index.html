@@ -274,7 +274,11 @@ Pages will load significantly faster because .</p></div>
 				{
 					document.getElementById("content_" + i).style.left = b_wth*(i-1);
 					document.getElementById("content_" + i).style.marginLeft = 0;
+						document.getElementById('site_title').style.background = '#00BCD4';
+            document.getElementById('nav_div').style.background = '#00BCD4';
+					
 				}
+                
 				break;
 			case 2:
 				document.getElementById("content_2").style.left = 0;
@@ -282,6 +286,9 @@ Pages will load significantly faster because .</p></div>
 				document.getElementById("content_1").style.marginLeft = (-1)*b_wth;
 				document.getElementById("content_3").style.left = b_wth;
 				document.getElementById("content_4").style.left = 2*b_wth;
+				document.getElementById('site_title').style.background = '#e91e63';
+            document.getElementById('nav_div').style.background = '#e91e63';
+
 				break;
 			case 3:
 				document.getElementById("content_3").style.left = 0;
@@ -290,12 +297,18 @@ Pages will load significantly faster because .</p></div>
 				document.getElementById("content_1").style.marginLeft = (-2)*b_wth;
 				document.getElementById("content_2").style.marginLeft = -b_wth;
 				document.getElementById("content_4").style.left = b_wth;
+				document.getElementById('site_title').style.background = '#00BCD4';
+            document.getElementById('nav_div').style.background = '#00BCD4';
+				
 				break;
 			case 4:
 				document.getElementById("content_4").style.left = 0;
 				document.getElementById("content_1").style.marginLeft = (-1)*b_wth;
 				document.getElementById("content_2").style.marginLeft = (-2)*b_wth;
 				document.getElementById("content_3").style.marginLeft = (-3)*b_wth;
+				document.getElementById('site_title').style.background = '#00BCD4';
+            document.getElementById('nav_div').style.background = '#00BCD4';
+				
 				break;
 		}			
 		

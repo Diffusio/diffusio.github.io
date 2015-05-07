@@ -65,6 +65,7 @@ header
     padding-left: 20;
     font-size: 1.8em;
       background:  #00BCD4;
+transition:0.5s;
   }
 
   #nav_div
@@ -75,6 +76,8 @@ header
       right: 10;
       padding-top: 2px;
       height: 28px;
+transition:0.5s;
+
   }
 
   #nav
@@ -214,6 +217,8 @@ I   }
     padding-top: 15px;
     font-size: 2em;
       background:  #00BCD4;
+transition:0.5s;
+
   }
   #header
   {
@@ -229,6 +234,8 @@ I   }
     padding-top: 15px;
     font-size: 2em;
       background:  #00BCD4;
+transition:0.5s;
+
   }
 
   #nav_div
@@ -238,12 +245,13 @@ I   }
       padding-top: 2px;
       height: 28px;
        box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.24);
+transition:0.5s;
+
   }
 
   #nav
   {
     list-style-type: none;
-    background:  #00BCD4;
     padding: 0; margin: 0;
     text-align: center;
   }
