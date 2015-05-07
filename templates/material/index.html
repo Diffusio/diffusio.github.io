@@ -54,17 +54,29 @@ VERY-LONG-TAB 4
 	 	
 	 <section id="content_1" class='content'>
 	 		<div class="wide_div white" id="w_d_1">
-	 		
-		 		<img src="logo.png" width="300" class="logo_right">
+	 		<div class='v_align'>
+		 		<img src="logo.png" class="logo_left logo">
+		 		<div class='w_text'>
 		 		<span class="slog slog_right">Lorem Ipsum</span>
 		 		<p class="under_slog under_slog_right">Take the tour</p>
-		 	<div><div id="FAB_pres"  class="FAB elevation-2" onclick=""><img id="arrow_FAB"   src="s_arrow_down.png"></div></div>
+		 	</div><div id="FAB_pres"  class="FAB elevation-2" onclick=""><img id="arrow_FAB"   src="s_arrow_down.png"></div>
+	 		</div>
 	 		</div>
 	 		<div class="wide_div grey" id="w_d_2">
-	 		
-		 		<img src="logo2.png" width="300" class="logo_left">
+	 		<div class='v_align'>
+		 		<img src="logo2.png" class="logo_right logo">
 		 		<span class="slog slog_left">This Website</span>
 		 		<p class="under_slog under_slog_left">Is really amazing.</p>
+	 		</div>
+	 		</div>
+	 		<div class="wide_div white" id="w_d_3">
+	 		<div class='v_align'>
+		 		<img src="logo.png" class="logo_left logo">
+		 		<div class='w_text'>
+		 		<span class="slog slog_right">Lorem Ipsum</span>
+		 		<p class="under_slog under_slog_right">Take the tour</p>
+		 	</div>
+	 		</div>
 	 		</div>
 	</section>
 
@@ -460,6 +472,10 @@ Pages will load significantly faster because .</p></div>
 		var all_w_d_l = all_w_d.length;
 		var z;
 		for (z=0;z<all_w_d_l;z++)
+        {
+         all_w_d[z].style.height = b_hgt * 0.8;
+        }
+   
 		var cursorX, cursorY;
 		function mouse_position(e)
 		{
