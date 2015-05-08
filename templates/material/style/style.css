@@ -40,7 +40,7 @@ body
 header
 {
   position: fixed;
-  top: -100;
+  top: 0;
   left: 0;
   z-index: 50;
   right: 0;
@@ -58,7 +58,7 @@ header
   transition: top 0.3s;
 }
 
-@media screen and (min-width:600px)
+@media screen and (min-width:700px)
 {
   #site_title
   {
@@ -286,7 +286,7 @@ background:#ff9800;
     display: none;
   }
 }
-@media screen and (max-width:600px)
+@media screen and (max-width:700px)
 {
   #tab_indicator
   {
@@ -349,7 +349,7 @@ transition:0.5s;
       width: 100%;
       padding-top: 2px;
       height: 28px;
-       box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.24);
+       
 transition:0.5s;
 
   }
@@ -660,7 +660,7 @@ transition:0.5s;
   margin-bottom: 10;
     z-index: 2; 
     height: auto;
-  transition: 0.6s;
+  transition: transform 0.6s;
 
 }
 
@@ -745,16 +745,17 @@ transition:0.5s;
 }
 
 
-@media screen and (max-width:600px)
+@media screen and (max-width:700px)
 {
   .news
 {
-  width: 90%;
+  width: 85%;
   position: relative;
   text-align: left;
   display: block;
-  margin-left:10%;
+  margin:auto;
   margin-bottom: 10;
+  margin-left:5%;
     z-index: 2; 
     height: auto;
   transition: 0.6s;
@@ -800,7 +801,8 @@ transition:0.5s;
   height: 80vh;
   text-align: left;
   position: relative;
-    padding-top: 200;
+    padding-top: 10;
+    text-align:center;
   vertical-align: center;
 }
 
@@ -817,45 +819,56 @@ transition:0.5s;
 
 .logo
 {
-position:absolute;
+position:relative;
+display:block;
+width:30%;
+margin:auto;
 }
 
 .logo_left
 {
-left:10%;
-top:20%;
+
 }
 
+.logo_right
+{
+}
 .slog
 {
   font-size: 4em;
+  display:block;
+  width:90%;
+  margin:auto;
   font-weight: 300;
 }
 
 .slog_right
 {
-  margin-left: 50%;
+ 
 }
 
 .slog_left
 {
-  margin-left: 10%;
+  
 }
 
 .under_slog
 {
   font-size: 1.8em;
   font-weight: 300;
+  display:block;
+  width:90%;
+  margin:auto;
 }
 
 .under_slog_right
 {
-  margin-left: 50%;
+  
 }
 
 .under_slog_left
 {
-  margin-left: 10%;
+  
 }
 #content_1
 {

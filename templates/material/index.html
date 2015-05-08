@@ -13,7 +13,7 @@
 	</head>
 	<body body onmousemove="mouse_position(event)" onmousewheel="diffScroll()">	 
 
-	 	<header id='header'>
+	 	<header id='header' class="">
 	 		<div id="site_title"><span>
 Material Site
 			</span>
@@ -22,7 +22,7 @@ Material Site
 	 		<ul id="nav">
 	 			<li id="tab_1" class="selectedTab">
 	 			<a   id='a_tab_1'  onclick="setVisibleNotVisibleNotVisible(1,2,3,4)">
-TAB 1
+PRESENTATION
 	 			</a>
 	 			</li>
 	 			<li id="tab_2" class="unselectedTab">
@@ -278,9 +278,9 @@ Pages will load significantly faster because .</p></div>
 		document.getElementById('tab_indicator_m').style.left = left;
 		document.getElementById('tab_indicator_m').style.width = width;
 		document.getElementById('a_tab_' + visible).style.color = 'white';
-		document.getElementById('a_tab_' + not_visible1).style.color = '#bdedf3';
-		document.getElementById('a_tab_' + not_visible2).style.color = '#bdedf3';
-		document.getElementById('a_tab_' + not_visible3).style.color = '#bdedf3';
+		document.getElementById('a_tab_' + not_visible1).style.color = 'rgb(230,230,230)';
+		document.getElementById('a_tab_' + not_visible2).style.color = 'rgb(230,230,230';
+		document.getElementById('a_tab_' + not_visible3).style.color = 'rgb(230,230,230';
 		current_tab = visible;
 		switch(visible)
 		{	
@@ -511,6 +511,7 @@ Pages will load significantly faster because .</p></div>
 			document.getElementById('circle_news').style.top = cursorY + document.body.scrollTop;
 			document.getElementById('circle_news').style.left = cursorX;
 			document.getElementById('circle_news').style.opacity = 1;
+			
 			document.getElementById('news_' + id).style.zIndex = 160;
 			document.body.style.overflow='hidden';
 			document.getElementById('header2').style.top = 0;
