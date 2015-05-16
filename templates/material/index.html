@@ -10,7 +10,7 @@
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	</head>
-	<body body onmousemove="mouse_position(event)" onmousewheel="diffScroll()" onresize="updateAll()">	 
+	<body body onmousemove="mouse_position(event)" onresize="updateAll()">	 
 		<header id='header' class="">
 	 		<div id="site_title">
 	 			<span>
@@ -32,12 +32,18 @@ NEWS
 		 			<li id="tab_3" class="unselectedTab">
 		 				<a id='a_tab_3' onclick="setVisibleNotVisibleNotVisible(3,1,2)">
 MORE
+
 		 				</a>
 		 			</li>
 		 		</ul>
 	 		</div>
 	 		<div id="tab_indicator" class="tab_indicator"></div>
 	 		<div id="tab_indicator_m" class="tab_indicator"></div>
+	 	</header>
+	 	<header id='header2' class="elevation-1">	
+	 		<div id="site_title"><span>	
+			</span>		
+			</div>	
 	 	</header>
 		<section id="content_1" class='content'>
 		 		<div class="wide_div white" id="w_d_1">
@@ -71,6 +77,12 @@ MORE
 		</section>
 		<section  id="content_2"  class='content'>
 <!--#$#NEW-->
+
+<!--##5-->
+
+<div class='card elevation-1 news' id='news_5'><div class='news_datetime' id='news_datetime_5'>5/16/2015 23:8:25
+</div><span class='news_title'   id='news_title_5'><a class='pointer' onclick='openNews(5);'>This</a> </span><p class='news_summary'>is</p><p class='news_content'  id='news_content_5'>one</p><div class='read_more'><a class='pointer' onclick='openCircleNews(5)'>READ MORE</a></div></div>
+
 <!--##4-->
 		<div class="card elevation-1 news" id="news_4">
 	 		<div class="news_datetime" id="news_datetime_4">
@@ -453,7 +465,7 @@ Pages will load significantly faster because .
 				}
 				setVisibleNotVisibleNotVisible(current_tab, not_visible1, not_visible2)
 			}
-
+			updateAll();
 		</script>
 	</body>
 </html>
