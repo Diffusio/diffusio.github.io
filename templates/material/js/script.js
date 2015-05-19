@@ -2,8 +2,7 @@
 var last_scrollpos_news, current_tab, header_height = document.getElementById('header').offsetHeight;
 var tab_indic_left = document.getElementById('tab_' + 1).offsetLeft, tab_indic_width = document.getElementById('tab_'+ 1).offsetWidth;
 var social_on = true;
-var b_wth = document.documentElement.clientWidth + 50;
-var b_hgt = document.documentElement.clientHeight;
+var b_wth, b_hgt;
 var all_w_d = document.getElementsByClassName('wide_div');
 var all_w_d_l = all_w_d.length;
 var z;
@@ -22,13 +21,37 @@ document.getElementById('a_tab_' + 2).style.color = '#bdedf3';
 document.getElementById('a_tab_' + 3).style.color = '#bdedf3';
 document.getElementById('tab_indicator').style.transition = 'all 0s';
 document.getElementById('content_1').style.width = b_wth;
-for (z=0;z<all_w_d_l;z++)
-{
- all_w_d[z].style.height = b_hgt * 0.8;
-}
+getViewport();
+alert(b_hgt);
+setBandSize();
 document.body.onscroll=scrollFuncP;
 
 //Fonctions
+function getViewport() {
+
+
+ // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
+ if (typeof window.innerWidth != 'undefined') {
+   b_wth = window.innerWidth,
+   b_hgt = window.innerHeight
+ }
+
+// IE6 in standards compliant mode (i.e. with a valid doctype as the first line in the document)
+ else if (typeof document.documentElement != 'undefined'
+ && typeof document.documentElement.clientWidth !=
+ 'undefined' && document.documentElement.clientWidth != 0) {
+    b_wth = document.documentElement.clientWidth,
+    b_hgt = document.documentElement.clientHeight
+ }
+
+ // older versions of IE
+ else {
+   b_wth = document.getElementsByTagName('body')[0].clientWidth,
+   b_hgt = document.getElementsByTagName('body')[0].clientHeight
+ }
+ return [b_wth, b_hgt];
+}
+
 function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
 {
     document.getElementById('tab_indicator').style.transition = 'all 0.5s';
@@ -219,6 +242,7 @@ function setContentWidth()
 
 function updateAll()
 {
+    getViewport();
     setContentWidth();
     switch(current_tab)
     {
@@ -238,3 +262,11 @@ function updateAll()
     setVisibleNotVisibleNotVisible(current_tab, not_visible1, not_visible2)
 }
 updateAll();
+
+function setBandSize()
+{
+    for (z=0;z<all_w_d_l;z++)
+    {
+     all_w_d[z].style.height = b_hgt * 0.8;
+    }
+}
