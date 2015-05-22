@@ -22,7 +22,6 @@ document.getElementById('a_tab_' + 3).style.color = '#bdedf3';
 document.getElementById('tab_indicator').style.transition = 'all 0s';
 document.getElementById('content_1').style.width = b_wth;
 getViewport();
-alert(b_hgt);
 setBandSize();
 document.body.onscroll=scrollFuncP;
 
@@ -191,8 +190,8 @@ function openCircleNews(id)
     document.getElementById('FAB_close').style.transition = '0.6s 0.5s';
     document.getElementById('FAB_close').style.left = 45;
     document.getElementById('FAB_close').onclick = function (){closeCircleNews(id);};
-    document.getElementById('circle_news').style.transform = 'scale(300)';
-    document.getElementById('circle_news').style.WebkitTransform = 'scale(300)';
+    document.getElementById('circle_news').style.transform = 'scale(900)';
+    document.getElementById('circle_news').style.WebkitTransform = 'scale(900)';
     document.getElementById('news_content_' + (id)).style.height = 'auto';
     document.getElementById('news_content_' + (id)).style.opacity = 1;
     var left_m = b_wth > 600 ? '8%' : "1.6%";
@@ -244,6 +243,7 @@ function updateAll()
 {
     getViewport();
     setContentWidth();
+    setBandSize();
     switch(current_tab)
     {
         case 1:
