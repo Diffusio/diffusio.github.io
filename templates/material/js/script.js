@@ -1,5 +1,5 @@
 //Variables
-var last_scrollpos_news, current_tab, header_height = document.getElementById('header').offsetHeight;
+var last_scrollpos_news, current_tab=1, header_height = document.getElementById('header').offsetHeight;
 var tab_indic_left = document.getElementById('tab_' + 1).offsetLeft, tab_indic_width = document.getElementById('tab_'+ 1).offsetWidth;
 var social_on = true;
 var b_wth, b_hgt;
@@ -7,6 +7,16 @@ var all_w_d = document.getElementsByClassName('wide_div');
 var all_w_d_l = all_w_d.length;
 var z;
 var cursorX, cursorY;
+var geocoder;
+var pos0, pos1, pos2;
+var map;
+var address = "rue neuve conliege";
+document.onkeydown = checkKey;
+var mapOptions = {
+  zoom: 17,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+}
+var marker;
 
 //Initialisation
 document.getElementById('tab_1').className = "selectedTab";
@@ -20,10 +30,8 @@ document.getElementById('a_tab_' + 1).style.color = 'white';
 document.getElementById('a_tab_' + 2).style.color = '#bdedf3';
 document.getElementById('a_tab_' + 3).style.color = '#bdedf3';
 document.getElementById('tab_indicator').style.transition = 'all 0s';
-document.getElementById('content_1').style.width = b_wth;
 getViewport();
 setBandSize();
-document.body.onscroll=scrollFuncP;
 
 //Fonctions
 function getViewport() {
@@ -51,19 +59,24 @@ function getViewport() {
  return [b_wth, b_hgt];
 }
 
-function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
+function setIndicator()
 {
-    document.getElementById('tab_indicator').style.transition = 'all 0.5s';
-    var left = document.getElementById('tab_' + visible).offsetLeft;
-    var width = document.getElementById('tab_'+ visible).offsetWidth;
+    var left = document.getElementById('tab_' + current_tab).offsetLeft;
+    var width = document.getElementById('tab_'+ current_tab).offsetWidth;
     document.getElementById('tab_indicator').style.left = document.getElementById('nav_div').offsetLeft + left;
     document.getElementById('tab_indicator').style.width = width;
     document.getElementById('tab_indicator_m').style.left = left;
     document.getElementById('tab_indicator_m').style.width = width;
+}
+
+function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
+{
+    current_tab = visible;
+    setIndicator();
+    document.getElementById('tab_indicator').style.transition = 'all 0.5s';
     document.getElementById('a_tab_' + visible).style.color = 'white';
     document.getElementById('a_tab_' + not_visible1).style.color = 'rgb(230,230,230)';
     document.getElementById('a_tab_' + not_visible2).style.color = 'rgb(230,230,230)';
-    current_tab = visible;
     switch(visible)
     {	
         case 1:
@@ -71,12 +84,14 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             {
                 document.getElementById("content_" + i).style.left = b_wth*(i-1);
                 document.getElementById("content_" + i).style.marginLeft = 0;
-                document.getElementById('site_title').style.background = '#009688';
-                document.getElementById('nav_div').style.background = '#009688';
-                document.getElementById('header').className = 'no_shadow no_fixed';
-                document.getElementById('nav_div').className = 'no_shadow';
-                hideSocialFAB();
             }
+            document.getElementById('site_title').style.background = 'transparent';
+            document.getElementById('nav_div').style.background = 'transparent';
+            document.getElementById('header').style.background = 'transparent';
+            document.getElementById('header').className = 'no_shadow';
+            document.getElementById('nav_div').className = 'no_shadow';
+            hideSocialFAB();
+            document.body.style.overflowY = "hidden";
             break;
         case 2:
             document.getElementById("content_2").style.left = 0;
@@ -87,6 +102,7 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('nav_div').style.background = '#e91e63';
             document.getElementById('header').className = '';
             showSocialFAB();
+            document.body.style.overflowY = "auto";
             break;
         case 3:
             document.getElementById("content_3").style.left = 0;
@@ -97,9 +113,10 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('site_title').style.background = '#00BCD4';
             document.getElementById('nav_div').style.background = '#00BCD4';
             document.getElementById('header').className = '';
-            showSocialFAB();
+            document.body.style.overflowY = "auto";
             break;
-    }			
+    }	
+    document.body.scrollTop = 0;
 }
 
 function showSocialFAB()
@@ -129,7 +146,7 @@ function mouse_position(e)
     cursorX = e.clientX;
     cursorY = e.clientY;
 }
-function scrollFuncP(e) {
+/*function scrollFuncP(e) {
         if ( typeof scrollFuncP.x == 'undefined' ) {
             scrollFuncP.x=document.body.scrollTop;
         }
@@ -148,7 +165,7 @@ function scrollFuncP(e) {
             // First scroll event
         }
         scrollFuncP.x=document.body.scrollTop;
-}
+}*/
 
 function openCircleNews(id)
 {
@@ -234,7 +251,7 @@ function setContentWidth()
     b_hgt = document.documentElement.clientHeight;
     for(var i=1;i<=3;i++)
     {
-        document.getElementById("content_" + i).style.width = b_wth - 20;
+        document.getElementById("content_" + i).style.width = b_wth - 50;
         document.getElementById("content_" + i).style.left = b_wth*(i-1);
     }
 }
@@ -259,14 +276,157 @@ function updateAll()
             not_visible2 = 2;
             break;
     }
-    setVisibleNotVisibleNotVisible(current_tab, not_visible1, not_visible2)
+    setVisibleNotVisibleNotVisible(current_tab, not_visible1, not_visible2);
+    setIndicator();
 }
 updateAll();
 
 function setBandSize()
 {
-    for (z=0;z<all_w_d_l;z++)
+    getViewport();
+    all_w_d[0].style.height = b_hgt * 0.8;
+    for (z=1;z<all_w_d_l;z++)
     {
-     all_w_d[z].style.height = b_hgt * 0.8;
+        all_w_d[z].style.height = b_hgt;
+    }
+    pos0 = 0;
+    pos1 = document.getElementById("w_d_1").offsetTop + document.getElementById("w_d_1").offsetHeight;
+    pos2 = document.getElementById("w_d_2").offsetTop + document.getElementById("w_d_2").offsetHeight;
+}
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+    map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+    codeAddress();
+}
+
+function codeAddress() {
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        if(marker)
+          marker.setMap(null);
+        marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+            draggable: true
+        });
+
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+}
+
+
+
+function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '38') {
+        if(current_tab==1)
+        {
+            movePresentationTop();
+        }
+    }
+    else if (e.keyCode == '40') {
+       if(current_tab==1)
+        {
+            movePresentationBottom();
+        }
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+        switch(current_tab)
+        {
+            case 1:
+                setVisibleNotVisibleNotVisible(3,1,3);
+                break;
+            case 2:
+                setVisibleNotVisibleNotVisible(1,2,3);
+                break;
+            case 3:
+                setVisibleNotVisibleNotVisible(2,1,3);
+                break;
+        }
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+        switch(current_tab)
+        {
+            case 1:
+                setVisibleNotVisibleNotVisible(2,1,3);
+                break;
+            case 2:
+                setVisibleNotVisibleNotVisible(3,1,2);
+                break;
+            case 3:
+                setVisibleNotVisibleNotVisible(1,3,2);
+                break;
+        }
+    }
+        return false;
+}
+
+function movePresentationTop()
+{
+
+    if(document.body.scrollTop <= pos1 + 50 && document.body.scrollTop >= pos1 - 50)
+    {
+        document.body.scrollTop = pos0;
+        document.getElementById("FAB_pres").style.opacity = 1;
+        document.getElementById('header').style.background = "transparent";
+    }
+    if(document.body.scrollTop <= pos2 + 50 && document.body.scrollTop >= pos2 - 50)
+    {
+        document.body.scrollTop = pos1;
+        document.getElementById('header').style.background = "gray";
     }
 }
+
+function movePresentationBottom()
+{
+    
+    if(document.body.scrollTop <= pos0 + 50)
+    {
+           document.body.scrollTop = pos1;
+            document.getElementById('header').style.background = "gray";
+           document.getElementById("FAB_pres").style.opacity = 0;
+    }
+    else if(document.body.scrollTop <= pos1 + 50 && document.body.scrollTop >= pos1 - 50)
+    {
+        document.body.scrollTop = pos2;
+        document.getElementById('header').style.background = "transparent";
+    }
+}
+ function MouseScroll (event) {
+            var rolled = 0;
+            if ('wheelDelta' in event) {
+                rolled = event.wheelDelta;
+            }
+            else {  // Firefox
+                    // The measurement units of the detail and wheelDelta properties are different.
+                rolled = -40 * event.detail;
+            }
+            
+            if(rolled < 0)
+                movePresentationBottom();
+            else
+                movePresentationTop();
+}
+
+function Init () {
+        // for mouse scrolling in Firefox
+    var elem = document.getElementById("content_1");
+    if (elem.addEventListener) {    // all browsers except IE before version 9
+            // Internet Explorer, Opera, Google Chrome and Safari
+        elem.addEventListener ("mousewheel", MouseScroll, false);
+            // Firefox
+        elem.addEventListener ("DOMMouseScroll", MouseScroll, false);
+    }
+    else {
+        if (elem.attachEvent) { // IE before version 9
+            elem.attachEvent ("onmousewheel", MouseScroll);
+        }
+    }
+}
+Init();

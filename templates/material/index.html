@@ -9,7 +9,7 @@
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	</head>
-	<body body onmousemove="mouse_position(event)" onresize="updateAll()">	 
+	<body  onload="initialize()" onmousemove="mouse_position(event);setIndicator()" onresize="updateAll()">	 
 		<header id='header' class="">
 	 		<div id="site_title">
 	 			<span>
@@ -219,18 +219,17 @@ Pages will load significantly faster because Denial of Service protection can be
 			</div>
 		</section>
 		<section id="content_3" class='content' >
-		 	<div class="card elevation-1">
-			 	<span class="card_header">
-You reached Tab 3! 
-			 	</span>
-	 			<p>
-A subdomain is configured with a CNAME record through your DNS provider.
-We strongly recommend that you use a custom subdomain for these reasons:
-It gives your GitHub Pages site the benefit of our Content Delivery Network.
-It will not be affected by changes in the underlying IP addresses of GitHub's servers.
-Pages will load significantly faster because Denial of Service protection can be implemented more efficiently.
-				</p>
-			</div>
+		 	<div class="card elevation-1" id="map_card">
+			 	<div id="map_canvas" style="height:300px;"></div>
+			    <div id="map_legend">
+                    <span id="map_legend_header">Localisation</span>
+                    <p id="map_legend_address">UTBM <br>Rue de Belfort<br>90000 SEVENANS</p>
+                    <ul>
+                        <li><img id="leg_open" src="images/open.svg"></li>
+                        <li><img  id="leg_more" src="images/more.svg"></li>
+                    </ul>
+                </div>
+            </div>
 		 	<div class="card elevation-1">
 		 		<span class="card_header">
 Lorem Ipsum 3
@@ -252,6 +251,7 @@ Pages will load significantly faster because .
 		</div>
 		<div id="circle_news"></div>
 		<div id="FAB_close"  class="elevation-2" onclick=""><img id="smartp"   src="images/arrow.png"></div>
-		<script type="text/javascript" src="js/script.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="js/script.js"></script>
 	</body>
 </html>
