@@ -93,6 +93,7 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('nav_div').className = 'no_shadow';
             hideSocialFAB();
             document.body.style.overflowY = "hidden";
+            document.getElementById("pres_progress").style.opacity = 1;
             break;
         case 2:
             document.getElementById("content_2").style.left = 0;
@@ -104,6 +105,7 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('header').className = '';
             showSocialFAB();
             document.body.style.overflowY = "auto";
+            document.getElementById("pres_progress").style.opacity = 0;
             break;
         case 3:
             document.getElementById("content_3").style.left = 0;
@@ -115,6 +117,7 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('nav_div').style.background = '#00BCD4';
             document.getElementById('header').className = '';
             document.body.style.overflowY = "auto";
+            document.getElementById("pres_progress").style.opacity = 0;
             break;
     }	
     document.body.scrollTop = 0;
@@ -279,8 +282,14 @@ function updateAll()
     }
     setVisibleNotVisibleNotVisible(current_tab, not_visible1, not_visible2);
     setIndicator();
+    setPresIndic();
 }
 updateAll();
+
+function setPresIndic()
+{
+    document.getElementById("pres_progress").style.top = b_hgt / 2  - document.getElementById("pres_progress").offsetHeight;   
+}
 
 function setBandSize()
 {
@@ -405,37 +414,69 @@ function Init () {
 }
 Init();
 
+
 function movePresentation(pos_to_go)
 {
-    current_pos = pos_to_go;   
+    current_pos = pos_to_go;  
+    var i;
     switch(pos_to_go)
        {
            case 0:
                 smooth_scroll_to(document.body, pos[0], 600);
                 document.getElementById("FAB_pres").style.opacity = 1;
                 document.getElementById('header').style.background = "transparent";
+                document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "white";
+                document.getElementById("pres_progress_1").getElementsByTagName("DIV")[0].style.background = "transparent";
+                document.getElementById("pres_progress_2").getElementsByTagName("DIV")[0].style.background = "transparent";
+               document.getElementById("indic_1").style.border = "solid white 1px"; 
+               document.getElementById("indic_2").style.border = "solid white 1px"; 
+               document.getElementById("indic_3").style.border = "solid white 1px"; 
                 break;
            case 1:
                 smooth_scroll_to(document.body, pos[1], 600);
                 document.getElementById('header').style.background = "gray";
                 document.getElementById("FAB_pres").style.opacity = 0;
+                document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "transparent";
+                document.getElementById("pres_progress_1").getElementsByTagName("DIV")[0].style.background = "grey";
+                document.getElementById("pres_progress_2").getElementsByTagName("DIV")[0].style.background = "transparent";
+               document.getElementById("indic_1").style.border = "solid grey 1px"; 
+               document.getElementById("indic_2").style.border = "solid grey 1px"; 
+               document.getElementById("indic_3").style.border = "solid grey 1px"; 
                 break;
            case 2:
                 smooth_scroll_to(document.body, pos[2], 600);
                 document.getElementById('header').style.background = "transparent";
                 document.getElementById("FAB_pres").style.opacity = 0;
+                document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "transparent";
+                document.getElementById("pres_progress_1").getElementsByTagName("DIV")[0].style.background = "transparent";
+                document.getElementById("pres_progress_2").getElementsByTagName("DIV")[0].style.background = "white";
+               document.getElementById("indic_1").style.border = "solid white 1px"; 
+               document.getElementById("indic_2").style.border = "solid white 1px"; 
+               document.getElementById("indic_3").style.border = "solid white 1px"; 
                 break;
            case -1:
                 smooth_scroll_to(document.body, pos[2], 600);
                 document.getElementById('header').style.background = "transparent";
                 document.getElementById("FAB_pres").style.opacity = 0;  
                current_pos = 2;
+                document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "transparent";
+                document.getElementById("pres_progress_1").getElementsByTagName("DIV")[0].style.background = "transparent";
+                document.getElementById("pres_progress_2").getElementsByTagName("DIV")[0].style.background = "white";
+               document.getElementById("indic_1").style.border = "solid white 1px"; 
+               document.getElementById("indic_2").style.border = "solid white 1px"; 
+               document.getElementById("indic_3").style.border = "solid white 1px"; 
                break;
             case 3:
                 smooth_scroll_to(document.body, pos[0], 600);
                 document.getElementById('header').style.background = "transparent";
                 document.getElementById("FAB_pres").style.opacity = 1;  
                current_pos = 0;
+                document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "white";
+                document.getElementById("pres_progress_1").getElementsByTagName("DIV")[0].style.background = "transparent";
+                document.getElementById("pres_progress_2").getElementsByTagName("DIV")[0].style.background = "transparent";
+               document.getElementById("indic_1").style.border = "solid white 1px"; 
+               document.getElementById("indic_2").style.border = "solid white 1px"; 
+               document.getElementById("indic_3").style.border = "solid white 1px"; 
                break;
        }
         
@@ -593,3 +634,4 @@ var smooth_scroll_to = function(element, target, duration) {
         setTimeout(scroll_frame, 0);
     });
 }
+movePresentation(0);

@@ -831,3 +831,29 @@ padding: 0;
 {
  transition: 0.6s;   
 }
+
+#pres_progress
+{
+    position:fixed;
+    left: 0;
+    top: 50vh;
+    margin: 0;
+    padding: 0;
+    transition: 0.5s;
+    list-style-type: none;
+}
+
+#pres_progress li
+{
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#pres_progress li div
+{
+    border: solid white 1px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    transition: 0.6s;
+}
