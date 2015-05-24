@@ -486,9 +486,39 @@ function detectSwipe(el,func) {
 function findSwipeDirection(el,d)
 {
     if(d=="u")
-         movePresentation(current_pos - 1);
-    if(d=="d")
          movePresentation(current_pos + 1);
+    if(d=="d")
+         movePresentation(current_pos - 1);
+    if(d=="l")
+    {
+        switch(current_tab)
+        {
+            case 1:
+                setVisibleNotVisibleNotVisible(2,1,3);
+                break;
+            case 2:
+                setVisibleNotVisibleNotVisible(3,1,3);
+                break;
+            case 3:
+                setVisibleNotVisibleNotVisible(1,2,3);
+                break;
+        }   
+    }
+    if(d=="r")
+    {
+        switch(current_tab)
+        {
+            case 1:
+                setVisibleNotVisibleNotVisible(3,1,3);
+                break;
+            case 2:
+                setVisibleNotVisibleNotVisible(1,2,3);
+                break;
+            case 3:
+                setVisibleNotVisibleNotVisible(2,1,3);
+                break;
+        }   
+    }
 }
 
 detectSwipe("body",findSwipeDirection);
