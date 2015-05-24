@@ -485,7 +485,10 @@ function detectSwipe(el,func) {
 
 function findSwipeDirection(el,d)
 {
-    alert("you swiped on element with id '"+el+"' to "+d+" direction");
+    if(d=="u")
+         movePresentation(current_pos - 1);
+    if(d=="d")
+         movePresentation(current_pos + 1);
 }
 
 detectSwipe("body",findSwipeDirection);
