@@ -8,7 +8,8 @@ var all_w_d_l = all_w_d.length;
 var z;
 var cursorX, cursorY;
 var geocoder;
-var pos0, pos1, pos2;
+var pos = new Array();
+var current_pos=0;
 var map;
 var address = "rue neuve conliege";
 document.onkeydown = checkKey;
@@ -289,9 +290,9 @@ function setBandSize()
     {
         all_w_d[z].style.height = b_hgt;
     }
-    pos0 = 0;
-    pos1 = document.getElementById("w_d_1").offsetTop + document.getElementById("w_d_1").offsetHeight;
-    pos2 = document.getElementById("w_d_2").offsetTop + document.getElementById("w_d_2").offsetHeight;
+    pos[0] = 0;
+    pos[1] = document.getElementById("w_d_1").offsetTop + document.getElementById("w_d_1").offsetHeight;
+    pos[2] = document.getElementById("w_d_2").offsetTop + document.getElementById("w_d_2").offsetHeight;
 }
 
 function initialize() {
@@ -325,13 +326,13 @@ function checkKey(e) {
     if (e.keyCode == '38') {
         if(current_tab==1)
         {
-            movePresentationTop();
+            movePresentation(current_pos - 1); 
         }
     }
     else if (e.keyCode == '40') {
        if(current_tab==1)
         {
-            movePresentationBottom();
+           movePresentation(current_pos + 1); 
         }
     }
     else if (e.keyCode == '37') {
@@ -367,38 +368,10 @@ function checkKey(e) {
         return false;
 }
 
-function movePresentationTop()
-{
 
-    if(document.body.scrollTop <= pos1 + 50 && document.body.scrollTop >= pos1 - 50)
-    {
-        document.body.scrollTop = pos0;
-        document.getElementById("FAB_pres").style.opacity = 1;
-        document.getElementById('header').style.background = "transparent";
-    }
-    if(document.body.scrollTop <= pos2 + 50 && document.body.scrollTop >= pos2 - 50)
-    {
-        document.body.scrollTop = pos1;
-        document.getElementById('header').style.background = "gray";
-    }
-}
-
-function movePresentationBottom()
-{
-    
-    if(document.body.scrollTop <= pos0 + 50)
-    {
-           document.body.scrollTop = pos1;
-            document.getElementById('header').style.background = "gray";
-           document.getElementById("FAB_pres").style.opacity = 0;
-    }
-    else if(document.body.scrollTop <= pos1 + 50 && document.body.scrollTop >= pos1 - 50)
-    {
-        document.body.scrollTop = pos2;
-        document.getElementById('header').style.background = "transparent";
-    }
-}
  function MouseScroll (event) {
+        if(current_tab = 1)
+        {
             var rolled = 0;
             if ('wheelDelta' in event) {
                 rolled = event.wheelDelta;
@@ -409,10 +382,11 @@ function movePresentationBottom()
             }
             
             if(rolled < 0)
-                movePresentationBottom();
+                movePresentation(current_pos + 1); 
             else
-                movePresentationTop();
-}
+                movePresentation(current_pos - 1); 
+        }
+        }
 
 function Init () {
         // for mouse scrolling in Firefox
@@ -430,3 +404,88 @@ function Init () {
     }
 }
 Init();
+
+function movePresentation(pos_to_go)
+{
+    current_pos = pos_to_go;   
+    switch(pos_to_go)
+       {
+           case 0:
+                document.body.scrollTop = pos[0];
+                document.getElementById("FAB_pres").style.opacity = 1;
+                document.getElementById('header').style.background = "transparent";
+                break;
+           case 1:
+                document.body.scrollTop = pos[1];
+                document.getElementById('header').style.background = "gray";
+                document.getElementById("FAB_pres").style.opacity = 0;
+                break;
+           case 2:
+                document.body.scrollTop = pos[2];
+                document.getElementById('header').style.background = "transparent";
+                document.getElementById("FAB_pres").style.opacity = 0;
+                break;
+           case -1:
+                document.body.scrollTop = pos[2];
+                document.getElementById('header').style.background = "transparent";
+                document.getElementById("FAB_pres").style.opacity = 0;  
+               current_pos = 2;
+               break;
+            case 3:
+                document.body.scrollTop = pos[0];
+                document.getElementById('header').style.background = "transparent";
+                document.getElementById("FAB_pres").style.opacity = 1;  
+               current_pos = 0;
+               break;
+       }
+        
+}
+
+function detectSwipe(el,func) {
+      swipe_det = new Object();
+      swipe_det.sX = 0;
+      swipe_det.sY = 0;
+      swipe_det.eX = 0;
+      swipe_det.eY = 0;
+      var min_x = 20;  //min x swipe for horizontal swipe
+      var max_x = 40;  //max x difference for vertical swipe
+      var min_y = 40;  //min y swipe for vertical swipe
+      var max_y = 50;  //max y difference for horizontal swipe
+      var direc = "";
+      ele = document.body;
+      ele.addEventListener('touchstart',function(e){
+        var t = e.touches[0];
+        swipe_det.sX = t.screenX; 
+        swipe_det.sY = t.screenY;
+      },false);
+      ele.addEventListener('touchmove',function(e){
+        e.preventDefault();
+        var t = e.touches[0];
+        swipe_det.eX = t.screenX; 
+        swipe_det.eY = t.screenY;    
+      },false);
+      ele.addEventListener('touchend',function(e){
+        //horizontal detection
+        if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) && ((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y)))) {
+          if(swipe_det.eX > swipe_det.sX) direc = "r";
+          else direc = "l";
+        }
+        //vertical detection
+        if ((((swipe_det.eY - min_y > swipe_det.sY) || (swipe_det.eY + min_y < swipe_det.sY)) && ((swipe_det.eX < swipe_det.sX + max_x) && (swipe_det.sX > swipe_det.eX - max_x)))) {
+          if(swipe_det.eY > swipe_det.sY) direc = "d";
+          else direc = "u";
+        }
+    
+        if (direc != "") {
+          if(typeof func == 'function') func(el,direc);
+        }
+        direc = "";
+      },false);  
+}
+
+function findSwipeDirection(el,d)
+{
+    alert("you swiped on element with id '"+el+"' to "+d+" direction");
+}
+
+detectSwipe("body",findSwipeDirection);
