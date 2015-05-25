@@ -52,7 +52,7 @@ MORE
 				 			<span class="slog slog_right">Lorem Ipsum</span>
 				 			<p class="under_slog under_slog_right">Take the tour</p>
 				 		</div>
-				 		<div id="FAB_pres"  class="FAB elevation-2" onclick="">
+				 		<div id="FAB_pres"  class="FAB elevation-2" onclick="movePresentation(1)">
 				 			<img id="arrow_FAB"   src="images/s_arrow_down.png">
 				 		</div>
 		 			</div>
@@ -252,9 +252,9 @@ Pages will load significantly faster because .
 		<div id="circle_news"></div>
 		<div id="FAB_close"  class="elevation-2" onclick=""><img id="smartp"   src="images/arrow.png"></div>
         <ul id="pres_progress">
-            <li id="pres_progress_0"><div id="indic_1"></div></li>
-            <li id="pres_progress_1"><div  id="indic_2"></div></li>
-            <li  id="pres_progress_2"><div  id="indic_3"></div></li>
+            <li id="pres_progress_0"><div id="indic_1" onclick="movePresentation(0)"><span class="indic_title">Lorem Ipsum</span></div></li>
+            <li id="pres_progress_1"><div  id="indic_2"  onclick="movePresentation(1)"><span class="indic_title">Lorem Ipsum</span></div></li>
+            <li  id="pres_progress_2"><div  id="indic_3"  onclick="movePresentation(2)"><span class="indic_title">Lorem Ipsum</span></div></li>
         </ul>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script type="text/javascript" src="js/script.js"></script>

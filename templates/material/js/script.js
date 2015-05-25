@@ -150,26 +150,7 @@ function mouse_position(e)
     cursorX = e.clientX;
     cursorY = e.clientY;
 }
-/*function scrollFuncP(e) {
-        if ( typeof scrollFuncP.x == 'undefined' ) {
-            scrollFuncP.x=document.body.scrollTop;
-        }
-        var diffX=scrollFuncP.x-document.body.scrollTop;
-        if( diffX<0 ) {
-          if(current_tab == 1)
-            {
-                document.getElementById('header').className = 'no_fixed no_shadow';	
-            }
-        } else if( diffX>0 ) {
-            if(current_tab == 1)
-            {
-                document.getElementById('header').className = 'no_shadow';	
-            }
-        } else {
-            // First scroll event
-        }
-        scrollFuncP.x=document.body.scrollTop;
-}*/
+
 
 function openCircleNews(id)
 {
@@ -378,7 +359,8 @@ function checkKey(e) {
 }
 
 
- function MouseScroll (event) {
+ function MouseScroll (event) 
+{
         if(current_tab = 1)
         {
             var rolled = 0;
@@ -395,7 +377,7 @@ function checkKey(e) {
             else
                 movePresentation(current_pos - 1); 
         }
-        }
+}
 
 function Init () {
         // for mouse scrolling in Firefox
@@ -488,10 +470,10 @@ function detectSwipe(el,func) {
       swipe_det.sY = 0;
       swipe_det.eX = 0;
       swipe_det.eY = 0;
-      var min_x = 20;  //min x swipe for horizontal swipe
-      var max_x = 40;  //max x difference for vertical swipe
-      var min_y = 40;  //min y swipe for vertical swipe
-      var max_y = 50;  //max y difference for horizontal swipe
+      var min_x = 150;  //min x swipe for horizontal swipe
+      var max_x = 180;  //max x difference for vertical swipe
+      var min_y = 140;  //min y swipe for vertical swipe
+      var max_y = 180;  //max y difference for horizontal swipe
       var direc = "";
       ele = document.body;
       ele.addEventListener('touchstart',function(e){
