@@ -49,8 +49,13 @@ MORE
 			 		<div class='v_align'>
 				 		<img src="images/logo1.svg" class="logo_left logo">
 				 		<div class='w_text'>
-				 			<span class="slog slog_right">Lorem Ipsum</span>
-				 			<p class="under_slog under_slog_right">Take the tour</p>
+				 			<p class="slog slog_right">
+Introduction
+                            </p>
+				 			<p class="under_slog under_slog_right">
+We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design. This spec is a living document that will be updated as we continue to develop the tenets and specifics of material design.
+
+                            </p>
 				 		</div>
 				 		<div id="FAB_pres"  class="FAB elevation-2" onclick="movePresentation(1)">
 				 			<img id="arrow_FAB"   src="images/s_arrow_down.png">
@@ -60,16 +65,29 @@ MORE
 		 		<div class="wide_div grey" id="w_d_2">
 			 		<div class='v_align'>
 				 		<img src="images/logo2.svg" class="logo_right logo">
-				 		<span class="slog slog_left">This Website</span>
-				 		<p class="under_slog under_slog_left">Is really amazing.</p>
+				 		<p class="slog slog_left">
+Material is the metaphor
+                        </p>
+				 		<p class="under_slog under_slog_left">
+A material metaphor is the unifying theory of a rationalized space and a system of motion. The material is grounded in tactile reality, inspired by the study of paper and ink, yet technologically advanced and open to imagination and magic.
+<br>
+Surfaces and edges of the material provide visual cues that are grounded in reality. The use of familiar tactile attributes helps users quickly understand affordances. Yet the flexibility of the material creates new affordances that supercede those in the physical world, without breaking the rules of physics.
 			 		</div>
 		 		</div>
 		 		<div class="wide_div white" id="w_d_3">
 			 		<div class='v_align'>
 				 		<img src="images/logo3.svg" class="logo_left logo">
 				 		<div class='w_text'>
-				 			<span class="slog slog_right">Material</span>
-				 			<p class="under_slog under_slog_right">Looks so great.</p>
+				 			<p class="slog slog_right">
+Motion provides meaning
+                            </p>
+				 			<p class="under_slog under_slog_right">
+Motion respects and reinforces the user as the prime mover. Primary user actions are inflection points that initiate motion, transforming the whole design.
+<br>
+All action takes place in a single environment. Objects are presented to the user without breaking the continuity of experience even as they transform and reorganize.
+<br>
+Motion is meaningful and appropriate, serving to focus attention and maintain continuity. Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.
+                            </p>
 				 		</div>
 			 		</div>
 		 		</div>
@@ -224,10 +242,9 @@ Pages will load significantly faster because Denial of Service protection can be
 			    <div id="map_legend">
                     <span id="map_legend_header">Localisation</span>
                     <p id="map_legend_address">UTBM <br>Rue de Belfort<br>90000 SEVENANS</p>
-                    <ul>
-                        <li><img id="leg_open" src="images/open.svg"></li>
-                        <li><img  id="leg_more" src="images/more.svg"></li>
-                    </ul>
+                    <img  id="leg_more" src="images/more.svg" onclick="">
+                    <a id="open_link" href="https://www.google.fr/maps/search/UTBM+Belfort" target="_blank"> <img id="leg_open" src="images/open.svg"></a>
+                    
                 </div>
             </div>
 		 	<div class="card elevation-1">
@@ -252,9 +269,27 @@ Pages will load significantly faster because .
 		<div id="circle_news"></div>
 		<div id="FAB_close"  class="elevation-2" onclick=""><img id="smartp"   src="images/arrow.png"></div>
         <ul id="pres_progress">
-            <li id="pres_progress_0"><div id="indic_1" onclick="movePresentation(0)"><span class="indic_title">Lorem Ipsum</span></div></li>
-            <li id="pres_progress_1"><div  id="indic_2"  onclick="movePresentation(1)"><span class="indic_title">Lorem Ipsum</span></div></li>
-            <li  id="pres_progress_2"><div  id="indic_3"  onclick="movePresentation(2)"><span class="indic_title">Lorem Ipsum</span></div></li>
+            <li id="pres_progress_0">
+                <div id="indic_1" onclick="movePresentation(0)">
+                <span class="indic_title">
+Introduction
+                </span>
+                </div>
+            </li>
+            <li id="pres_progress_1">
+                <div  id="indic_2"  onclick="movePresentation(1)">
+                    <span class="indic_title">
+Material is the metaphor
+                    </span>
+                </div>
+            </li>
+            <li  id="pres_progress_2">
+                <div  id="indic_3"  onclick="movePresentation(2)">
+                    <span class="indic_title">
+Motion provides meaning
+                    </span>
+                </div>
+            </li>
         </ul>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script type="text/javascript" src="js/script.js"></script>

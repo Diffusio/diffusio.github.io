@@ -11,7 +11,7 @@ var geocoder;
 var pos = new Array();
 var current_pos=0;
 var map;
-var address = "rue neuve conliege";
+var address = document.getElementById("map_legend_address").innerHTML;
 document.onkeydown = checkKey;
 var mapOptions = {
   zoom: 17,
@@ -33,6 +33,7 @@ document.getElementById('a_tab_' + 3).style.color = '#bdedf3';
 document.getElementById('tab_indicator').style.transition = 'all 0s';
 getViewport();
 setBandSize();
+document.getElementById("open_link").href = "https://www.google.fr/maps/search/" + address.replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+");
 
 //Fonctions
 function getViewport() {
@@ -278,7 +279,7 @@ function setBandSize()
     all_w_d[0].style.height = b_hgt * 0.8;
     for (z=1;z<all_w_d_l;z++)
     {
-        all_w_d[z].style.height = b_hgt;
+        all_w_d[z].style.height= b_hgt;
     }
     pos[0] = 0;
     pos[1] = document.getElementById("w_d_1").offsetTop + document.getElementById("w_d_1").offsetHeight;
