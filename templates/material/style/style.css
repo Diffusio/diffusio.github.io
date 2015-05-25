@@ -637,6 +637,7 @@ header
         background:  #009688;
         width: 100%;
         padding-top: 2px;
+        margin-top: -1;
         height: 28px;
         transition:0.5s;
     }
@@ -862,6 +863,14 @@ header
     margin-bottom: 10px;
     margin-left: 3px;
 }
+    #content_2
+    {
+        top: 100;   
+    }
+    #content_3
+    {
+        top: 100;   
+    }
 }
 
 

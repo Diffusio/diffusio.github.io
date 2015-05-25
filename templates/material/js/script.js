@@ -21,7 +21,6 @@ var marker;
 
 //Initialisation
 document.getElementById('tab_1').className = "selectedTab";
-setVisibleNotVisibleNotVisible(1,2,3);
 var tab_indic_left = document.getElementById('tab_' + 1).offsetLeft, tab_indic_width = document.getElementById('tab_'+ 1).offsetWidth;
 document.getElementById('tab_indicator').style.left = document.getElementById('nav_div').offsetLeft + tab_indic_left;
 document.getElementById('tab_indicator').style.width = tab_indic_width - 5;
@@ -34,9 +33,21 @@ document.getElementById('tab_indicator').style.transition = 'all 0s';
 getViewport();
 setBandSize();
 document.getElementById("open_link").href = "https://www.google.fr/maps/search/" + address.replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+");
-window.location += "#more";
-if(window.location.search.substring("#more"))
-    setVisibleNotVisibleNotVisible(3,2,1);
+if((""+window.location+"").indexOf("#") == -1 && (""+window.location+"").indexOf("#more") == -1 && (""+window.location+"").indexOf("#news") == -1 && (""+window.location+"").indexOf("#presentation") == -1)
+    window.location += "#presentation";
+var index = (""+window.location+"").indexOf("#");
+var root;
+if(index != -1)
+    root = (""+window.location+"").substring(0,index);
+else
+    root = (""+window.location+"")
+if((""+window.location+"") == root + "#presentation")
+    setVisibleNotVisibleNotVisible(1,2,3);
+if((""+window.location+"") == root + "#news")
+    setVisibleNotVisibleNotVisible(2,3,1)
+if((""+window.location+"") == root + "#more")
+    setVisibleNotVisibleNotVisible(3,2,1)
+
 //Fonctions
 function getViewport() {
 
@@ -94,9 +105,9 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('header').style.background = 'transparent';
             document.getElementById('header').className = 'no_shadow';
             document.getElementById('nav_div').className = 'no_shadow';
-            hideSocialFAB();
             document.body.style.overflowY = "hidden";
             document.getElementById("pres_progress").style.opacity = 1;
+            window.location = root + "#presentation"
             break;
         case 2:
             document.getElementById("content_2").style.left = 0;
@@ -106,9 +117,9 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('site_title').style.background = '#e91e63';
             document.getElementById('nav_div').style.background = '#e91e63';
             document.getElementById('header').className = '';
-            hideSocialFAB();
             document.body.style.overflowY = "auto";
             document.getElementById("pres_progress").style.opacity = 0;
+            window.location = root + "#news"
             break;
         case 3:
             document.getElementById("content_3").style.left = 0;
@@ -121,32 +132,10 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('header').className = '';
             document.body.style.overflowY = "auto";
             document.getElementById("pres_progress").style.opacity = 0;
-            hideSocialFAB();
+            window.location = root + "#more"
             break;
     }	
     document.body.scrollTop = 0;
-}
-
-function showSocialFAB()
-{
-    document.getElementById('FAB').style.right = 15;
-}
-function hideSocialFAB()
-{
-    document.getElementById('FAB').style.right = -75;
-}
-function toogleSocial()
-{
-    var social_wth = social_on ? '160px' : '50px';
-    var social_radius = social_on ? '3px 25px 25px 3px' : '25px';
-    var opacity = social_on ? '1' : '0';
-    var color = social_on ? '#B93310' : '#F44336';
-    document.getElementById('FAB').style.width = social_wth;
-    document.getElementById('FAB').style.borderRadius = social_radius;
-    document.getElementById('tw').style.opacity = opacity;
-    document.getElementById('fb').style.opacity = opacity;
-    document.getElementById('round_fab').style.backgroundColor = color;
-    social_on = !social_on;
 }
 
 function mouse_position(e)
