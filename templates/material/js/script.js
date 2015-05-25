@@ -84,9 +84,11 @@ function setIndicator()
     document.getElementById('tab_indicator_m').style.width = width;
 }
 
-function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
+function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2,scroll_to_top)
 {
     current_tab = visible;
+    if(typeof(scroll_to_top) == 'undefined')
+        scroll_to_top = true;
     setIndicator();
     document.getElementById('tab_indicator').style.transition = 'all 0.5s';
     document.getElementById('a_tab_' + visible).style.color = 'white';
@@ -135,7 +137,8 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             window.location = root + "#more"
             break;
     }	
-    document.body.scrollTop = 0;
+    if(scroll_to_top)
+        document.body.scrollTop = 0;
 }
 
 function mouse_position(e)
@@ -254,7 +257,7 @@ function updateAll()
             not_visible2 = 2;
             break;
     }
-    setVisibleNotVisibleNotVisible(current_tab, not_visible1, not_visible2);
+    setVisibleNotVisibleNotVisible(current_tab, not_visible1, not_visible2,false);
     setIndicator();
     setPresIndic();
 }
