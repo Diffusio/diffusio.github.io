@@ -14,7 +14,7 @@ var map;
 var address = document.getElementById("map_legend_address").innerHTML;
 document.onkeydown = checkKey;
 var mapOptions = {
-  zoom: 17,
+  zoom: 15,
   mapTypeId: google.maps.MapTypeId.ROADMAP
 }
 var marker;
@@ -34,7 +34,9 @@ document.getElementById('tab_indicator').style.transition = 'all 0s';
 getViewport();
 setBandSize();
 document.getElementById("open_link").href = "https://www.google.fr/maps/search/" + address.replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+");
-
+window.location += "#more";
+if(window.location.search.substring("#more"))
+    setVisibleNotVisibleNotVisible(3,2,1);
 //Fonctions
 function getViewport() {
 
@@ -104,7 +106,7 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById('site_title').style.background = '#e91e63';
             document.getElementById('nav_div').style.background = '#e91e63';
             document.getElementById('header').className = '';
-            showSocialFAB();
+            hideSocialFAB();
             document.body.style.overflowY = "auto";
             document.getElementById("pres_progress").style.opacity = 0;
             break;
@@ -114,11 +116,12 @@ function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)
             document.getElementById("content_3").style.marginLeft = 0;
             document.getElementById("content_1").style.marginLeft = (-2)*b_wth;
             document.getElementById("content_2").style.marginLeft = -b_wth;
-            document.getElementById('site_title').style.background = '#00BCD4';
-            document.getElementById('nav_div').style.background = '#00BCD4';
+            document.getElementById('site_title').style.background = '#607d8b';
+            document.getElementById('nav_div').style.background = '#607d8b';
             document.getElementById('header').className = '';
             document.body.style.overflowY = "auto";
             document.getElementById("pres_progress").style.opacity = 0;
+            hideSocialFAB();
             break;
     }	
     document.body.scrollTop = 0;
@@ -309,7 +312,6 @@ function codeAddress() {
       }
     });
 }
-
 
 
 function checkKey(e) {
@@ -618,3 +620,51 @@ var smooth_scroll_to = function(element, target, duration) {
     });
 }
 movePresentation(0);
+
+function openMapDropdown()
+{
+    document.getElementById("dropdown_map").style.transition = "max-height 5s, max-width 5s, opacity 0.3s"
+    document.getElementById("drop_item_1").style.transition = "font-size 0.3s";
+    document.getElementById("drop_item_2").style.transition = "font-size 0.3s";
+    document.getElementById("dropdown_map").style.opacity = 1;
+    document.getElementById("drop_item_1").style.fontSize = "15px";
+    document.getElementById("drop_item_2").style.fontSize = "15px";
+    document.getElementById("dropdown_map").style.maxWidth = "9999px";
+    document.getElementById("dropdown_map").style.maxHeight = "9999px";
+}
+
+function closeMapDropdown()
+{
+    document.getElementById("dropdown_map").style.transition = "max-height 0.3s, max-width 0.3s, opacity 0.3s"
+    document.getElementById("drop_item_1").style.transition = "font-size 0.3s";
+    document.getElementById("drop_item_2").style.transition = "font-size 0.3s";
+    document.getElementById("dropdown_map").style.opacity = 0;
+    document.getElementById("drop_item_1").style.fontSize = "0em";
+    document.getElementById("drop_item_2").style.fontSize = "0em";
+    document.getElementById("dropdown_map").style.maxWidth = "0px";
+    document.getElementById("dropdown_map").style.maxHeight = "0px";
+}
+
+function openSocialDropdown()
+{
+    document.getElementById("dropdown_social").style.transition = "max-height 5s, max-width 5s, opacity 0.3s"
+    document.getElementById("drop_social_item_1").style.transition = "font-size 0.3s";
+    document.getElementById("drop_social_item_2").style.transition = "font-size 0.3s";
+    document.getElementById("dropdown_social").style.opacity = 1;
+    document.getElementById("drop_social_item_1").style.fontSize = "15px";
+    document.getElementById("drop_social_item_2").style.fontSize = "15px";
+    document.getElementById("dropdown_social").style.maxWidth = "9999px";
+    document.getElementById("dropdown_social").style.maxHeight = "9999px";
+}
+
+function closeSocialDropdown()
+{
+    document.getElementById("dropdown_social").style.transition = "max-height 0.3s, max-width 0.3s, opacity 0.3s"
+    document.getElementById("drop_social_item_1").style.transition = "font-size 0.3s";
+    document.getElementById("drop_social_item_2").style.transition = "font-size 0.3s";
+    document.getElementById("dropdown_social").style.opacity = 0;
+    document.getElementById("drop_social_item_1").style.fontSize = "0em";
+    document.getElementById("drop_social_item_2").style.fontSize = "0em";
+    document.getElementById("dropdown_social").style.maxWidth = "0px";
+    document.getElementById("dropdown_social").style.maxHeight = "0px";
+}

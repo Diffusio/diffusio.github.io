@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Diffusio</title>
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+	    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
 		<link rel='stylesheet' href='style/style.css'>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
 		<meta charset="utf-8">
@@ -238,23 +238,54 @@ Pages will load significantly faster because Denial of Service protection can be
 		</section>
 		<section id="content_3" class='content' >
 		 	<div class="card elevation-1" id="map_card">
-			 	<div id="map_canvas" style="height:300px;"></div>
-			    <div id="map_legend">
+			 	<div id="map_canvas" style="height:255px;"></div>
+			    <div id="map_legend" class="elevation-1">
                     <span id="map_legend_header">Localisation</span>
                     <p id="map_legend_address">UTBM <br>Rue de Belfort<br>90000 SEVENANS</p>
-                    <img  id="leg_more" src="images/more.svg" onclick="">
-                    <a id="open_link" href="https://www.google.fr/maps/search/UTBM+Belfort" target="_blank"> <img id="leg_open" src="images/open.svg"></a>
-                    
+                    <img  id="leg_more" src="images/more_w.png" onclick="openMapDropdown()">
+                    <a id="open_link" href="https://www.google.fr/maps/search/UTBM+Belfort" target="_blank">
+                    <div id="FAB_map"  class="elevation-2" onclick=""><img id="smartp"   src="images/open.svg"></div></a>
+                    <ul id="dropdown_map" class="paper-shadow-top-z-2 paper-shadow-bottom-z-2">
+                    	<li id="drop_item_1" onclick="closeMapDropdown()">
+                    		Copy address
+                    	</li>
+                    	<li id="drop_item_2" onclick="closeMapDropdown()">
+                    		Open in Maps
+                    	</li>
+                    </ul>
                 </div>
             </div>
-		 	<div class="card elevation-1">
-		 		<span class="card_header">
-Lorem Ipsum 3
-		 		</span>
-		 		<p>
-Note: Some DNS providers support configuring apex domains with an ALIAS or ANAME record, but there is no industry standard for these. Some DNS providers (like DNSimple) allow an apex domain configured with an ALIAS or ANAME record to point to some other domain name.It will not be affected by changes in the underlying IP addresses of GitHub's servers.
-Pages will load significantly faster because .
-				</p>
+		 	<div class="card elevation-1 social_card">
+		 		<div class="elevation-1" id="social_header">
+Contact us
+<img src="images/more_w.png" id="more_social" onclick="openSocialDropdown()">
+<ul id="dropdown_social" class="paper-shadow-top-z-2 paper-shadow-bottom-z-2">
+                    	<li id="drop_social_item_1" onclick="closeSocialDropdown()">
+                    		Copy IDs
+                    	</li>
+                    	<li id="drop_social_item_2" onclick="closeSocialDropdown()">
+                    		…
+                    	</li>
+                    </ul>
+		 		</div>
+		 		<ul id="social_list">
+			 		<li>
+			 			<div class="icon_rounder" id="ic_fb"><img id="fb_img" src="images/facebook.png"></div>
+			 			<span id="fb_id">FacebookID</span>
+			 		</li>
+			 		<li>
+                        <div class="icon_rounder" id="ic_tw"><img id="tw_img" src="images/twitter.png"></div>
+			 			<span id="tw_id">TwitterID</span>
+			 		</li>
+			 		<li>
+                        <div class="icon_rounder" id="ic_gp"><img id="gp_img" src="images/googleplus.png"></div>
+			 			<span id="gp_id">Google+ID</span>
+			 		</li>
+			 		<li>
+                        <div class="icon_rounder" id="ic_m"><img id="m_img" src="images/mail.png"></div>
+			 			<span id="m_id">sample@mail.com</span>
+			 		</li>
+		 		</ul>
 			</div>
 		</section>
 		<div onclick="toogleSocial();" id="FAB" class="FAB elevation-2">
@@ -291,7 +322,7 @@ Motion provides meaning
                 </div>
             </li>
         </ul>
-        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        <script type="text/javascript" src="js/script.js"></script>
+       <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+       <script type="text/javascript" src="js/script.js"></script>
 	</body>
 </html>

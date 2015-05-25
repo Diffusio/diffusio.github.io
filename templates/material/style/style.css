@@ -386,6 +386,20 @@ header
     cursor: pointer;
 }
 
+#FAB_map
+{
+    width: 50;
+    height: 50;
+    border-radius: 25px;
+    background:  #ffeb3b;
+    position: absolute;
+    top: -25;
+    text-align: center;
+    z-index: 6;
+    right: 20;
+    cursor: pointer;
+}
+
 #smartp
 {
     position: absolute;
@@ -859,6 +873,7 @@ header
 #map-canvas 
 {
     height: 400px; 
+    z-index: 2;
 }
 
 #map_card
@@ -870,6 +885,9 @@ header
 {
     text-align: left;
     padding: 10;
+    margin-top: 5;
+    background: #5677FC;
+    z-index: 5;
     position: relative;
 
 }
@@ -879,37 +897,242 @@ header
 #leg_more
 {
     position: absolute;
-    top: 10;
     right: 10;
+    bottom: 10;
     width: 20;
     height: 20;
     cursor: pointer;
 }
 
-#leg_open
-{
-    position: absolute;
-    z-index: 3;
-    bottom: 10;
-    right: 10;
-    width: 20;
-    height: 20;
-    cursor: pointer;
-}
+
 
 
 #map_legend #map_legend_header
 {
     font-size: 20px;
+    color: white;
 }
 
 #map_legend_address
 {
     font-size: 12px;
-    color: darkgray;
+    color: rgb(240,240,240);
 }
 #header
 {
  transition: 0.6s;   
 }
 
+#dropdown_map
+{
+    background: white;
+    border-radius: 2px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 8;
+    transition: all 0.5s;
+    bottom: 8;
+    max-height: 0;
+    max-width: 0;
+    list-style-type: none;
+    opacity: 0;
+    z-index: 7;
+}
+
+
+#dropdown_map li
+{
+    padding-left: 10;
+    padding-top: 10;
+    padding-bottom: 10;
+    padding-right: 10;
+    color:#313131;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: opacity 0.01s 0.5s;
+    font-size: 0px;
+}
+
+#dropdown_map li:hover
+{
+    background: #DCDCDC;
+}
+
+.paper-shadow-top-z-1 {
+  box-shadow: none;
+}
+
+.paper-shadow-bottom-z-1 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+.paper-shadow-top-z-2 {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.paper-shadow-bottom-z-2 {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.paper-shadow-top-z-3 {
+  box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19);
+}
+
+.paper-shadow-bottom-z-3 {
+  box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+}
+
+.paper-shadow-top-z-4 {
+  box-shadow: 0 14px 12px 0 rgba(0, 0, 0, 0.17);
+}
+
+.paper-shadow-bottom-z-4 {
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+.paper-shadow-top-z-5 {
+  box-shadow: 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+}
+
+.paper-shadow-bottom-z-5 {
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3);
+}
+
+.social_card
+{
+    padding:0;
+    background: white;
+    color: white;
+}
+
+.social_card #social_header
+{
+    font-size: 1.8em;
+    padding: 20;
+    z-index: 5;
+    background: #e91e63;
+    text-align: left;
+    margin-bottom: 5;
+    position: relative;
+}
+
+#social_list
+{
+    background: white;
+    z-index: 4;
+    list-style-type: none;
+    color: #313131;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#social_list li
+{
+    padding: 10 10 10 10;
+    border-bottom: solid rgb(240,240,240) 1px;
+    cursor: pointer;
+}
+
+#social_list li:hover
+{
+    background: rgb(210,210,210);   
+}
+
+#social_list li:last-child
+{
+    padding: 10 10 10 10;
+    border-bottom: none;
+}
+
+#social_list li div
+{
+    vertical-align: middle;
+    width: 50;
+    height: 50;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 20;
+}
+
+#social_list li div img
+{
+    position: relative;
+    width: 30;
+    height: 30;
+    top: 10;
+    left: 10;
+}
+
+#ic_fb
+{
+    background: #3f51b5;    
+}
+
+#ic_tw
+{
+    background: #42a5f5;    
+}
+
+#ic_gp
+{
+    background: #d32f2f;
+}
+
+#ic_m
+{
+    background: #00bfa5;
+}
+
+#social_list li a
+{
+    vertical-align: middle;
+    font-size: 1.2em;
+    display: inline-block;
+}
+#more_social
+{
+    position: absolute;
+    top: 25;
+    height: 25;
+    cursor: pointer;
+    right: 20;
+}
+
+
+#dropdown_social
+{
+    background: white;
+    border-radius: 2px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 20;
+    top: 20;
+    max-height: 0px;
+    max-width: 0px;
+    list-style-type: none;
+    opacity: 0;
+    z-index: 5;
+    transition: max-height 0.6s,max-width 0.6s;
+}
+
+
+#dropdown_social li
+{
+    padding-left: 10;
+    padding-top: 10;
+    padding-bottom: 10;
+    padding-right: 10;
+    color:#313131;
+    font-size: 17px;
+    cursor: pointer;
+    transition: opacity 0.01s 0.5s;
+    font-size: 0px;
+}
+
+#dropdown_social li:hover
+{
+    background: #DCDCDC;
+}
