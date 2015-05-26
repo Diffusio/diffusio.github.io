@@ -1147,7 +1147,7 @@ header
     background: #DCDCDC;
 }
 
-@media screen and (max-height:650px)
+@media screen and (max-height:650px and min-width:700)
 {
      .slog
     {
