@@ -240,6 +240,7 @@ function setContentWidth()
 
 function updateAll()
 {
+    detectSwipe("body",findSwipeDirection);
     getViewport();
     setContentWidth();
     setBandSize();
@@ -480,7 +481,7 @@ function detectSwipe(el,func) {
         swipe_det.sY = t.screenY;
       },false);
       ele.addEventListener('touchmove',function(e){
-       // e.preventDefault();
+       if(current_tab==1) e.preventDefault();
         var t = e.touches[0];
         swipe_det.eX = t.screenX; 
         swipe_det.eY = t.screenY;    
@@ -546,7 +547,6 @@ function findSwipeDirection(el,d)
     }
 }
 
-detectSwipe("body",findSwipeDirection);
 
 var smooth_scroll_to = function(element, target, duration) {
     target = Math.round(target);
