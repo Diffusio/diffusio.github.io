@@ -248,7 +248,7 @@ header
 
     .slog
     {
-        font-size: 3em;
+        font-size: 2.5em;
         font-weight: 300;
     }
 
@@ -784,10 +784,11 @@ header
 
     .slog
     {
-        font-size: 1.5em;
+        font-size: 1.6em;
         display:block;
         width:90%;
         margin:auto;
+        margin-bottom: 0;
         font-weight: 300;
         
     }
@@ -805,6 +806,7 @@ header
     .under_slog
     {
         font-size: 1em;
+        margin-top: -50;
         font-weight: 400;
         display:block;
         width:90%;
@@ -1143,4 +1145,33 @@ header
 #dropdown_social li:hover
 {
     background: #DCDCDC;
+}
+
+@media screen and (max-height:650px)
+{
+     .slog
+    {
+        font-size: 1.6em;
+        font-weight: 300;
+    }
+
+    .slog_right
+    {
+        margin-left: 50%;
+        width: 50%;
+    }
+
+    .slog_left
+    {
+        margin-left: 5%;
+        width: 50%;
+    }
+
+    .under_slog
+    {
+        font-size: 1.2em;
+        font-weight: 400;
+        text-align: justify;
+        margin-top: -20;
+    }   
 }

@@ -9,6 +9,7 @@ var z;
 var cursorX, cursorY;
 var geocoder;
 var pos = new Array();
+var scrolling = false;
 var current_pos=0;
 var map;
 var address = document.getElementById("map_legend_address").innerHTML;
@@ -394,14 +395,16 @@ Init();
 
 function movePresentation(pos_to_go)
 {
+    if(scrolling == false)
+    {
     current_pos = pos_to_go;  
     var i;
     switch(pos_to_go)
        {
            case 0:
-                smooth_scroll_to(document.body, pos[0], 600);
+                scrollTo(document.body, pos[0], 500);
                 document.getElementById("FAB_pres").style.opacity = 1;
-                document.getElementById('header').style.background = "transparent";
+                document.getElementById('header').style.background = "#009688";
                 document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "white";
                 document.getElementById("pres_progress_1").getElementsByTagName("DIV")[0].style.background = "transparent";
                 document.getElementById("pres_progress_2").getElementsByTagName("DIV")[0].style.background = "transparent";
@@ -410,7 +413,7 @@ function movePresentation(pos_to_go)
                document.getElementById("indic_3").style.border = "solid white 1px"; 
                 break;
            case 1:
-                smooth_scroll_to(document.body, pos[1], 600);
+                scrollTo(document.body, pos[1], 500);
                 document.getElementById('header').style.background = "gray";
                 document.getElementById("FAB_pres").style.opacity = 0;
                 document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "transparent";
@@ -421,8 +424,8 @@ function movePresentation(pos_to_go)
                document.getElementById("indic_3").style.border = "solid grey 1px"; 
                 break;
            case 2:
-                smooth_scroll_to(document.body, pos[2], 600);
-                document.getElementById('header').style.background = "transparent";
+                scrollTo(document.body, pos[2], 500);
+                document.getElementById('header').style.background = "#E61875";
                 document.getElementById("FAB_pres").style.opacity = 0;
                 document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "transparent";
                 document.getElementById("pres_progress_1").getElementsByTagName("DIV")[0].style.background = "transparent";
@@ -433,7 +436,7 @@ function movePresentation(pos_to_go)
                 break;
            case -1:
                 smooth_scroll_to(document.body, pos[2], 600);
-                document.getElementById('header').style.background = "transparent";
+                document.getElementById('header').style.background = "#E61875";
                 document.getElementById("FAB_pres").style.opacity = 0;  
                current_pos = 2;
                 document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "transparent";
@@ -444,8 +447,8 @@ function movePresentation(pos_to_go)
                document.getElementById("indic_3").style.border = "solid white 1px"; 
                break;
             case 3:
-                smooth_scroll_to(document.body, pos[0], 600);
-                document.getElementById('header').style.background = "transparent";
+                scrollTo(document.body, pos[0], 500);
+                document.getElementById('header').style.background = "#009688";
                 document.getElementById("FAB_pres").style.opacity = 1;  
                current_pos = 0;
                 document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "white";
@@ -456,7 +459,7 @@ function movePresentation(pos_to_go)
                document.getElementById("indic_3").style.border = "solid white 1px"; 
                break;
        }
-        
+    }
 }
 
 function detectSwipe(el,func) {
@@ -555,7 +558,7 @@ var smooth_scroll_to = function(element, target, duration) {
         element.scrollTop = target;
         return Promise.resolve();
     }
-
+    
     var start_time = Date.now();
     var end_time = start_time + duration;
 
@@ -613,6 +616,24 @@ var smooth_scroll_to = function(element, target, duration) {
     });
 }
 movePresentation(0);
+
+function scrollTo(element, to, duration) {
+  if (duration < 0) return;
+  var difference = to - element.scrollTop;
+  var perTick = difference / duration * 10;
+scrolling=true;
+
+  setTimeout(function() {
+    element.scrollTop = element.scrollTop + perTick;
+    if (element.scrollTop == to)
+    {
+        scrolling=false;
+        return;
+    }
+    scrollTo(element, to, duration - 10);
+  }, 10);
+    
+}
 
 function openMapDropdown()
 {

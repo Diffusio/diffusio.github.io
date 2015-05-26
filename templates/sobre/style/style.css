@@ -331,7 +331,7 @@ section
 
     #w_d_1
     {
-     background: url(../images/dotted-world.svg) no-repeat center fixed;
+     background: url(../images/wall1.jpg) no-repeat center fixed;
 
   -webkit-background-size: cover; /* pour anciens Chrome et Safari */
   background-size: cover; /* version standardisée */
