@@ -48,6 +48,11 @@ body
     transition: transform 1s;
 }
 
+a 
+{
+    text-decoration: none;
+}
+
 *
 {
     -webkit-box-sizing:border-box;
@@ -1062,6 +1067,11 @@ header
     padding: 10 10 10 10;
     border-bottom: solid rgb(240,240,240) 1px;
     cursor: pointer;
+}
+
+#social_list a
+{
+    color: #31313;
 }
 
 #social_list li:hover
