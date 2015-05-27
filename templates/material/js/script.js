@@ -54,6 +54,9 @@ document.getElementById('tab_indicator').style.transition = 'all 0s';
 getViewport();
 setBandSize();
 document.getElementById("open_link").href = "https://www.google.fr/maps/search/" + address.replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+");
+document.getElementById("open_link_1").href = "https://www.google.fr/maps/search/" + address.replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+");
+document.getElementById("open_link_2").href = "https://www.here.com/search/" + address.replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace("<br>"," ").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+").replace(" ","+");
+
 if((""+window.location+"").indexOf("#") == -1 && (""+window.location+"").indexOf("#more") == -1 && (""+window.location+"").indexOf("#news") == -1 && (""+window.location+"").indexOf("#presentation") == -1)
     window.location += "#presentation";
 var index = (""+window.location+"").indexOf("#");
@@ -660,9 +663,11 @@ function openMapDropdown()
     document.getElementById("dropdown_map").style.transition = "max-height 5s, max-width 5s, opacity 0.3s"
     document.getElementById("drop_item_1").style.transition = "font-size 0.3s";
     document.getElementById("drop_item_2").style.transition = "font-size 0.3s";
+    document.getElementById("drop_item_3").style.transition = "font-size 0.3s";
     document.getElementById("dropdown_map").style.opacity = 1;
     document.getElementById("drop_item_1").style.fontSize = "15px";
     document.getElementById("drop_item_2").style.fontSize = "15px";
+    document.getElementById("drop_item_3").style.fontSize = "15px";
     document.getElementById("dropdown_map").style.maxWidth = "9999px";
     document.getElementById("dropdown_map").style.maxHeight = "9999px";
 }
@@ -672,9 +677,11 @@ function closeMapDropdown()
     document.getElementById("dropdown_map").style.transition = "max-height 0.3s, max-width 0.3s, opacity 0.3s"
     document.getElementById("drop_item_1").style.transition = "font-size 0.3s";
     document.getElementById("drop_item_2").style.transition = "font-size 0.3s";
+    document.getElementById("drop_item_3").style.transition = "font-size 0.3s";
     document.getElementById("dropdown_map").style.opacity = 0;
     document.getElementById("drop_item_1").style.fontSize = "0em";
     document.getElementById("drop_item_2").style.fontSize = "0em";
+    document.getElementById("drop_item_3").style.fontSize = "0em";
     document.getElementById("dropdown_map").style.maxWidth = "0px";
     document.getElementById("dropdown_map").style.maxHeight = "0px";
 }
