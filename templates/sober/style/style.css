@@ -841,6 +841,32 @@ ul
 {
 	width: 90%;
 }
+    .logo
+    {
+        display: block;
+        position: relative;
+        width: 200px;
+        max-height: 170px;
+        margin: auto;
+        margin-bottom: 20;
+    }
+    .logo_right, .logo_left
+    {
+        top: 0;
+        left: 0;
+    }
+    .slog
+    {
+        display: block;
+        width: 90%;
+        margin:auto;
+    }
+    .under_slog
+    {
+        display: block;
+        width: 90%;
+        margin:auto;
+    }
 }
 
 .material-icon {
@@ -870,7 +896,7 @@ ul
 
 .arrow
 {
-   -webkit-transform: translateY(-30px) rotate(180deg); 
+   -webkit-transform: translateY(-30px) rotate(-179.5deg); 
 }
 
 .hamburger span {
@@ -904,3 +930,16 @@ ul
   width: 20px;
 }
 /* This part is added to the hamburger css so they have the same height and positioning. */
+
+#shadow
+{
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -10;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: 0.5s;
+}

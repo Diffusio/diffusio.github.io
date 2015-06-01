@@ -123,12 +123,16 @@ function openDrawer()
     document.getElementById('sideBar').style.left = 0;
     drawer_opened = true;
     document.getElementById('arrow').className = "material-icon hamburger arrow";
+    document.getElementById('shadow').style.zIndex = 20;
+     document.getElementById('shadow').style.opacity = 1;
 }
 function closeDrawer()
 {
     document.getElementById('sideBar').style.left = -310;
     document.getElementById('arrow').className = "material-icon hamburger";
     drawer_opened = false;
+        document.getElementById('shadow').style.zIndex = -10;
+     document.getElementById('shadow').style.opacity = 0;
 }
 
 
