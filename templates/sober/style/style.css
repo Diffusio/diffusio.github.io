@@ -480,7 +480,7 @@ section
 .social_card
 {
     padding:0;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.3);
     color: white;
 }
 
@@ -490,7 +490,7 @@ section
     padding: 20;
     z-index: 5;
     background: #e91e63;
-    background: rgba(233,30,99,0.6);
+    background: rgba(10,10,10,0.1);
     text-align: left;
     position: relative;
 }
@@ -638,7 +638,7 @@ section
     text-align: left;
     padding: 10;
     background: #5677FC;
-    background: rgba(90,119,252,0.4);
+    background: rgba(10,10,10,0.2);
     z-index: 5;
     position: relative;
 
