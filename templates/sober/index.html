@@ -24,8 +24,6 @@ License
 		<title>Sober</title>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500' rel='stylesheet' type='text/css'>
 		<link rel='stylesheet' href='style/style.css'>
-		<script src="js/jquery.js"></script>
-		<script src="js/side.js"></script>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -42,22 +40,28 @@ License
 				<a onclick="setVisibleNotVisibleNotVisible(3,2,1);"><li class="floatLeft buttonUnSelected" id='tab_3'>About</li></a>
 			</ul>
 		</ul>
-		<ul id="navTiny">
-			<li id="sideOpen" class="floatLeft"><a href="#" class="menu-icon border-icon">menu icon</a></li>
+		<ul id="navTiny" onclick="toogleDrawer()">
+			<li id="sideOpen" class="floatLeft">
+<div id="arrow" class="material-icon hamburger">
+			<span class="first"></span>
+			<span class="second"></span>
+			<span class="third"></span>
+		</div>
+			</li>
 			<li id="title_tiny" class="floatLeft">Diffusio</li>
 		</ul>
 	 </header>
-		<ul class='sideBar'>
+		<ul id='sideBar'>
 			<li>
 				<ul class=''>
-					 <li class="sideHeader"><div class='icon-left-open size2em' id='sideClose' style='color: #000;'><div class="arrow-left"></div><span href="leftPadding50">Navigation</span></div></li>
-					 <a   onclick="setVisibleNotVisibleNotVisible(1,2,3)"><li class="subPage">Presentation</li></a>
-					 <a   onclick="setVisibleNotVisibleNotVisible(2,3,1)"><li class="subPage">News</li></a>
-					 <a   onclick="setVisibleNotVisibleNotVisible(3,1,2)"><li class="subPage">More</li></a>
+					 <!--<li id="sideHeader" onclick="closeDrawer()"><div class='icon-left-open size2em' id='sideClose' style='color: #000;'><div class="arrow-left"></div><span href="leftPadding50">Navigation</span></div></li>-->
+					 <a   onclick="setVisibleNotVisibleNotVisible(1,2,3)"><li class="subPage side_selected"  onclick="closeDrawer()" id="sb_1">Presentation</li></a>
+					 <a   onclick="setVisibleNotVisibleNotVisible(2,3,1)"><li class="subPage" onclick="closeDrawer()" id="sb_2">News</li></a>
+					 <a   onclick="setVisibleNotVisibleNotVisible(3,1,2)"><li class="subPage" onclick="closeDrawer()" id="sb_3">More</li></a>
 				</ul>
 			</li>
 		</ul>
-		<div id="content_1" class="content">
+		<div id="content_1"  onclick="closeDrawer()" class="content">
 			<div class="wide_div white" id="w_d_1">
 			 		<div class='v_align'>
 				 		<div class='w_text'>
