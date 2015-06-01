@@ -872,6 +872,11 @@ ul
         margin:auto;
         margin-top: 10;
     }
+    .news_datetime
+    {
+        position: static;
+        margin-bottom: 10;
+    }
 }
 
 .material-icon {
