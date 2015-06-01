@@ -126,27 +126,30 @@ header
     padding: 10;
     margin:10;
     cursor: pointer;
-    border: 1px solid white;
+    border: 1px solid rgba(255,255,255,0.5);
     transition: all 0.5s;
+    border:none;
 }
 
+.buttonUnSelected:hover
+{
+    background: rgb(255,255,255);
+    background: rgba(255,255,255,0.2);
+}
 
 .button
 {
     padding: 10;
     margin:10;
     cursor: pointer;
-    color:rgb(30,30,30);
-    border: 1px solid white;
-    background: white;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.5);
+    border: none;
+    background: rgba(255,255,255,0.4);
     transition: all 0.5s;
 }
 
-.button:hover
-{
-    background: white;
-    color: rgb(30,30,30);
-}
+
 
 .sideBar
 {
@@ -366,7 +369,7 @@ section
 
     #w_d_2
     {
-      background: lightgray;
+      background: white;
     }
 
     #w_d_3
@@ -768,7 +771,7 @@ section
     background: white;
     color: black;
     margin: 10;
-    width: 500;
+    width: 50%;
     margin: 5 auto;
     position: relative;
     padding: 15;
