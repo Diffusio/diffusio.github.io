@@ -334,6 +334,7 @@ header
 #content_2
 {
     padding-top: 100;
+    padding-bottom: 100;
     min-height: 100%;
     background: url(../images/wall_news.jpg) no-repeat center fixed;
       -webkit-background-size: cover; /* pour anciens Chrome et Safari */
@@ -804,6 +805,9 @@ section
     background: rgba(150,150,150,0.5);
     color: #313131;
 }
+
+
+
 ul
 {
   list-style-type: none;
@@ -866,6 +870,7 @@ ul
         display: block;
         width: 90%;
         margin:auto;
+        margin-top: 10;
     }
 }
 

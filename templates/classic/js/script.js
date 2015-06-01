@@ -59,7 +59,7 @@ function openCircleNews(id)
     document.getElementById('news_' + id).getElementsByClassName('news_summary')[0].style.display = "none";
     document.getElementById('news_content_' + id).style.display = "block";
     document.getElementById('news_' + id).getElementsByClassName('read_more')[0].innerHTML = "CLOSE";
-    document.getElementById('news_' + id).getElementsByClassName('read_more')[0].onclick = function () { closeCircleNews(id); };
+    document.getElementById('news_' + id).getElementsByClassName('read_more')[0].onmousedown = function () { closeCircleNews(id); };
     document.body.scrollTop = document.getElementById('news_' + id).offsetTop - 10;
 }
 
@@ -68,7 +68,7 @@ function closeCircleNews(id)
     document.getElementById('news_' + id).getElementsByClassName('news_summary')[0].style.display = "block";
     document.getElementById('news_content_' + id).style.display = "none";
     document.getElementById('news_' + id).getElementsByClassName('read_more')[0].innerHTML = "READ MORE";
-    document.getElementById('news_' + id).getElementsByClassName('read_more')[0].onclick = function () { openCircleNews(id); };
+    document.getElementById('news_' + id).getElementsByClassName('read_more')[0].onmousedown = function () { openCircleNews(id); };
 }
 
 function setVisibleNotVisibleNotVisible(visible, not_visible1, not_visible2)

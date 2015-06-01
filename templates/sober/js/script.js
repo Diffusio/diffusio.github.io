@@ -55,10 +55,12 @@ function codeAddress() {
 }
 function openCircleNews(id)
 {
+    document.getElementById('news_' + id).getElementsByClassName('read_more')[0].onmousedown = function () { closeCircleNews(id); };
+    
     document.getElementById('news_' + id).getElementsByClassName('news_summary')[0].style.display = "none";
     document.getElementById('news_content_' + id).style.display = "block";
     document.getElementById('news_' + id).getElementsByClassName('read_more')[0].innerHTML = "CLOSE";
-    document.getElementById('news_' + id).getElementsByClassName('read_more')[0].onclick = function () { closeCircleNews(id); };
+    document.body.scrollTop = document.getElementById('news_' + id).offsetTop - 10;
 }
 
 function closeCircleNews(id)
@@ -66,7 +68,7 @@ function closeCircleNews(id)
     document.getElementById('news_' + id).getElementsByClassName('news_summary')[0].style.display = "block";
     document.getElementById('news_content_' + id).style.display = "none";
     document.getElementById('news_' + id).getElementsByClassName('read_more')[0].innerHTML = "READ MORE";
-    document.getElementById('news_' + id).getElementsByClassName('read_more')[0].onclick = function () { openCircleNews(id); };
+    document.getElementById('news_' + id).getElementsByClassName('read_more')[0].onmousedown = function () { openCircleNews(id); };
 }
 
 function setUnselected(tabid)
@@ -134,31 +136,3 @@ function closeDrawer()
         document.getElementById('shadow').style.zIndex = -10;
      document.getElementById('shadow').style.opacity = 0;
 }
-
-
-
-(function() {
-
-  'use strict';
-
-  document.querySelector('.material-design-hamburger__icon').addEventListener(
-    'click',
-    function() {      
-      var child;
-      
-      document.body.classList.toggle('background--blur');
-      this.parentNode.nextElementSibling.classList.toggle('menu--on');
-
-      child = this.childNodes[1].classList;
-
-      if (child.contains('material-design-hamburger__icon--to-arrow')) {
-        child.remove('material-design-hamburger__icon--to-arrow');
-        child.add('material-design-hamburger__icon--from-arrow');
-      } else {
-        child.remove('material-design-hamburger__icon--from-arrow');
-        child.add('material-design-hamburger__icon--to-arrow');
-      }
-
-    });
-
-})();
