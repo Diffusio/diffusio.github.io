@@ -63,6 +63,11 @@ body
 {
         display: table-cell;
     vertical-align: middle;
+}   
+
+ul
+{
+    list-style-type: none;
 }
 
 #header
@@ -177,6 +182,9 @@ body
 .content_header
 {
     padding: 30;   
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 #c_h_2

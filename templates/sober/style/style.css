@@ -902,11 +902,13 @@ ul
 .hamburger 
 {
   -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .arrow
 {
-   -webkit-transform: translateY(-30px) rotate(-179.5deg); 
+   -webkit-transform: translateY(-30px) rotate(-179.5deg);   
+    transform: translateY(-30px) rotate(-179.5deg); 
 }
 
 .hamburger span {
@@ -915,10 +917,12 @@ ul
  
 .hamburger .second {
   -webkit-transform: translateY(10px);
+    transform: translateY(10px);
 }
  
 .hamburger .third{
   -webkit-transform: translateY(20px);
+    transform: translateY(20px);
 }
 /* This part is added to the hamburger css so they have the same height and positioning. */
 .hamburger span {
@@ -927,16 +931,19 @@ ul
  
 .arrow .second {
   -webkit-transform: translateY(10px);
+    transform: translateY(10px);
 }
  
 .arrow .third{
   -webkit-transform: translateY(29px) rotate(-45deg) translateX(16px);
+    transform: translateY(29px) rotate(-45deg) translateX(16px);
   width: 20px;
 }
 
 .arrow .first
 {
   -webkit-transform: rotate(45deg) translateX(9px) translateY(-6px);
+    transform: rotate(45deg) translateX(9px) translateY(-6px);
   width: 20px;
 }
 /* This part is added to the hamburger css so they have the same height and positioning. */

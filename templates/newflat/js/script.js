@@ -16,11 +16,20 @@
 License
  * along with this program. If not, see <http://www.gnu.org/licenses/>. 
 */
+var last_scroll_pos = 0; 
+var dS;
+var y=document.getElementById('cover').style.top;
 
-function update()
+function update()  
 {
         var icons = document.getElementsByClassName('tab_img');
         var tabs = document.getElementsByClassName('sub_tab');
+        dS = (document.body.scrollTop - last_scroll_pos) * 0.2;
+        y=document.getElementById('cover').style.top;
+        y = parseInt(y);
+        y -= dS;
+        document.getElementById('cover').style.top = y;
+        document.getElementById('cover').style.top -= parseInt(dS);
     if(document.body.scrollTop >= document.getElementById("content_1").offsetTop - 110)
     {
         document.getElementById('header').style.position = 'fixed';
@@ -44,4 +53,12 @@ function update()
         document.getElementById('header').style.height = '40vh';
         
     }
+    last_scroll_pos = document.body.scrollTop;
+}
+
+function scrollToTop()
+{
+    document.body.scrollTop = 0;
+    last_scroll_pos = 0;
+    document.getElementById('cover').style.top=0;   
 }
