@@ -34,7 +34,7 @@ body
 {
 	margin: 0;
 	padding: 0;
-	font-family:Roboto, sans-serif;
+	font-family:'Roboto', sans-serif;
 	background: #072C3E;
     position: relative;
 }
@@ -54,7 +54,7 @@ body
 {
     color: white;
     font-size: 18vh;
-    font-weight: 100;
+    font-weight: 200;
 
 }
 
@@ -62,7 +62,7 @@ body
 {
     color: rgb(240,240,240);
     font-size: 5vh;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .valign
@@ -85,6 +85,7 @@ ul
     position: relative;
     top: 60vh;
     display: table;
+    font-weight: 200;
     width: 100%;
     z-index: 5000;
 }
@@ -122,14 +123,14 @@ ul
     width: 33.3%;
     cursor: pointer;
     text-align: center;
-    font-weight: 400;
+    font-weight: 200;
 }
 
 .sub_tab
 {
     list-style-type: none;
     font-size: 30px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .tab_img
@@ -313,6 +314,7 @@ ul
     float: left;
     color: white;
     width: 25%;
+    font-weight: 200;
     font-size: 25;
 }
 
