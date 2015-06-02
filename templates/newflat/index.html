@@ -43,34 +43,72 @@ License
             <div class="valign">
             <ul id="tabs">
                 <li>
-                    <ul class="sub_tab">
+                    <a href="#content_1"><ul  class="sub_tab">
                         <li><img src="images/tab1.png" class="tab_img"></li>
                         <li id="subtab1li">Presentation</li>
-                    </ul>
+                    </ul></a>
                 </li>
                 <li>
-                    <ul class="sub_tab">
+                    <a href="#content_2"><ul class="sub_tab">
                         <li><img src="images/tab2.png" class="tab_img"></li>
                         <li>News</li>
-                    </ul>
+                    </ul></a>
                 </li>
                 <li>
-                    <ul class="sub_tab">
+                    <a href="#content_3"><ul class="sub_tab">
                         <li><img src="images/tab3.png" class="tab_img"></li>
                         <li>More</li>
-                    </ul>
+                    </ul></a>
                 </li>
             </ul>
             </div>
         </div>
-        <div id="content_1">
+        <div id="content_1" name="content_1">
         </div>
-        <div id="content_2">
-        <div class="content_header" id="c_h_2">News</div>
+        <div id="content_2"  name="content_2">
+        <div id="header_2" >
+            <div>News</div>
         </div>
-        <div id="content_3"></div>
-        <div id="footer"></div>
-        <div id="header_1"></div>
+        <div id="content_3"  name="content_3">
+            <div id="header_3">
+            <div>More</div>
+        </div>
+            <div id="footer">
+                 <div id="social_container">
+                 <ul>   
+                    <li> <ul>
+                        <li><img src="images/facebook.png"></li>  
+                        <li>FlatFB</li>  
+                    </ul></li>
+                    <li> <ul>
+                        <li><img src="images/twitter.png"></li>  
+                        <li>FlatTW</li>  
+                    </ul></li>
+                     <li><ul>
+                        <li><img src="images/googleplus.png"></li>  
+                        <li>FlatGP</li>  
+                    </ul></li>
+                    <li><ul>
+                        <li><img src="images/mail.png"></li>  
+                        <li>flat@diffusio.co</li>  
+                    </ul></li>
+                 </ul>
+                </div>
+                <div id='footer_bottom'>
+                    Flat
+                </div>
+            </div>
+            </div>
+        
+        <div id="header_1">
+            <div>Presentation</div>
+        </div>
+        <ul id="h1_tabs" class="h_tabs">
+            <a href="#content_1"><li>Presentation</li></a>
+            <a href="#content_2"><li>News</li></a>
+            <a href="#content_3"><li>More</li></a>
+            <li><img src="images/logo.png" onclick="scrollToTop()"></li>
+            </ul>
         <div id="FAB" onclick="scrollToTop()">
             <img src="images/arrow_up.png">
         </div>

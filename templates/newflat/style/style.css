@@ -17,6 +17,12 @@ License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+a 
+{
+    color: white;
+    text-decoration: none;
+}
+
 *
 {   
   -webkit-box-sizing:border-box;
@@ -142,12 +148,19 @@ ul
 
 #content_2
 {
-    height: 100vh;
+    height: 130vh;
     top:60vh;
     position: relative;
     background: white;
 }
 
+#content_3
+{
+    height: 130vh;
+    top:130vh;
+    position: relative;
+    background: lightgray;
+}
 
 #FAB
 {
@@ -174,9 +187,9 @@ ul
 #footer
 {
     background: #263238;
-    position: relative;
-    top:60vh;
-    height: 300px
+    position: absolute;
+    bottom:0;
+    width: 100%;
 }
 
 .content_header
@@ -190,4 +203,129 @@ ul
 #c_h_2
 {
     background: #26C6DA;
+}
+
+
+
+#header_1
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #E91E63;
+    z-index: 10000;
+    color: white;
+    display: none;
+}
+
+#header_1 div
+{
+    padding: 25;
+    font-size: 45px;
+    font-weight: 200;
+}
+
+#header_2
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: #26C6DA;
+    z-index: 11000;
+    color: white;
+    display: block;
+}
+
+#header_2 div
+{
+    padding: 25;
+    font-size: 45px;
+    font-weight: 200;
+}
+
+#header_3
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: #3F51B5;
+    z-index: 11000;
+    color: white;
+    display: block;
+}
+
+#header_3 div
+{
+    padding: 25;
+    font-size: 45px;
+    font-weight: 200;
+}
+#h1_tabs
+{
+    margin: 0;
+    padding: 0;   
+    position: fixed;
+    z-index: 90010;
+    right: 10;
+    display: none;
+    font-weight: 200;
+    top: 0;
+        color: white;
+    font-size: 25px;
+}
+
+#h1_tabs li
+{
+    float: left;
+    cursor: pointer;
+    padding: 36 20;
+}
+
+#h1_tabs img
+{
+  height: 65px;
+  margin-top: -20px;
+    vertical-align: top;
+}
+
+#footer
+{
+    text-align: center;   
+}
+
+#social_container
+{
+    margin: auto;
+    text-align: center;
+    display: block;
+    width: 50%;
+    margin: 20 auto;
+}
+
+#social_container > ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+#social_container > ul > li
+{
+    float: left;
+    color: white;
+    width: 25%;
+    font-size: 25;
+}
+
+#social_container > ul > li > ul > li > img
+{
+    width: 30;
+}
+
+#footer_bottom
+{
+    margin-top: 140;   
+    color: lightgrey;
+    font-size: 18;
+    padding: 15;
+    background: rgba(0,0,0,0.2);
 }

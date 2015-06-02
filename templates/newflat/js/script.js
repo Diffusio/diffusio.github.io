@@ -30,29 +30,26 @@ function update()
         y -= dS;
         document.getElementById('cover').style.top = y;
         document.getElementById('cover').style.top -= parseInt(dS);
-    if(document.body.scrollTop >= document.getElementById("content_1").offsetTop - 110)
+    if(document.body.scrollTop >= document.getElementById("content_1").offsetTop - 110 && document.body.scrollTop <= ( document.getElementById("content_2").offsetTop - document.getElementById('header_1').offsetHeight ))
     {
-        document.getElementById('header').style.position = 'fixed';
-        document.getElementById('header').style.top = '0';
-        icons[0].style.display = 'none';
-        icons[1].style.display = 'none';
-        icons[2].style.display = 'none';
-        document.getElementById('header').style.height = 'auto';
-        document.getElementById('header').style.padding =' 5 10';
-        tabs[0].style.width = 'auto';
-        tabs[1].style.width = 'auto';
-        tabs[2].style.width = 'auto';
+        document.getElementById('header_1').style.display = "block";
     }
     else
     {
-        document.getElementById('header').style.position = 'relative';
-        document.getElementById('header').style.top = '60vh';
-        icons[0].style.display = 'inline';
-        icons[1].style.display = 'inline';
-        icons[2].style.display = 'inline';
-        document.getElementById('header').style.height = '40vh';
-        
+        document.getElementById('header_1').style.display = "none";
     }
+     if(document.body.scrollTop >= document.getElementById("content_1").offsetTop - 110)
+        document.getElementById('h1_tabs').style.display = "block";
+    else
+        document.getElementById('h1_tabs').style.display = "none";
+    if(document.body.scrollTop >= document.getElementById('content_2').offsetTop && document.body.scrollTop >= document.getElementById('content_2').offsetTop)
+        document.getElementById('header_2').style.position = 'fixed';
+    else
+        document.getElementById('header_2').style.position = 'absolute';
+    if(document.body.scrollTop > document.getElementById('content_2').offsetTop + document.getElementById('content_2').offsetHeight)
+        document.getElementById('header_3').style.position = 'fixed';
+    else
+        document.getElementById('header_3').style.position = 'absolute';
     last_scroll_pos = document.body.scrollTop;
 }
 
