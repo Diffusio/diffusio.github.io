@@ -1,0 +1,79 @@
+<!--
+ * Diffusio - Build presentation websites easily
+ * Copyright (C) 2015 Pierre JACQUIER - Grégoire DUVAUCHELLE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 2.1 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public 
+License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+
+<DOCTYPE html>
+<html>
+	<head>
+		<title>Diffusio</title>
+		<link rel='stylesheet' href='style/style.css'>
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+		<meta charset="utf-8">
+			<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	</head>
+	<body onscroll="update()">	 
+        <div id="cover">
+            <div class="valign" id="text">
+            <span id="title">Flat</span>
+            <p id="under_slog">Lorem Ipsum est domino.</p>
+                </div>
+            <div class="valign" id="logo">
+                <img src="images/logo.png">
+            </div>
+        </div>
+        <div id="header">
+            <div class="valign">
+            <ul id="tabs">
+                <li>
+                    <ul class="sub_tab">
+                        <li><img src="images/tab1.png" class="tab_img"></li>
+                        <li id="subtab1li">Presentation</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="sub_tab">
+                        <li><img src="images/tab2.png" class="tab_img"></li>
+                        <li>News</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="sub_tab">
+                        <li><img src="images/tab3.png" class="tab_img"></li>
+                        <li>More</li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <div id="content_1">
+        </div>
+        <div id="content_2">
+        <div class="content_header" id="c_h_2"></div>
+        </div>
+        <div id="content_3"></div>
+        <div id="footer"></div>
+        <div id="FAB" onclick="document.body.scrollTop = 0">
+            <img src="images/arrow_up.png">
+        </div>
+		<script type="text/javascript" src="js/script.js"></script> 
+		
+	</body>
+</html>

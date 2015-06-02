@@ -1,0 +1,185 @@
+/*
+ * Diffusio - Build presentation websites easily
+ * Copyright (C) 2015 Pierre JACQUIER - Grégoire DUVAUCHELLE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 2.1 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public 
+License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+*
+{   
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family:Roboto, sans-serif;
+	background: #072C3E;
+    position: relative;
+}
+
+#cover
+{
+    height: 60vh;  
+    max-height: 60vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: table;
+    padding: 40;
+}
+
+#cover #title
+{
+    color: white;
+    font-size: 18vh;
+    font-weight: 100;
+
+}
+
+#cover #under_slog
+{
+    color: rgb(240,240,240);
+    font-size: 5vh;
+    font-weight: 300;
+}
+
+.valign
+{
+        display: table-cell;
+    vertical-align: middle;
+}
+
+#header
+{
+    background: #E91E63;
+    height: 40vh;
+    max-height: 40vh;
+    padding: 30;
+    position: relative;
+    top: 60vh;
+    display: table;
+    width: 100%;
+    z-index: 5000;
+}
+
+#logo
+{
+    width: 40%;   
+    padding: 50;
+    text-align: center;
+}
+
+#logo img
+{
+   width: 200;
+    
+}
+
+#text
+{
+      width: 60%; 
+    padding: 30;
+}
+
+#tabs
+{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 5vh;
+}
+
+#tabs > li
+{
+    float: left;
+    width: 33.3%;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 400;
+}
+
+.sub_tab
+{
+    list-style-type: none;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.tab_img
+{
+    width: 160;
+    padding: 0 40;
+}
+
+#content_1
+{
+    height: 100vh;
+    position: relative;
+    top: 60vh;
+    background: #EC407A;
+}
+
+#content_2
+{
+    height: 100vh;
+    top:60vh;
+    position: relative;
+    background: white;
+}
+
+
+#FAB
+{
+    width: 50;
+    height: 50;
+    border-radius: 50%;
+    background: white;
+    position: fixed;
+    right: 5;
+    bottom: 5;
+    z-index: 4000;
+    cursor: pointer;
+}
+
+#FAB img
+{
+    width: 40;
+    height: 40;
+    position: relative;
+    left: 5;
+    top: 5;
+}
+
+#footer
+{
+    background: #263238;
+    position: relative;
+    top:60vh;
+    height: 300px
+}
+
+.content_header
+{
+    padding: 30;   
+}
+
+#c_h_2
+{
+    background: #26C6DA;
+}
