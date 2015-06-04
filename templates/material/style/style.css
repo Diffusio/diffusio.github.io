@@ -1204,3 +1204,45 @@ header
         margin-top: -20;
     }   
 }
+
+#splash
+{
+    width: 200%;
+    height: 250vh;
+    position: fixed;
+    transition: 2.5s 1s;
+    border-radius: 50%;
+    top:-500;
+    left:-500;
+    background: yellow;
+    z-index: 200;
+}
+
+#splash #anim
+{
+    text-align: center;
+    width: 40;
+    height: 40;
+    left: 50vw;
+    margin-left: -20px;
+    transition: 0.5s 1s;
+    top: 50vh;
+    margin-top: -20px;
+    z-index: 210;
+    position: fixed;
+}
+
+#anim_loading
+{
+    text-align: center;
+    position: fixed;
+    display: inline-block;
+    transition: 0.5s 1s;
+    margin-left: -60px;
+    font-size: 40;
+    font-weight: 200;
+    z-index: 210;
+    color: #313131;
+    top: 50vh;
+    margin-top: 80;
+}

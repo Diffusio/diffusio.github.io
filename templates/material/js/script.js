@@ -77,7 +77,13 @@ if((""+window.location+"") == root + "#news")
     setVisibleNotVisibleNotVisible(2,3,1)
 if((""+window.location+"") == root + "#more")
     setVisibleNotVisibleNotVisible(3,2,1)
+var splash = document.getElementById('splash');
+splash.style.width = 0;
+splash.style.height = 0;
+document.getElementById('anim').style.opacity = 0;
+document.getElementById('anim_loading').style.opacity = 0;
 
+    
 //Fonctions
 function getViewport() {
 

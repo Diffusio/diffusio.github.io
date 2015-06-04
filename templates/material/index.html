@@ -30,6 +30,11 @@ License
 		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	</head>
 	<body  onload="initialize()" onmousemove="mouse_position(event);setIndicator()" onresize="updateAll()">	 
+        <div id="splash">
+            <img src="images/anim.gif" id="anim">
+            
+        </div>
+        <div id="anim_loading"><span>Loading …</span></div>
 		<header id='header' class="">
 	 		<div id="site_title">
 	 			<span>
@@ -348,7 +353,9 @@ Motion provides meaning
                 </div>
             </li>
         </ul>
+        
        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
        <script type="text/javascript" src="js/script.js"></script>
+        
 	</body>
 </html>
