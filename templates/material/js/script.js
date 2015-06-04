@@ -17,7 +17,7 @@ License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 var scripts =  document.getElementsByTagName('script');
-var torefreshs = ['myscript.js', 'myscript2.js'] ; // list of js to be refresh
+var torefreshs = ['script.js'] ; // list of js to be refresh
 var key = 1; // change this key every time you want force a refresh
 for(var i=0;i<scripts.length;i++){ 
    for(var j=0;j<torefreshs;j++){ 
