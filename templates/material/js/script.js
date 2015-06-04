@@ -594,7 +594,6 @@ function findSwipeDirection(el,d)
 function animation(effectFrame, duration, from, to, easing, framespacing) {
     var start = Date.now(),
         change = to - from;
-   
     duration = duration || 1000;
     if(typeof from === 'function') {
         easing = from;
@@ -609,9 +608,11 @@ function animation(effectFrame, duration, from, to, easing, framespacing) {
         var time = (Date.now() - start);
          if(time < duration) {
             effectFrame(easing(0, time, from, change, duration));
+             scrolling = true;
             window.setTimeout(interval, framespacing );
         } else {
             effectFrame(to);
+            scrolling = false;
         }
     }());
 }
@@ -620,7 +621,9 @@ function animation(effectFrame, duration, from, to, easing, framespacing) {
 window.smoothScrollTo = function (target, duration) {
     var start = window.pageYOffset;        
     duration = duration || 500;
+    
     animation(function(position) { window.scroll(0,position); }, duration, start, target);
+    
 };
 movePresentation(0);
 

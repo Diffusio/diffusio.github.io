@@ -367,6 +367,13 @@ header
     bottom: -25;
     right: 155;
     z-index: 10;
+    transition: 0.5s;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+}
+
+#FAB_pres:hover
+{
+       box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 }
 
 #arrow_FAB
@@ -1211,7 +1218,7 @@ header
     width: 250vw;
     height: 250vh;
     position: fixed;
-    transition: all 2.5s 1s, opacity 0s;
+    transition: all 2.5s 1s, opacity 0;
     border-radius: 50%;
     top:-100vh;
     opacity: 1;
