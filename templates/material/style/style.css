@@ -1207,13 +1207,13 @@ header
 
 #splash
 {
-    width: 200%;
+    width: 250vw;
     height: 250vh;
     position: fixed;
     transition: 2.5s 1s;
     border-radius: 50%;
-    top:-500;
-    left:-500;
+    top:-100vh;
+    left:-100vw;
     background: yellow;
     z-index: 200;
 }
