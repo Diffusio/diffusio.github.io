@@ -16,11 +16,35 @@
 License
  * along with this program. If not, see <http://www.gnu.org/licenses/>. 
 */
+
+Array.prototype.shuffle = function() {
+  var i = this.length, j, temp;
+  if ( i == 0 ) return this;
+  while ( --i ) {
+     j = Math.floor( Math.random() * ( i + 1 ) );
+     temp = this[i];
+     this[i] = this[j];
+     this[j] = temp;
+  }
+}
+
 var last_scroll_pos = 0; 
 var dS;
 var b_wth, b_hgt;
+var news = document.getElementsByClassName('news');
+var news_l = news.length;
 var y=document.getElementById('cover').style.top;
-
+var colors = ["#F44336","#E91E63","#9C27B0","#673AB7","#3F51B5","#2196F3","#009688","#4CAF50","#FF5722","#795548","#607D8B"];
+colors.shuffle();
+var j=0;
+for(var i=0;i<news_l;i++)
+{
+    news[i].style.background = colors[j];
+    if(j>9)
+        j = 0;
+    else 
+        j++;
+}
 
 function getViewport() {
 
@@ -50,8 +74,6 @@ function getViewport() {
 
 function openCircleNews(id)
 {
-    var news = document.getElementsByClassName('news');
-    var news_l = news.length;
     var i;
     for(i=0;i<news_l;i++)
         if(news[i].id != ('news_' + id))
