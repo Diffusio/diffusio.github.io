@@ -446,7 +446,7 @@ function movePresentation(pos_to_go)
     switch(pos_to_go)
        {
            case 0:
-                scrollTo(document.body, pos[0], 500);
+                smoothScrollTo(pos[0]);
                 document.getElementById("FAB_pres").style.opacity = 1;
                 document.getElementById('header').style.background = "#009688";
                 document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "white";
@@ -457,7 +457,7 @@ function movePresentation(pos_to_go)
                document.getElementById("indic_3").style.border = "solid white 1px"; 
                 break;
            case 1:
-                scrollTo(document.body, pos[1], 500);
+                smoothScrollTo(pos[1]);
                 document.getElementById('header').style.background = "gray";
                 document.getElementById("FAB_pres").style.opacity = 0;
                 document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "transparent";
@@ -468,7 +468,7 @@ function movePresentation(pos_to_go)
                document.getElementById("indic_3").style.border = "solid grey 1px"; 
                 break;
            case 2:
-                scrollTo(document.body, pos[2], 500);
+                smoothScrollTo(pos[2]);
                 document.getElementById('header').style.background = "#E61875";
                 document.getElementById("FAB_pres").style.opacity = 0;
                 document.getElementById("pres_progress_0").getElementsByTagName("DIV")[0].style.background = "transparent";
@@ -479,7 +479,7 @@ function movePresentation(pos_to_go)
                document.getElementById("indic_3").style.border = "solid white 1px"; 
                 break;
            case -1:
-                smooth_scroll_to(document.body, pos[2], 600);
+                smoothScrollTo(pos[2]);
                 document.getElementById('header').style.background = "#E61875";
                 document.getElementById("FAB_pres").style.opacity = 0;  
                current_pos = 2;
@@ -491,7 +491,7 @@ function movePresentation(pos_to_go)
                document.getElementById("indic_3").style.border = "solid white 1px"; 
                break;
             case 3:
-                scrollTo(document.body, pos[0], 500);
+                smoothScrollTo(pos[0]);
                 document.getElementById('header').style.background = "#009688";
                 document.getElementById("FAB_pres").style.opacity = 1;  
                current_pos = 0;
@@ -512,10 +512,10 @@ function detectSwipe(el,func) {
       swipe_det.sY = 0;
       swipe_det.eX = 0;
       swipe_det.eY = 0;
-      var min_x = 150;  //min x swipe for horizontal swipe
-      var max_x = 180;  //max x difference for vertical swipe
-      var min_y = 140;  //min y swipe for vertical swipe
-      var max_y = 180;  //max y difference for horizontal swipe
+      var min_x = 600;  //min x swipe for horizontal swipe
+      var max_x = 300;  //max x difference for vertical swipe
+      var min_y = 200;  //min y swipe for vertical swipe
+      var max_y = 600;  //max y difference for horizontal swipe
       var direc = "";
       ele = document.body;
       ele.addEventListener('touchstart',function(e){
@@ -591,73 +591,37 @@ function findSwipeDirection(el,d)
 }
 
 
-var smooth_scroll_to = function(element, target, duration) {
-    target = Math.round(target);
-    duration = Math.round(duration);
-    if (duration < 0) {
-        return Promise.reject("bad duration");
+function animation(effectFrame, duration, from, to, easing, framespacing) {
+    var start = Date.now(),
+        change = to - from;
+   
+    duration = duration || 1000;
+    if(typeof from === 'function') {
+        easing = from;
+        from = 0;
     }
-    if (duration === 0) {
-        element.scrollTop = target;
-        return Promise.resolve();
-    }
+    easing = easing || function(x, t, b, c, d) { return c*t/d+b; };
+    from = from || 0;
+    to = to || 1;
+    framespacing = framespacing || 1;
     
-    var start_time = Date.now();
-    var end_time = start_time + duration;
-
-    var start_top = element.scrollTop;
-    var distance = target - start_top;
-
-    // based on http://en.wikipedia.org/wiki/Smoothstep
-    var smooth_step = function(start, end, point) {
-        if(point <= start) { return 0; }
-        if(point >= end) { return 1; }
-        var x = (point - start) / (end - start); // interpolation
-        return x*x*(3 - 2*x);
-    }
-
-    return new Promise(function(resolve, reject) {
-        // This is to keep track of where the element's scrollTop is
-        // supposed to be, based on what we're doing
-        var previous_top = element.scrollTop;
-
-        // This is like a think function from a game loop
-        var scroll_frame = function() {
-            if(element.scrollTop != previous_top) {
-                reject("interrupted");
-                return;
-            }
-
-            // set the scrollTop for this frame
-            var now = Date.now();
-            var point = smooth_step(start_time, end_time, now);
-            var frameTop = Math.round(start_top + (distance * point));
-            element.scrollTop = frameTop;
-
-            // check if we're done!
-            if(now >= end_time) {
-                resolve();
-                return;
-            }
-
-            // If we were supposed to scroll but didn't, then we
-            // probably hit the limit, so consider it done; not
-            // interrupted.
-            if(element.scrollTop === previous_top
-                && element.scrollTop !== frameTop) {
-                resolve();
-                return;
-            }
-            previous_top = element.scrollTop;
-
-            // schedule next frame for execution
-            setTimeout(scroll_frame, 0);
+    (function interval() {
+        var time = (Date.now() - start);
+         if(time < duration) {
+            effectFrame(easing(0, time, from, change, duration));
+            window.setTimeout(interval, framespacing );
+        } else {
+            effectFrame(to);
         }
-
-        // boostrap the animation process
-        setTimeout(scroll_frame, 0);
-    });
+    }());
 }
+           
+
+window.smoothScrollTo = function (target, duration) {
+    var start = window.pageYOffset;        
+    duration = duration || 500;
+    animation(function(position) { window.scroll(0,position); }, duration, start, target);
+};
 movePresentation(0);
 
 function scrollTo(element, to, duration) {
