@@ -147,3 +147,38 @@ function scrollToTop()
     last_scroll_pos = 0;
     document.getElementById('cover').style.top=0;   
 }
+
+function animation(effectFrame, duration, from, to, easing, framespacing) {
+    var start = Date.now(),
+        change = to - from;
+    duration = duration || 1000;
+    if(typeof from === 'function') {
+        easing = from;
+        from = 0;
+    }
+    easing = easing || function(x, t, b, c, d) { return c*t/d+b; };
+    from = from || 0;
+    to = to || 1;
+    framespacing = framespacing || 1;
+    
+    (function interval() {
+        var time = (Date.now() - start);
+         if(time < duration) {
+            effectFrame(easing(0, time, from, change, duration));
+             scrolling = true;
+            window.setTimeout(interval, framespacing );
+        } else {
+            effectFrame(to);
+            scrolling = false;
+        }
+    }());
+}
+           
+
+window.smoothScrollTo = function (target, duration) {
+    var start = window.pageYOffset;        
+    duration = duration || 500;
+    
+    animation(function(position) { window.scroll(0,position); }, duration, start, target);
+    
+};

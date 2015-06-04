@@ -44,19 +44,19 @@ License
             <div class="valign">
             <ul id="tabs">
                 <li>
-                    <a href="#content_1"><ul  class="sub_tab">
+                    <a onclick="smoothScrollTo(document.getElementById('content_1').offsetTop)"><ul  class="sub_tab">
                         <li><img src="images/tab1-1.png" class="tab_img"></li>
                         <li id="subtab1li">Presentation</li>
                     </ul></a>
                 </li>
                 <li>
-                    <a href="#content_2"><ul class="sub_tab">
+                    <a  onclick="smoothScrollTo(document.getElementById('content_2').offsetTop)"><ul class="sub_tab">
                         <li><img src="images/tab2-2.png" class="tab_img"></li>
                         <li>News</li>
                     </ul></a>
                 </li>
                 <li>
-                    <a href="#content_3"><ul class="sub_tab">
+                    <a  onclick="smoothScrollTo(document.getElementById('content_3').offsetTop)"><ul class="sub_tab">
                         <li><img src="images/tab3.png" class="tab_img"></li>
                         <li>More</li>
                     </ul></a>
@@ -308,12 +308,12 @@ flat@diffusio.co
             <div>Presentation</div>
         </div>
         <ul id="h1_tabs" class="h_tabs">
-            <a href="#content_1"><li>Presentation</li></a>
-            <a href="#content_2"><li>News</li></a>
-            <a href="#content_3"><li>More</li></a>
-            <li><img src="images/logo.png" onclick="scrollToTop()"></li>
+            <a   onclick="smoothScrollTo(document.getElementById('content_1').offsetTop)"><li>Presentation</li></a>
+            <a   onclick="smoothScrollTo(document.getElementById('content_2').offsetTop)"><li>News</li></a>
+            <a   onclick="smoothScrollTo(document.getElementById('content_3').offsetTop)"><li>More</li></a>
+            <li><img src="images/logo.png" onclick="smoothScrollTo(0);    last_scroll_pos = 0;    document.getElementById('cover').style.top=0; "></li>
             </ul>
-        <div id="FAB" onclick="scrollToTop()">
+        <div id="FAB"  onclick="smoothScrollTo(0);    last_scroll_pos = 0;    document.getElementById('cover').style.top=0;   ">
             <img src="images/arrow_up.png">
         </div>
             
