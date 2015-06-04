@@ -1215,6 +1215,7 @@ header
     border-radius: 50%;
     top:-100vh;
     left:-100vw;
+    opacity: 1;
     background: yellow;
     z-index: 200;
 }
@@ -1247,3 +1248,5 @@ header
     top: 50vh;
     margin-top: 80;
 }
+
+
