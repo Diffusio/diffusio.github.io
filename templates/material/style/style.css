@@ -1211,11 +1211,11 @@ header
     width: 250vw;
     height: 250vh;
     position: fixed;
-    transition: 2.5s 1s;
+    transition: all 2.5s 1s, opacity 0s;
     border-radius: 50%;
     top:-100vh;
-    left:-100vw;
     opacity: 1;
+    left:-100vw;
     background: yellow;
     z-index: 200;
 }

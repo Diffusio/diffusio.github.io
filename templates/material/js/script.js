@@ -82,7 +82,7 @@ splash.style.width = 0;
 splash.style.height = 0;
 document.getElementById('anim').style.opacity = 0;
 document.getElementById('anim_loading').style.opacity = 0;
-
+document.getElementById('splash').style.opacity = 1;
     
 //Fonctions
 function getViewport() {
