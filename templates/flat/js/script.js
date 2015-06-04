@@ -14,19 +14,14 @@
  *
  * You should have received a copy of the GNU Lesser General Public 
 License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program. If not, see <http://www.gnu.org/licenses/>. 
 */
-
-//Variables
-var news = document.getElementsByClassName("news");
-var news_l = news.length;
-var b_hgt,b_wth,last_wth = b_wth,size_down;
-
-//Initialisation
-update();
+var last_scroll_pos = 0; 
+var dS;
+var b_wth, b_hgt;
+var y=document.getElementById('cover').style.top;
 
 
-//Fonctions
 function getViewport() {
 
 
@@ -52,55 +47,81 @@ function getViewport() {
  return [b_wth, b_hgt];
 }
 
-function update()
-{
-    getViewport();
-    size_down = last_wth > b_wth ? true : false;
-    var section_wth = document.getElementById("content_1").offsetWidth;
-    document.getElementById("w_d_1").style.marginRight = 6;
-    document.getElementById("w_d_1").style.width = section_wth/2 - 26;
-    document.getElementById("w_d_2").style.width = section_wth/2 - 26;
-    uniformizeHeights();
-    last_wth = b_wth;
-}
 
 function openCircleNews(id)
 {
-    document.getElementById("news_title_opened").innerHTML = document.getElementById("news_title_" + id).innerHTML;
-    document.getElementById("news_datetime_opened").innerHTML = document.getElementById("news_datetime_" + id).innerHTML;
-    document.getElementById("news_content_opened").innerHTML = document.getElementById("news_content_" + id).innerHTML;
-    document.body.scrollTop = 0;
-    document.getElementById("news_opened").style.top = 0;
-    document.getElementById("shadow_news").style.zIndex = 11;
-   document.getElementById("shadow_news").style.opacity = 0.8; 
-    document.getElementById("close_news").style.display = "block"; 
- 
-}
-
-function closeCircleNews()
-{
-    document.body.scrollTop = document.getElementById("content_2").offsetTop;
-    document.getElementById("news_opened").style.top = -3000;
-    document.getElementById("shadow_news").style.zIndex = -11;
-   document.getElementById("shadow_news").style.opacity = 0; 
-    document.getElementById("close_news").style.display = "none"; 
- 
-}
-
-function uniformizeHeights()
-{
-    var i,max=0,max_p=0;
+    var news = document.getElementsByClassName('news');
+    var news_l = news.length;
+    var i;
     for(i=0;i<news_l;i++)
-        if(document.getElementById("news_" + (i+1)).offsetHeight > max)
-            max = document.getElementById("news_" + (i+1)).offsetHeight;
-    for(i=0;i<news_l;i++)
-        if(size_down)
-            document.getElementById("news_" + (i+1)).style.minHeight = max;
+        if(news[i].id != ('news_' + id))
+            news[i].style.transform = 'translateX(-' + document.getElementById('wrapper').offsetWidth + 'px)';
         else
-            document.getElementById("news_" + (i+1)).style.minHeight = "none";
-    max_p = Math.max(document.getElementById("w_d_1").offsetHeight, document.getElementById("w_d_2").offsetHeight);
-     document.getElementById("w_d_1").style.minHeight = max_p;
-        document.getElementById("w_d_2").style.minHeight = max_p;
-    
+        {
+          news[i].style.transform = 'translateY(-' + (news[i].offsetTop ) + 'px)';
+            news[i].style.width = '80%';
+            news[i].getElementsByClassName('news_content')[0].style.display = 'block';
+            news[i].getElementsByClassName('read_more')[0].innerHTML = "CLOSE";
+            news[i].getElementsByClassName('read_more')[0].style.color = 'white';
+            news[i].getElementsByClassName('read_more')[0].onmousedown = function() {closeCircleNews(id)};
+        }
+}
 
+function closeCircleNews(id)
+{
+    var news = document.getElementsByClassName('news');
+    var news_l = news.length;
+    var i;
+    for(i=0;i<news_l;i++)
+        if(news[i].id != ('news_' + id))
+            news[i].style.transform = 'translateX(0px)';
+        else
+        {
+          news[i].style.transform = 'translateY(0px)';
+            news[i].style.width = '300';
+            news[i].getElementsByClassName('news_content')[0].style.display = 'none';
+            news[i].getElementsByClassName('read_more')[0].innerHTML = "READ MORE";
+            news[i].getElementsByClassName('read_more')[0].onmousedown = function() {openCircleNews(id)};
+        }
+}
+
+function update()  
+{
+        var icons = document.getElementsByClassName('tab_img');
+        var tabs = document.getElementsByClassName('sub_tab');
+        getViewport();
+        dS = (document.body.scrollTop - last_scroll_pos) * 0.2;
+        y=document.getElementById('cover').style.top;
+        y = parseInt(y);
+        y -= dS;
+        document.getElementById('cover').style.top = y;
+        document.getElementById('cover').style.top -= parseInt(dS);
+    if(document.body.scrollTop >= document.getElementById("content_1").offsetTop - 110 && document.body.scrollTop <= ( document.getElementById("content_2").offsetTop - document.getElementById('header_1').offsetHeight ))
+    {
+        document.getElementById('header_1').style.display = "block";
+    }
+    else
+    {
+        document.getElementById('header_1').style.display = "none";
+    }
+     if(document.body.scrollTop >= document.getElementById("content_1").offsetTop - 110)
+        document.getElementById('h1_tabs').style.display = "block";
+    else
+        document.getElementById('h1_tabs').style.display = "none";
+    if(document.body.scrollTop >= document.getElementById('content_2').offsetTop && document.body.scrollTop >= document.getElementById('content_2').offsetTop)
+        document.getElementById('header_2').style.position = 'fixed';
+    else
+        document.getElementById('header_2').style.position = 'absolute';
+    if(document.body.scrollTop > document.getElementById('content_2').offsetTop + document.getElementById('content_2').offsetHeight)
+        document.getElementById('header_3').style.position = 'fixed';
+    else
+        document.getElementById('header_3').style.position = 'absolute';
+    last_scroll_pos = document.body.scrollTop;
+}
+
+function scrollToTop()
+{
+    document.body.scrollTop = 0;
+    last_scroll_pos = 0;
+    document.getElementById('cover').style.top=0;   
 }

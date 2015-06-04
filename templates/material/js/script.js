@@ -34,10 +34,16 @@ var current_pos=0;
 var map;
 var address = document.getElementById("map_legend_address").innerHTML;
 document.onkeydown = checkKey;
-var mapOptions = {
-  zoom: 15,
-  mapTypeId: google.maps.MapTypeId.ROADMAP
+var mapOptions;
+try {
+    mapOptions = {
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
 }
+catch(err) {
+    
+} 
 var marker;
 
 //Initialisation
@@ -682,28 +688,4 @@ function closeMapDropdown()
     document.getElementById("drop_item_3").style.fontSize = "0em";
     document.getElementById("dropdown_map").style.maxWidth = "0px";
     document.getElementById("dropdown_map").style.maxHeight = "0px";
-}
-
-function openSocialDropdown()
-{
-    document.getElementById("dropdown_social").style.transition = "max-height 5s, max-width 5s, opacity 0.3s"
-    document.getElementById("drop_social_item_1").style.transition = "font-size 0.3s";
-    document.getElementById("drop_social_item_2").style.transition = "font-size 0.3s";
-    document.getElementById("dropdown_social").style.opacity = 1;
-    document.getElementById("drop_social_item_1").style.fontSize = "15px";
-    document.getElementById("drop_social_item_2").style.fontSize = "15px";
-    document.getElementById("dropdown_social").style.maxWidth = "9999px";
-    document.getElementById("dropdown_social").style.maxHeight = "9999px";
-}
-
-function closeSocialDropdown()
-{
-    document.getElementById("dropdown_social").style.transition = "max-height 0.3s, max-width 0.3s, opacity 0.3s"
-    document.getElementById("drop_social_item_1").style.transition = "font-size 0.3s";
-    document.getElementById("drop_social_item_2").style.transition = "font-size 0.3s";
-    document.getElementById("dropdown_social").style.opacity = 0;
-    document.getElementById("drop_social_item_1").style.fontSize = "0em";
-    document.getElementById("drop_social_item_2").style.fontSize = "0em";
-    document.getElementById("dropdown_social").style.maxWidth = "0px";
-    document.getElementById("dropdown_social").style.maxHeight = "0px";
 }

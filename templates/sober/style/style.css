@@ -940,6 +940,11 @@ ul
   width: 20px;
 }
 
+#FAB_map img
+{
+    width: 25;   
+}
+
 .arrow .first
 {
   -webkit-transform: rotate(45deg) translateX(9px) translateY(-6px);
