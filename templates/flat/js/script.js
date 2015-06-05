@@ -70,7 +70,7 @@ for(var i=0;i<news_l;i++)
 }
 
 document.getElementById('news_to_display').max = news_l;
-
+update();
 function setDisplayedNews()
 {
     var max_news = document.getElementById('news_to_display').value;
