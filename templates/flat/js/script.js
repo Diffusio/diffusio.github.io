@@ -46,6 +46,8 @@ var mapOptions = {
 
 initialize();
 update();
+document.body.scrollTop = 5;
+document.body.scrollTop = 0;
 var marker;
 var last_scroll_pos = 0; 
 var dS;
