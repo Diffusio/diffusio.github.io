@@ -45,6 +45,7 @@ var mapOptions = {
 }
 
 initialize();
+update();
 var marker;
 var last_scroll_pos = 0; 
 var dS;
