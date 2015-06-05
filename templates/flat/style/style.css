@@ -136,7 +136,7 @@ ul
 
 .tab_img
 {
-    width: 260;
+    width: 200;
     padding: 0 40;
 }
 
@@ -464,12 +464,117 @@ ul
 {
     padding: 50;
 }
-
-#map_canvas
+#map_canvas 
 {
-    width: 400;
-    margin-top: 30;
-    height: 400;
+    height: 570; 
+    z-index: 2;
+}
+
+#map_card
+{
+    padding: 0;
+}
+
+#map_legend
+{
+    text-align: left;
+    padding: 10;
+    background: #5677FC;
+    z-index: 5;
+    position: relative;
+
+}
+
+
+
+#leg_more
+{
+    position: absolute;
+    right: 10;
+    bottom: 10;
+    width: 20;
+    height: 20;
+    cursor: pointer;
+}
+
+
+
+
+#map_legend #map_legend_header
+{
+    font-size: 20px;
+    color: white;
+}
+
+#map_legend_address
+{
+    font-size: 12px;
+    color: rgb(240,240,240);
+}
+#header
+{
+ transition: 0.6s;   
+}
+
+#dropdown_map
+{
+    background: white;
+    border-radius: 2px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 8;
+    transition: all 0.5s;
+    bottom: 8;
+    max-height: 0;
+    max-width: 0;
+    list-style-type: none;
+    opacity: 0;
+    z-index: 7;
+}
+
+
+#dropdown_map li
+{
+    padding-left: 10;
+    padding-top: 10;
+    padding-bottom: 10;
+    padding-right: 10;
+    color:#313131;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: opacity 0.01s 0.5s;
+    font-size: 0px;
+}
+
+#dropdown_map li:hover
+{
+    background: #DCDCDC;
+}
+
+
+.m_card
+    {
+        width: 70%;
+        vertical-align: top;
+        z-index: -1;
+        border-radius: 1px;
+        display: inline-block;
+        color: black;
+        padding:30;
+        margin: auto;
+        margin-top: 100;
+        margin-left: 15%;
+        margin-bottom: 30;
+        background: white;
+    }
+
+#open
+{
+    width: 25;  
+    position: absolute;
+    right: 10;
+    top: 10;
 }
 
 @media screen and (max-width:700px)
@@ -486,6 +591,39 @@ ul
         width: 100vw;
         display: block;
         text-align: center;
+    }
+    
+    #fb_id
+    {
+        display: none;
+    }
+    #tw_id
+    {
+        display: none;
+    }
+    
+    
+.m_card
+    {
+        width: 90%;
+        vertical-align: top;
+        z-index: -1;
+        border-radius: 1px;
+        display: inline-block;
+        color: black;
+        padding:30;
+        margin-top: 100;
+        margin-left: 5%;
+        margin-bottom: 30;
+        background: white;
+    }
+    #gp_id
+    {
+        display: none;
+    }
+    #m_id
+    {
+        display: none;
     }
     
     #logo
@@ -508,7 +646,7 @@ ul
     
     #cover #title
     {
-        font-size: 90px;  
+        font-size: 50px;  
         text-align: center;
         margin: auto;
         width: 500;
@@ -568,7 +706,8 @@ ul
     
     #news_container
     {
-        padding: 0;   
+        padding: 0;  
+        padding-top: 150;
     }
     
     .news
@@ -598,4 +737,18 @@ ul
         width: 110px;
         padding: 0 40;
     }
+    #social_list li
+{
+    display: inline-block;
+    padding: 20 5;
+    padding-bottom: 0;
+    width: 24%;
+}
+    #social_list
+    {
+        margin: 0;
+        padding: 0;
+    }
+    
+
 }

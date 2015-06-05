@@ -783,15 +783,15 @@ Pages will load significantly faster because Denial of Service protection can be
             </div>
        <div id="n_t_d_div">
             <input type="number" value="10" id="news_to_display" min="5" max="999999"  step="5" />
-           <span onclick="setDisplayedNews(); ">SET</span>
+           <span onclick="setDisplayedNews(); smoothScrollTo(document.getElementById('content_2').offsetTop)">SET</span>
         </div>
             </div>
         <div id="content_3"  name="content_3">
             <div id="header_3">
             <div>More</div>
         </div>
-            <div class="card elevation-1" id="map_card">
-			 	<div id="map_canvas" style="height:255px;"></div>
+            <div class="m_card elevation-1" id="map_card">
+			 	<div id="map_canvas" ></div>
 			    <div id="map_legend" class="elevation-1">
                     <span id="map_legend_header">
 Localisation
@@ -799,12 +799,12 @@ Localisation
                     <p id="map_legend_address">
 UTBM Belfort
 					</p>
-                    <img  id="leg_more" src="images/open.png" onclick="openMapDropdown()">
+                    <img  id="leg_more" src="images/more_w.png" onclick="openMapDropdown()">
                     <a id="open_link" href="https://www.google.fr/maps/search/UTBM+Belfort" target="_blank">
-                    <div id="FAB_map"  class="elevation-2" onclick=""><img id="smartp"   src="images/open.png"></div></a>
+                    <div id="FAB_map"  class="elevation-2" onclick=""><img id="open"   src="images/open.png"></div></a>
                     <ul id="dropdown_map" class="paper-shadow-top-z-2 paper-shadow-bottom-z-2">
                     	<li id="drop_item_1" onclick="closeMapDropdown()">
-                    		Copy address
+                    		Close
                     	</li>
                     	
                     	<a id="open_link_2" href="https://www.google.fr/maps/search/UTBM+Belfort" target="_blank">
