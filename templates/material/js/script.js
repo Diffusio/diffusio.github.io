@@ -1,6 +1,15 @@
 /*
  * Diffusio - Build presentation websites easily
- * Copyright (C) 2015 Pierre JACQUIER - Grégoire DUVAUCHELLE
+ * https://github.com/diffusio
+ * http://diffusio.co
+ * 
+ * Copyright (C) 2015 
+ * 
+ * Pierre JACQUIER  
+ * http://pierre-jacquier.com
+ * 
+ * Grégoire DUVAUCHELLE
+ * https://github.com/kalterkrieg
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -13,9 +22,9 @@
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public 
-License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
+ * License along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 var scripts =  document.getElementsByTagName('script');
 var torefreshs = ['script.js'] ; // list of js to be refresh
 var key = 1; // change this key every time you want force a refresh
