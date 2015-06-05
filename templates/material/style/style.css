@@ -133,7 +133,7 @@ header
 
 
 
-@media screen and (min-width:700px)
+@media screen and (min-width:800px)
 {
     #site_title
     {
@@ -150,7 +150,8 @@ header
     .logo
     {
         position:absolute;
-        height:40%;
+       height: 30%;
+        max-width: 40%;
     }
 
     .logo_left
@@ -274,7 +275,7 @@ header
     .slog
     {
         font-size: 2.5em;
-        font-weight: 300;
+        font-weight: 200;
     }
 
     .slog_right
@@ -291,7 +292,7 @@ header
 
     .under_slog
     {
-        font-size: 1.4em;
+        font-size: 18px;
         font-weight: 400;
         text-align: justify;
     }
@@ -608,7 +609,7 @@ header
     top:-150;
 }
 
-@media screen and (max-width:700px)
+@media screen and (max-width:800px)
 {
     
     #tab_indicator
@@ -817,6 +818,7 @@ header
     .slog
     {
         font-size: 1.6em;
+        font-weight: 200;
         display:block;
         width:90%;
         margin:auto;
@@ -1184,12 +1186,12 @@ header
     background: #DCDCDC;
 }
 
-@media screen and (max-height:650px and min-width:700)
+@media screen and (max-height:650px and min-width:600px)
 {
      .slog
     {
         font-size: 1.6em;
-        font-weight: 300;
+        font-weight: 200;
     }
 
     .slog_right
@@ -1256,4 +1258,51 @@ header
     margin-top: 80;
 }
 
+@media screen and ( max-height:800px)
+{
+    .slog
+    {
+        font-size: 25px;   
+    }
+    .under_slog
+    {
+        font-size: 15px;   
+    }
+}
 
+@media screen and ( min-height:1000px)
+{
+    .slog
+    {
+        font-size: 40px;   
+    }
+    .under_slog
+    {
+        font-size: 25px;   
+    }
+    .card
+    {
+        width: 500;   
+    }
+}
+
+@media screen and ( min-height:1500px)
+{
+    .slog
+    {
+        font-size: 70px;   
+    }
+    .under_slog
+    {
+        font-size: 45px;   
+    }
+    .card
+    {
+        width: 600;   
+    }
+    
+    #map-canvas
+    {
+        height: 800;   
+    }
+}
