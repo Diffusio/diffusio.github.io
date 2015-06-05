@@ -172,6 +172,7 @@ function update()
 {
         var icons = document.getElementsByClassName('tab_img');
         var tabs = document.getElementsByClassName('sub_tab');
+        document.getElementById('map_canvas').style.height = 0.6*b_hgt;
         document.getElementById('cover').style.height = 0.6*b_hgt;
         document.getElementById('header').style.height = 0.4*b_hgt;
         document.getElementById('header').style.top = 0.6*b_hgt;
