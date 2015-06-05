@@ -226,4 +226,5 @@ function update()
     getViewport();
 for(var a=0; a<contents_l; a++)
     contents[a].style.height = b_hgt;
+    document.getElementById('sideBar').style.height = b_hgt;
 }

@@ -105,8 +105,6 @@ function codeAddress() {
 
 
 function getViewport() {
-
-
  // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
  if (typeof window.innerWidth != 'undefined') {
    b_wth = window.innerWidth,
@@ -171,6 +169,18 @@ function update()
 {
         var icons = document.getElementsByClassName('tab_img');
         var tabs = document.getElementsByClassName('sub_tab');
+        document.getElementById('cover').style.height = 0.6*b_hgt;
+        document.getElementById('header').style.height = 0.4*b_hgt;
+        document.getElementById('header').style.top = 0.6*b_hgt;
+        if(b_wth < 700)
+        {
+            document.getElementById('cover').style.height = 0.7*b_hgt;
+            document.getElementById('header').style.height = 0.3*b_hgt;
+            document.getElementById('header').style.top = 0.7*b_hgt;
+        }
+        document.getElementById('content_1').style.top = 0.6*b_hgt;
+        document.getElementById('content_2').style.top = 0.6*b_hgt;
+        document.getElementById('content_3').style.top = 0.6*b_hgt;
         getViewport();
         dS = (document.body.scrollTop - last_scroll_pos) * 0.2;
         y=document.getElementById('cover').style.top;

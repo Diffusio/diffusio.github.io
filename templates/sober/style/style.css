@@ -384,7 +384,7 @@ section
         position: relative;
         display:table;
         width:100%;
-        /*height: 100vh;*/
+        height: 100vh;
     }   
 
     #w_d_1
