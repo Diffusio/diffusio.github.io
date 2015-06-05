@@ -387,21 +387,7 @@ padding-bottom: 4;
 {
     width: 100%;   
 }
-@media screen and (max-width: 800px)
-{
-  #page
-  {
-    width: 100%;
-  }
-  #title
-  {
-    font-size: 0.8em;
-  }
-  #social_div
-  {
-    right: 2%;
-  }
-}
+
 
 .card_header
 {
@@ -417,4 +403,40 @@ padding-bottom: 4;
 {
     font-size: 35;
     
+}
+
+@media screen and (max-width: 800px)
+{
+  #page
+  {
+    width: 100%;
+      padding: 10 0;
+  }
+  #title li
+  {
+    font-size: 35px;
+  }
+    #title li img
+    {
+        width: 60;   
+        height: 60;
+    }
+    #article
+    {
+        width: 100%;
+        padding: 10 0;
+    }
+    #nav li
+    {
+        font-size: 15px;   
+    }
+    .news_datetime
+    {
+        top:auto;
+        bottom:0;
+    }
+  #social_div
+  {
+    right: 2%;
+  }
 }
