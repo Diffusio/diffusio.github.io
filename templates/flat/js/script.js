@@ -27,7 +27,14 @@ Array.prototype.shuffle = function() {
      this[j] = temp;
   }
 }
-
+var map;
+var address = document.getElementById("map_legend_address").innerHTML;
+var geocoder;
+var mapOptions = {
+  zoom: 15,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+}
+var marker;
 var last_scroll_pos = 0; 
 var dS;
 var b_wth, b_hgt;
@@ -40,11 +47,51 @@ var j=0;
 for(var i=0;i<news_l;i++)
 {
     news[i].style.background = colors[j];
+    if(i>9)
+        news[i].style.display = 'none';
     if(j>9)
         j = 0;
     else 
         j++;
 }
+
+document.getElementById('news_to_display').max = news_l;
+
+function setDisplayedNews()
+{
+    var max_news = document.getElementById('news_to_display').value;
+    for(var i=max_news;i<news_l;i++)
+    {
+        news[i].style.display = 'none';
+    }
+    for(var i=0;i<max_news;i++)
+    {
+        news[i].style.display = 'inline-block';
+    }
+}
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+    map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+    codeAddress();
+}
+
+function codeAddress() {
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        if(marker)
+          marker.setMap(null);
+        marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+            draggable: true
+        });
+
+      }
+    });
+}
+
 
 function getViewport() {
 
@@ -74,6 +121,7 @@ function getViewport() {
 
 function openCircleNews(id)
 {
+    smoothScrollTo(document.getElementById('content_2').offsetTop);
     var i;
     for(i=0;i<news_l;i++)
         if(news[i].id != ('news_' + id))
@@ -105,6 +153,7 @@ function closeCircleNews(id)
             news[i].getElementsByClassName('read_more')[0].innerHTML = "READ MORE";
             news[i].getElementsByClassName('read_more')[0].onmousedown = function() {openCircleNews(id)};
         }
+    smoothScrollTo(document.getElementById('content_2').offsetTop);
 }
 
 function update()  
